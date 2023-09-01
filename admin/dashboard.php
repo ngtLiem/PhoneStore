@@ -129,11 +129,11 @@
                       $nam = date('Y');
                       $sql = "select 
                                   sum(case 
-                                          when month(hd_ngaydat) = month(now()) and year(hd_ngaydat) = year(now()) and (tt_id = 3) then hd_tongtien 
+                                          when month(hd_ngaylap) = month(now()) and year(hd_ngaylap) = year(now()) and (tt_id = 3) then hd_tongtien 
                                           else 0 
                                       end) as doanh_thu_thang_hien_tai, 
                                   sum(case 
-                                          when month(hd_ngaydat) = month(date_sub(now(), interval 1 month)) and year(hd_ngaydat) = year(now()) and (tt_id = 3) then hd_tongtien 
+                                          when month(hd_ngaylap) = month(date_sub(now(), interval 1 month)) and year(hd_ngaylap) = year(now()) and (tt_id = 3) then hd_tongtien 
                                           else 0 
                                       end) as doanh_thu_thang_truoc
                               from hoa_don;
@@ -189,7 +189,7 @@
                 <div class="col-8">
                   <div class="numbers">
                     <?php
-                      $sql = "select count(*) as sohd, count(case when month(HD_NGAYDAT) = month(sysdate()) then 1 end) as trongthang from hoa_don";
+                      $sql = "select count(*) as sohd, count(case when month(HD_NGAYLAP) = month(sysdate()) then 1 end) as trongthang from hoa_don";
                       $rs = $conn->query($sql);
                       $row = mysqli_fetch_assoc($rs);
                       if ($row["sohd"] != null){
@@ -228,7 +228,7 @@
                 <div class="col-8">
                   <div class="numbers">
                     <?php
-                      $sql_kh = "select count(KH_ID) as countkh, count(case when month(KH_NGAYDK) = month(sysdate()) then 1 end) as trongthang from khach_hang";
+                      $sql_kh = "select count(KH_MA) as countkh, count(case when month(KH_NGAYDK) = month(sysdate()) then 1 end) as trongthang from khach_hang";
                       $rs_kh = $conn->query($sql_kh);
                       if ($rs_kh->num_rows > 0){
                         $row_kh = mysqli_fetch_assoc($rs_kh);
@@ -266,7 +266,7 @@
                 <div class="col-8">
                   <div class="numbers">
                     <?php
-                      $sql_nv = "select count(NV_ID) as countnv, count(case when month(NV_NGAYTUYEN) = month(sysdate()) then 1 end) as trongthang from nhan_vien";
+                      $sql_nv = "select count(NV_MA) as countnv, count(case when month(NV_NGAYTUYEN) = month(sysdate()) then 1 end) as trongthang from nhan_vien";
                       $rs_nv = $conn->query($sql_nv);
                       if ($rs_nv->num_rows > 0){
                         $row_nv = mysqli_fetch_assoc($rs_nv);
@@ -983,7 +983,7 @@
     var chart = new Chart(ctx, {
       type: 'bar',
       data: {
-        let labels = [];
+        let labels = [],
         for (let month = 1; month <= 12; month++) {
           let daysInMonth = new Date(2023, month, 0).getDate();
           for (let day = 1; day <= daysInMonth; day++) {
