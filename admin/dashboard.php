@@ -47,7 +47,7 @@
   <!-- Nguyên đoạn này -->
   
   <div class="position-absolute w-100 min-height-400 top-0" style="background-image: url('https://www.apple.com/lae/iphone-14-pro/images/key-features/hero/hero__cj6i78tzkp8i_large.jpg'); background-position-y: 50%;">
-    <span class="mask bg-primary opacity-5"></span>
+    <!-- <span class="mask bg-primary opacity-5"></span> -->
   </div>
   
   <!-- dark sidebar -->
@@ -73,7 +73,7 @@
         <!-- <div class="position-absolute mt-5 z-index-2" style="left: 30%; font-family: 'Montserrat', sans-serif; text-shadow: 0px 0px 7px #000000;"> -->
         <div class="mt-5 text-center" style="font-family: 'Montserrat', sans-serif; text-shadow: 5px 5px 10px #000000;">
           <h3  class="text-white">
-            TRANG QUẢN LÝ CỬA HÀNG BÁN ĐIỆN THOẠI
+            TRANG QUẢN LÝ CỬA HÀNG ĐIỆN THOẠI BRIGHT MOBILE
           </h3>
         </div>  
         <!-- </div> -->

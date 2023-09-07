@@ -157,7 +157,7 @@
       </div>
         <!-- Nguyên đống này la mot danh muc -->
         <?php
-          $sql = "SELECT * FROM loai_sp";
+          $sql = "SELECT * FROM LOAI_SP";
           $result = $conn->query($sql);
           if ($result->num_rows > 0) {
             $result = $conn->query($sql);
@@ -171,7 +171,7 @@
                     $sql = "SELECT * FROM san_pham where LSP_MA = {$lspid} and SP_TEN LIKE '%".$search."%'";
                   }
                 }
-              ?>
+        ?>
               <div class="row">
                 <div class="col-12">
                   <div class="card mb-4">
@@ -190,7 +190,7 @@
                               <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Mã</th>
                               <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Giá</th>
                               <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Số lượng</th>
-                              <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Đơn vị tính</th>
+                              <!-- <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Đơn vị tính</th> -->
                               <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Ngày nhập</th>
                               <th class="text-secondary opacity-7"></th>
                             </tr>
@@ -207,20 +207,23 @@
                                   $soluong = $row["SP_SOLUONGTON"];
                                   $lsp = $rowlsp["LSP_TEN"];
                                   $mlsp = $rowlsp["LSP_MA"];
+                                  
+                                  // $sql_nhap = "SELECT p.PN_STT, p.PN_NGAYNHAP, c.SP_MA, c.NPP_MASO
+                                  //                 from PHIEU_NHAP p
+                                  //                 left join CHITIET_PN  c on c.PN_STT = p.PN_STT
+                                  //                 where sp_id = {$row["SP_MA"]}";
+                                                              
+                                  // $rs = $conn->query($sql_nhap);
+                                  // $row1 = mysqli_fetch_assoc($rs);
+                                  // $nppid = $row1["NPP_MASO"];
+                                  // $ngaynhap = $row1["PN_NGAYNHAP"];
 
-                                  $sql_nhap = "select * from chitiet_pn as c, phieu_nhap as p
-                                                 where c.PN_STT = p.PN_STT 
-                                                 and sp_id = {$row["SP_MA"]}";
-                                  $rs = $conn->query($sql_nhap);
-                                  $row1 = mysqli_fetch_assoc($rs);
-                                  $nhid = $row1["NPP_MASO"];
-                                  $ngaynhap = $row1["PN_NGAYNHAP"];
+                                  // $sql_nguon = "select * from NHA_PHAN_PHOI where sp_id = {$row["SP_MA"]}";
+                                  // $rs2 = $conn->query($sql_nguon);
+                                  // $row3 = mysqli_fetch_assoc($rs2);
+                                  // $tennpp = $row3["NPP_TEN"];
+                                  // $manpp = $row3["NPP_MASO"];
 
-                                  $sql_nguon = "select NPP_TEN, NPP_MASO from nha_san_xuat where NPP_MASO = $nhid";
-                                  $rs2 = $conn->query($sql_nguon);
-                                  $row3 = mysqli_fetch_assoc($rs2);
-                                  $tennh = $row3["NPP_TEN"];
-                                  $manh = $row3["NPP_MA"];
 
                                   ?>
                                   <tr class="height-100">
@@ -242,7 +245,7 @@
                                         <!-- ten san pham -->
                                         <div class="d-flex flex-column justify-content-center">
                                           <h6 class="mb-0 text-md"><?php echo $row["SP_TEN"]; ?></h6>
-                                          <p class='text-xs text-secondary mb-0'><?php echo $tennh; ?></p>
+                                          <!-- <p class='text-xs text-secondary mb-0'><?php echo $tennpp; ?></p> -->
                                         </div>
                                       </div>
                                     </td>
@@ -252,20 +255,20 @@
                                     </td>
                                     <!-- gia sp -->
                                     <td>
-                                      <!-- <p class="text-s font-weight-bold mb-0"><?php echo number_format($row["SP_GIA"], 0) ; ?> VNĐ</p> -->
+                                      <p class="text-s font-weight-bold mb-0"><?php echo number_format($row["SP_GIA"], 0) ; ?> VNĐ</p>
                                     </td>
                                     <!-- soluong sp -->
                                     <td>
                                       <p class="text-xs font-weight-bold mb-0"><?php echo $row["SP_SOLUONGTON"]; ?></p>
                                     </td>
                                     <!-- dvt -->
-                                    <td>
-                                      <!-- <p class="text-xs font-weight-bold mb-0"><?php echo $row["SP_DVT"]; ?></p> -->
-                                    </td>
+                                    <!-- <td>
+                                      <!-- <p class="text-xs font-weight-bold mb-0"><?php //echo $row["SP_DVT"]; ?></p> -->
+                                    <!-- </td> -->
                                     <!-- ngay them -->
-                                    <td class="align-middle text-center">
-                                    <p class="text-xs font-weight-bold mb-0"><?php echo date('d/m/Y', strtotime($ngaynhap)); ?></p>
-                                    </td>
+                                    <!-- <td class="align-middle text-center">
+                                    <p class="text-xs font-weight-bold mb-0"><?php //echo date('d/m/Y', strtotime($ngaynhap)); ?></p>
+                                    </td> -->
                                     <td class="align-middle text-center">
                                       <div class="mt-3 d-flex col-sm-12">
                                             
@@ -285,7 +288,7 @@
                                               <input type="hidden" name="lsp" value="<?php echo $lsp; ?>">
                                               <input type="hidden" name="mlsp" value="<?php echo $mlsp; ?>">
                                               <input type="hidden" name="tensp" value="<?php echo $row["SP_TEN"]; ?>">
-                                              <!-- <input type="hidden" name="giasp" value="<?php echo $row["SP_GIA"]; ?>"> -->
+                                              <input type="hidden" name="giasp" value="<?php echo $row["SP_GIA"]; ?>">
                                               <input type="hidden" name="motasp" value="<?php echo $row["SP_MOTA"]; ?>">
                                               <input type="hidden" name="nguonsp" value="<?php echo $tennh; ?>">
                                               <input type="hidden" name="manguonsp" value="<?php echo $manh; ?>">
@@ -298,7 +301,7 @@
                                         </div>
                                         <div class=" align-middle col-4">
                                           <form method="post" action="del_product.php">
-                                              <input type="hidden" name="pdid" value="<?php echo $row["SP_ID"]; ?>">
+                                              <input type="hidden" name="pdid" value="<?php echo $row["SP_MA"]; ?>">
                                               <button onclick="this.form.submit()" class="addmore-button btn btn-link text-warning text-secondary font-weight-bold text-sm">
                                                 Xoá
                                               </button>
@@ -309,7 +312,7 @@
                                     </td>
                                   </tr>
                                   <?php
-                                }
+                                } 
                               }
                             ?>
                             
