@@ -129,11 +129,11 @@
                       $nam = date('Y');
                       $sql = "select 
                                   sum(case 
-                                          when month(hd_ngaylap) = month(now()) and year(hd_ngaylap) = year(now()) and (tt_id = 3) then hd_tongtien 
+                                          when month(HD_NGAYLAP) = month(now()) and year(HD_NGAYLAP) = year(now()) and (TT_MA = 3) then hd_tongtien 
                                           else 0 
                                       end) as doanh_thu_thang_hien_tai, 
                                   sum(case 
-                                          when month(hd_ngaylap) = month(date_sub(now(), interval 1 month)) and year(hd_ngaylap) = year(now()) and (tt_id = 3) then hd_tongtien 
+                                          when month(HD_NGAYLAP) = month(date_sub(now(), interval 1 month)) and year(HD_NGAYLAP) = year(now()) and (TT_MA = 3) then HD_TONGTIEN 
                                           else 0 
                                       end) as doanh_thu_thang_truoc
                               from hoa_don;
@@ -305,9 +305,9 @@
                   // Đoạn này tính doanh thu 12 tháng
                   if(isset($_GET["year"])){
                     $y = $_GET["year"];
-                    $sql = "SELECT MONTH(HD_NGAYDAT) AS THANG, SUM(HD_TONGTIEN) AS DOANH_THU 
+                    $sql = "SELECT MONTH(HD_NGAYLAP) AS THANG, SUM(HD_TONGTIEN) AS DOANH_THU 
                             FROM HOA_DON 
-                            WHERE TT_ID = 3 AND YEAR(HD_NGAYDAT)={$y}
+                            WHERE TT_MA = 3 AND YEAR(HD_NGAYLAP)={$y}
                             GROUP BY THANG";
                     $result = mysqli_query($conn, $sql);
                     // Lấy dữ liệu từ kết quả truy vấn
@@ -408,9 +408,9 @@
                       </script>
                     <?php
                   } else {
-                    $sql = "SELECT MONTH(HD_NGAYDAT) AS THANG, SUM(HD_TONGTIEN) AS DOANH_THU 
+                    $sql = "SELECT MONTH(HD_NGAYLAP) AS THANG, SUM(HD_TONGTIEN) AS DOANH_THU 
                             FROM HOA_DON 
-                            WHERE TT_ID = 3 AND YEAR(HD_NGAYDAT)=2023
+                            WHERE TT_MA = 3 AND YEAR(HD_NGAYLAP)=2023
                             GROUP BY THANG";
                     $result = mysqli_query($conn, $sql);
                     // Lấy dữ liệu từ kết quả truy vấn
@@ -642,45 +642,45 @@
             </div>
             <?php
               $sql_ck="select count(*) as tongsp
-                      from chitiet_hd ct
-                      inner join san_pham sp on sp.SP_ID = ct.SP_ID
-                      inner join loai_sp l on l.LSP_ID = sp.LSP_ID
-                      where l.LSP_ID=1;";
+                      from chi_tiet_hd ct
+                      inner join san_pham sp on sp.SP_MA = ct.SP_MA
+                      inner join loai_sp l on l.LSP_MA = sp.LSP_MA
+                      where l.LSP_MA=1;";
               $rs = $conn->query($sql_ck);
               $row = mysqli_fetch_assoc($rs);
               $tongsp_ck = $row["tongsp"];
 
               $sql_ta="select count(*) as tongsp
-                      from chitiet_hd ct
-                      inner join san_pham sp on sp.SP_ID = ct.SP_ID
-                      inner join loai_sp l on l.LSP_ID = sp.LSP_ID
-                      where l.LSP_ID=2;";
+                        from chi_tiet_hd ct
+                        inner join san_pham sp on sp.SP_MA = ct.SP_MA
+                        inner join loai_sp l on l.LSP_MA = sp.LSP_MA
+                        where l.LSP_MA=2;";
               $rs = $conn->query($sql_ta);
               $row = mysqli_fetch_assoc($rs);
               $tongsp_ta = $row["tongsp"];
 
               $sql_tt="select count(*) as tongsp
-                      from chitiet_hd ct
-                      inner join san_pham sp on sp.SP_ID = ct.SP_ID
-                      inner join loai_sp l on l.LSP_ID = sp.LSP_ID
-                      where l.LSP_ID=3;";
+                        from chi_tiet_hd ct
+                        inner join san_pham sp on sp.SP_MA = ct.SP_MA
+                        inner join loai_sp l on l.LSP_MA = sp.LSP_MA
+                        where l.LSP_MA=3;";
               $rs = $conn->query($sql_tt);
               $row = mysqli_fetch_assoc($rs);
               $tongsp_tt = $row["tongsp"];
 
               $sql_k="select count(*) as tongsp
-                      from chitiet_hd ct
-                      inner join san_pham sp on sp.SP_ID = ct.SP_ID
-                      inner join loai_sp l on l.LSP_ID = sp.LSP_ID
-                      where l.LSP_ID=4;";
+                        from chi_tiet_hd ct
+                        inner join san_pham sp on sp.SP_MA = ct.SP_MA
+                        inner join loai_sp l on l.LSP_MA = sp.LSP_MA
+                        where l.LSP_MA=4;";
               $rs = $conn->query($sql_k);
               $row = mysqli_fetch_assoc($rs);
               $tongsp_k = $row["tongsp"];
 
-             $sql = "SELECT SUM(SAN_PHAM.SP_GIA * CHITIET_HD.SP_SOLUONG) AS TONG_TIEN
+             $sql = "SELECT SUM(SAN_PHAM.SP_GIA * CHI_TIET_HD.CTHD_SLB) AS TONG_TIEN
                                     FROM SAN_PHAM
-                                    JOIN LOAI_SP ON SAN_PHAM.LSP_ID = LOAI_SP.LSP_ID
-                                    JOIN CHITIET_HD ON SAN_PHAM.SP_ID = CHITIET_HD.SP_ID
+                                    JOIN LOAI_SP ON SAN_PHAM.LSP_MA = LOAI_SP.LSP_MA
+                                    JOIN CHI_TIET_HD ON SAN_PHAM.SP_MA = CHI_TIET_HD.SP_MA
                                     GROUP BY LOAI_SP.LSP_TEN";
 
               $result = $conn->query($sql);
@@ -726,7 +726,7 @@
                         </div>
                         <div class="ms-4">
                           <p class="text-xs font-weight-bold mb-0">Loại:</p>
-                          <h6 class="text-sm mb-0">Cá kiểng</h6>
+                          <h6 class="text-sm mb-0">ANDROID</h6>
                         </div>
                       </div>
                     </td>
@@ -751,7 +751,7 @@
                         </div>
                         <div class="ms-4">
                           <p class="text-xs font-weight-bold mb-0">Loại:</p>
-                          <h6 class="text-sm mb-0">Thức ăn</h6>
+                          <h6 class="text-sm mb-0">iPHONE (IOS)</h6>
                         </div>
                       </div>
                     </td>
@@ -776,7 +776,7 @@
                         </div>
                         <div class="ms-4">
                           <p class="text-xs font-weight-bold mb-0">Loại:</p>
-                          <h6 class="text-sm mb-0">Trang trí</h6>
+                          <h6 class="text-sm mb-0">ĐIỆN THOẠI THÔNG DỤNG</h6>
                         </div>
                       </div>
                     </td>
@@ -793,32 +793,6 @@
                       </div>
                     </td>
                   </tr>
-                  <tr>
-                    <td class="w-30">
-                      <div class="d-flex px-2 py-1 align-items-center">
-                        <div class="icon icon-shape bg-gradient-danger shadow-warning text-center rounded-circle">
-                          <i class="fas fa-tree-decorated "></i>
-                          <i class="fas fa-ellipsis-h text-lg opacity-10"></i>
-                        </div>
-                        <div class="ms-4">
-                          <p class="text-xs font-weight-bold mb-0">Loại:</p>
-                          <h6 class="text-sm mb-0">Khác</h6>
-                        </div>
-                      </div>
-                    </td>
-                    <td>
-                      <div class="text-center">
-                        <p class="text-xs font-weight-bold mb-0">Đã bán:</p>
-                        <h6 class="text-sm mb-0"><?php echo $tongsp_k; ?></h6>
-                      </div>
-                    </td>
-                    <td>
-                      <div class="text-center">
-                        <p class="text-xs font-weight-bold mb-0">Tổng thu:</p>
-                        <h6 class="text-sm mb-0"><?php echo number_format($tt_k, 0); ?>đ</h6>
-                      </div>
-                    </td>
-                  </tr>
                 </tbody>
               </table>
             </div>
@@ -827,10 +801,10 @@
         <div class="col-lg-5">
           <div class="card">
             <?php
-              $sql = "select sp.sp_id as id, sp.sp_ten as ten, sp.SP_HINHANH as anh, sum(ct.sp_soluong) as so_ban, count(distinct ct.hd_id) as so_hd
+              $sql = "select sp.sp_ma as id, sp.sp_ten as ten, sp.SP_HINHANH as anh, sum(ct.cthd_slb) as so_ban, count(distinct ct.hd_stt) as so_hd
                       from san_pham sp
-                      join chitiet_hd ct on sp.sp_id = ct.sp_id
-                      group by sp.sp_id, sp.sp_ten
+                      join chi_tiet_hd ct on sp.sp_ma = ct.sp_ma
+                      group by sp.sp_ma, sp.sp_ten
                       order by so_hd desc
                       limit 4;  ";
 
