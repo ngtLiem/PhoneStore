@@ -41,7 +41,7 @@
 
 <body class="g-sidenav-show   bg-gray-100">
   <!-- Nguyên đoạn này -->
-  <div class="position-absolute w-100 min-height-300 top-0" style="background-image: url('https://images.unsplash.com/photo-1514907283155-ea5f4094c70c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80'); background-position-y: 50%;">
+  <div class="position-absolute w-100 min-height-400 top-0" style="background-image: url('https://www.apple.com/lae/iphone-14-pro/images/key-features/hero/hero__cj6i78tzkp8i_large.jpg'); background-position-y: 50%;">
     <span class="mask bg-primary opacity-5"></span>
   </div>
   

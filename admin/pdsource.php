@@ -41,7 +41,7 @@
 
 <body class="g-sidenav-show   bg-gray-100">
   <!-- Nguyên đoạn này -->
-  <div class="position-absolute w-100 min-height-300 top-0" style="background-image: url('https://images.unsplash.com/photo-1514907283155-ea5f4094c70c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80'); background-position-y: 50%;">
+  <div class="position-absolute w-100 min-height-400 top-0" style="background-image: url('https://www.apple.com/lae/iphone-14-pro/images/key-features/hero/hero__cj6i78tzkp8i_large.jpg'); background-position-y: 50%;">
     <span class="mask bg-primary opacity-5"></span>
   </div>
   
@@ -127,8 +127,12 @@
                         <table class="table align-items-center mb-0">
                           <thead>
                             <tr class="col-12">
-                              <th class="col-1 text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Mã số NPP</th>
-                              <th class="col-4 text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Tên nhà phân phối</th>                              
+                              <th class="col-1 text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Mã số</th>
+                              <th class="col-4 text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Tên</th>                              
+                              <th class="col-4 text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Địa chỉ</th>  
+                              <th class="col-4 text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Số điện thoại</th>
+                              <th class="col-4 text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Email</th>  
+                              <th class="col-4 text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Website</th>  
                               <th class="col-6 text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Mô tả</th>  
                               <th class="col-1 text-secondary opacity-7"></th>
 
@@ -153,6 +157,26 @@
                                     <td class="align-middle text-center">
                                       <!-- ten dt -->
                                       <?php echo $row["NPP_TEN"] ?>
+                                    </td>
+
+                                    <td class="align-middle text-center">
+                                      <!-- ten dt -->
+                                      <?php echo $row["NPP_DIACHI"] ?>
+                                    </td>
+
+                                    <td class="align-middle text-center">
+                                      <!-- ten dt -->
+                                      <?php echo $row["NPP_SDT"] ?>
+                                    </td>
+
+                                    <td class="align-middle text-center">
+                                      <!-- ten dt -->
+                                      <?php echo $row["NPP_EMAIL"] ?>
+                                    </td>
+
+                                    <td class="align-middle text-center">
+                                      <!-- ten dt -->
+                                      <?php echo $row["NPP_WEBSITE"] ?>
                                     </td>
 
                                     <td class="align-middle text-center">
@@ -204,7 +228,7 @@
               </div>
               <div class="row">
                 <div class="col-12 mt-3">
-                  Mô tả nhà phân ph:
+                  Mô tả nhà phân phối:
                   <textarea required id="myTextarea" name="mota" class="form-control form-control-md mt-1">Mô tả đối tác</textarea>
                 </div>
               </div>
