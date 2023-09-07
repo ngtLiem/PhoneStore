@@ -196,7 +196,7 @@
                     </div>
                     <div class="col-6 text-end">
                       <?php
-                        $sql = "select * from hoa_don where TT_ID = 3;";
+                        $sql = "select * from hoa_don where TT_MA = 3;";
                       ?>
                     </div>
                   </div>
@@ -218,6 +218,7 @@
                           <tbody>
                             <!-- 1 hang -->
                             <?php
+                              // $sql = "select * from hoa_don";
                               $result = $conn->query($sql);
                               if ($result->num_rows > 0) {
                                 $result = $conn->query($sql);
@@ -228,7 +229,7 @@
                                   <tr class="h-50">
                                     <td class="align-middle text-center" >
                                       <!-- ma hd -->
-                                      <?php echo $row["HD_MA"] ?>
+                                      <?php echo $row["HD_STT"] ?>
                                     </td>
                                     <td class="align-middle text-center">
                                       <!-- ngayhoanthanh -->
@@ -237,7 +238,7 @@
                                     <td class="align-middle text-center">
                                       <!-- soluong -->
                                       <?php
-                                        $sql_sl = "select count(*) as soluong from chitiet_hd where HD_MA = ".$row["HD_MA"]."";
+                                        $sql_sl = "select count(*) as soluong from chi_tiet_hd where HD_STT = ".$row["HD_STT"]."";
                                         $rssl = $conn->query($sql_sl);
                                         $rowsl = mysqli_fetch_assoc($rssl);
                                         echo $rowsl["soluong"]
@@ -247,8 +248,8 @@
                                     <!-- phuong thuc thanh toan -->
                                     <td class="align-middle text-xs text-center">
                                         <?php
-                                          $idpttt = $row["PTTT_ID"];
-                                          $sqlpt = "select PTTT_TEN from pt_thanhtoan where PTTT_ID = {$idpttt}";
+                                          $idpttt = $row["PTTT_MA"];
+                                          $sqlpt = "select PTTT_TEN from phuong_thuc_thanh_toan where PTTT_MA = {$idpttt}";
                                           $rspt = $conn->query($sqlpt);
                                           $rowpt = mysqli_fetch_assoc($rspt);
                                           echo $rowpt["PTTT_TEN"];
@@ -261,7 +262,7 @@
                                     </td>
                                     <td class="align-middle text-center">
                                       <form action="" method="get">
-                                        <input type="hidden" name="hd_id" value="<?php echo $row["HD_ID"] ?>">
+                                        <input type="hidden" name="hd_id" value="<?php echo $row["HD_STT"] ?>">
                                         <button onclick="this.form.submit()" class="view-btn btn btn-outline-primary text-primary font-weight-bold text-xs mt-3 p-1">
                                           Xem chi tiết >
                                         </button>
@@ -286,11 +287,13 @@
         <?php
           if(isset($_GET["hd_id"])){
             $hdid = $_GET["hd_id"];
-            $sql = "select hd.HD_ID as mahd, hd.HD_NGAYDAT as ngay, kh.KH_ID as makh, kh.KH_HOTEN as tenkh, kh.KH_SDT as sdtkh, kh.KH_DIACHI as dckh, nv.NV_ID as manv, nv.NV_HOTEN as tennv
-                    from hoa_don hd
-                    inner join khach_hang kh on kh.KH_ID = hd.KH_ID
-                    inner join nhan_vien nv on nv.NV_ID = hd.NV_ID
-                    where hd.HD_ID={$hdid};";
+            
+            $sql = "select hd.HD_STT as mahd, hd.HD_NGAYLAP as ngay, kh.KH_MA as makh, kh.KH_TEN as tenkh, kh.KH_SDT as sdtkh, kh.KH_DIACHI as dckh, nv.NV_MA as manv, nv.NV_TEN as tennv
+                    from gio_hang gh
+                    inner join khach_hang kh on kh.KH_MA = gh.KH_MA
+                    inner join hoa_don hd on hd.GH_MA = hd.GH_MA
+                    inner join nhan_vien nv on hd.NV_MA = nv.NV_MA
+                    where hd.HD_STT={$hdid};";
             $rs = $conn->query($sql);
             $row = mysqli_fetch_assoc($rs);
             ?>
@@ -314,7 +317,7 @@
                   <!-- title -->
                   <div class="row text-center fs-5 font-weight-bold">
                     <div class="col-12">
-                      HOÁ ĐƠN FORISH
+                      HOÁ ĐƠN BRIGHT MOBLIE
                     </div>
                   </div>
                   <!-- ngay -->
@@ -329,37 +332,37 @@
                       <h6>Thông tin khách hàng:</h6>
                       <!-- 1 hang -->
                       <div class="row px-2 mt-2">
-                        <div class="col-4">
+                        <div class="col-6">
                           <h6>Mã khách hàng: </h6>
                         </div>
-                        <div class="col-8">
+                        <div class="col-6">
                           <p><?php echo $row["makh"] ?></p>
                         </div>
                       </div>
                       <!-- 1 hang -->
                       <div class="row px-2 mt-n3">
-                        <div class="col-4">
+                        <div class="col-6">
                           <h6>Tên khách hàng: </h6>
                         </div>
-                        <div class="col-8">
+                        <div class="col-6">
                           <p><?php echo $row["tenkh"] ?></p>
                         </div>
                       </div>
                       <!-- 1 hang -->
                       <div class="row px-2 mt-n3">
-                        <div class="col-4">
+                        <div class="col-6">
                           <h6>SĐT: </h6>
                         </div>
-                        <div class="col-8">
+                        <div class="col-6">
                           <p><?php echo $row["sdtkh"] ?></p>
                         </div>
                       </div>
                       <!-- 1 hang -->
                       <div class="row px-2 mt-n3">
-                        <div class="col-4">
+                        <div class="col-6">
                           <h6>Địa chỉ: </h6>
                         </div>
-                        <div class="col-8">
+                        <div class="col-6">
                           <p><?php echo $row["dckh"] ?></p>
                         </div>
                       </div>
@@ -371,10 +374,10 @@
                       <h6>Thông tin nhân viên:</h6>
                       <!-- 1 hang -->
                       <div class="row px-2 mt-2">
-                        <div class="col-4">
+                        <div class="col-6">
                           <h6>Mã nhân viên: </h6>
                         </div>
-                        <div class="col-8">
+                        <div class="col-6">
                           <p><?php echo $row["manv"] ?></p>
                         </div>
                       </div>
@@ -403,11 +406,11 @@
                         </thead>
                         <tbody>
                           <?php
-                            $sql = "select sp.SP_TEN as tensp, sp.SP_GIA as giasp , ct.SP_SOLUONG as slsp, (ct.SP_SOLUONG*sp.SP_GIA) as tongtien 
-                                    from chitiet_hd ct 
-                                    join hoa_don hd on hd.HD_ID = ct.HD_ID 
-                                    join san_pham sp on sp.SP_ID = ct.SP_ID 
-                                    where hd.HD_ID = {$row["mahd"]}; ";
+                            $sql = "select sp.SP_TEN as tensp, sp.SP_GIA as giasp , ct.CTHD_SLB as slsp, (ct.CTHD_SLB*sp.SP_GIA) as tongtien 
+                                    from chi_tiet_hd ct 
+                                    join hoa_don hd on hd.HD_STT = ct.HD_STT 
+                                    join san_pham sp on sp.SP_MA = ct.SP_MA 
+                                    where hd.HD_STT = {$row["mahd"]}; ";
 
                             $rs = $conn->query($sql);
                             $rs_all = $rs -> fetch_all(MYSQLI_ASSOC);
@@ -444,11 +447,11 @@
                           <tr>
                             <td colspan="4" class="text-end">
                               <?php
-                                $sql = "select sum(ct.SP_SOLUONG*sp.SP_GIA) as tongtien 
-                                        from chitiet_hd ct 
-                                        join hoa_don hd on hd.HD_ID = ct.HD_ID 
-                                        join san_pham sp on sp.SP_ID = ct.SP_ID 
-                                        where hd.HD_ID = {$mahd}; ";
+                                $sql = "select sum(ct.CTHD_SLB*sp.SP_GIA) as tongtien 
+                                        from chi_tiet_hd ct 
+                                        join hoa_don hd on hd.HD_STT = ct.HD_STT 
+                                        join san_pham sp on sp.SP_MA = ct.SP_MA 
+                                        where hd.HD_STT = {$mahd}; ";
                                 $rs = $conn->query($sql);
                                 $row = mysqli_fetch_assoc($rs);
                               ?>
