@@ -39,7 +39,7 @@
 
 <body class="g-sidenav-show   bg-gray-100">
 <div class="position-absolute w-100 min-height-300 top-0" style="background-image: url('https://www.apple.com/lae/iphone-14-pro/images/key-features/hero/hero__cj6i78tzkp8i_large.jpg'); background-position-y: 50%; ">
-    <span class="mask bg-primary opacity-6"></span>
+    <!-- <span class="mask bg-primary opacity-6"></span> -->
   </div>
   
   <?php
