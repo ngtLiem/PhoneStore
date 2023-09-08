@@ -23,7 +23,7 @@
   <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
   <link rel="icon" type="image/png" href="../assets/img/favicon.png">
   <title>
-    Thêm sản phẩm
+    Sửa sản phẩm
   </title>
   <!--     Fonts and icons     -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
@@ -100,24 +100,86 @@
     <!-- End Navbar -->
     <div class="container-fluid py-4">
     <div class="row">
-      <?php
-        require 'connect.php';
-      ?>
+    <?php
+      require 'connect.php';
+
+        $idsp = $_POST["pdid"];
+        $nsxsp = $_POST["nsxsp"];
+        $mnsxsp = $_POST["mnsxsp"];
+
+        $tennpp = $_POST["tennpp"];
+        $manpp = $_POST["manpp"];
+
+        $stt_pn = $_POST["stt_pn"];
+
+        $lsp = $_POST["lsp"];
+        $mlsp = $_POST["mlsp"];
+        $imeisp = $_POST["imeisp"];
+        $tensp = $_POST["tensp"];
+        $colorsp = $_POST["colorsp"];
+        $tnsp = $_POST["tnsp"];
+        $tgbhsp = $_POST["tgbhsp"];
+        $anhsp = $_POST["anhsp"];
+        $slsp = $_POST["slsp"];
+        $mhsp = $_POST["mhsp"];
+        $hdhsp = $_POST["hdhsp"];
+        $ctsp = $_POST["ctsp"];
+        $cssp = $_POST["cssp"];
+        $cpusp = $_POST["cpusp"];
+        $ramsp = $_POST["ramsp"];
+        $roomsp = $_POST["roomsp"];
+        $simsp = $_POST["simsp"];
+        $pinsp = $_POST["pinsp"];
+        $giasp = $_POST["giasp"];
+
+
+    ?>
         <div class="col-12">
           <div class="card mb-4">
             <div class="card-header pb-0">
-              <h4>Thêm sản phẩm mới</h4>
+              <h4>Sửa sản phẩm #<?php echo $idsp; ?> - <?php echo $tensp; ?></h4>
             </div>
             <div class="card-body px-2 pt-0 pb-2">
-                <form role="form" method="post" action="upload_products.php" enctype="multipart/form-data">
+                <form role="form" method="post" action="update_edit_product.php" enctype="multipart/form-data">
+                    <input type="hidden" name="idsp" value="<?php echo $idsp; ?>">
+                    <input type="hidden" name="nsxsp" value="<?php echo $nsxsp; ?>">
+                    <input type="hidden" name="mnsxsp" value="<?php echo $mnsxsp; ?>">
+                    <input type="hidden" name="lsp" value="<?php echo $lsp; ?>">
+                    <input type="hidden" name="mlsp" value="<?php echo $mlsp; ?>">
+
+                    <input type="hidden" name="stt_pn" value="<?php echo $stt_pn; ?>">
+
+                    <input type="hidden" name="tennpp" value="<?php echo $tennpp; ?>">
+                    <input type="hidden" name="manpp" value="<?php echo $manpp; ?>">
+
+                    <input type="hidden" name="imeisp" value="<?php echo $imeisp; ?>">
+                    <input type="hidden" name="tensp" value="<?php echo $tensp; ?>">
+                    <input type="hidden" name="colorsp" value="<?php echo $colorsp; ?>">
+                    <input type="hidden" name="tnsp" value="<?php echo $tnsp; ?>">
+                    <input type="hidden" name="tgbhsp" value="<?php echo $tgbhsp; ?>">
+                    <input type="hidden" name="anhsp" value="<?php echo $anhsp; ?>">
+                    <input type="hidden" name="slsp" value="<?php echo $slsp; ?>">
+                    <input type="hidden" name="mhsp" value="<?php echo $mhsp; ?>">
+                    <input type="hidden" name="hdhsp" value="<?php echo $hdhsp; ?>">
+                    <input type="hidden" name="ctsp" value="<?php echo $ctsp; ?>">
+                    <input type="hidden" name="cssp" value="<?php echo $cssp; ?>">
+                    <input type="hidden" name="cpusp" value="<?php echo $cpusp; ?>">
+                    <input type="hidden" name="ramsp" value="<?php echo $ramsp; ?>">
+                    <input type="hidden" name="roomsp" value="<?php echo $roomsp; ?>">
+                    <input type="hidden" name="simsp" value="<?php echo $simsp; ?>">
+                    <input type="hidden" name="pinsp" value="<?php echo $pinsp; ?>">
+                    <input type="hidden" name="giasp" value="<?php echo $giasp; ?>">
+
+
+
                     <div class="col-12 card-header pb-2 d-flex align-items-center">
                       <div class="mb-3 px-3 col-3">
                           Loại sản phẩm
                           <br>
-                          <select required class="form-control form-control-lg" name="types" id="types">
-                          <option value="" selected disabled hidden>-Chọn-</option>
+                          <select class="form-control form-control-lg" name="lsp" id="lsp">
+                          <option value="<?php echo $mlsp; ?>" selected hidden><?php echo $lsp; ?></option>
                           <?php
-                            $sql = "SELECT * FROM loai_sp";
+                            $sql = "SELECT * FROM LOAI_SP";
                             $result = $conn->query($sql);
                             if ($result->num_rows > 0) {
                               $result = $conn->query($sql);
@@ -134,8 +196,8 @@
                       <div class="mb-3 px-3 col-3">
                           Nhà sản xuất
                           <br>
-                          <select required class="form-control form-control-lg" name="nsxid" id="nsxid">
-                          <option value="" selected disabled hidden>-Chọn-</option>
+                          <select class="form-control form-control-lg" name="nsxsp" id="nsxsp">
+                          <option value="<?php echo $mnsxsp; ?>" selected hidden><?php echo $nsxsp; ?></option>
                           <?php
                             $sql = "SELECT * FROM nha_san_xuat";
                             $result = $conn->query($sql);
@@ -155,8 +217,8 @@
                       <div class="mb-3 px-3 col-3">
                           Nhà phân phối
                           <br>
-                          <select required class="form-control form-control-lg" name="source" id="source">
-                            <option value="" selected disabled hidden>-Chọn-</option>
+                          <select  class="form-control form-control-lg" name="nppsp" id="nppsp">
+                            <option value="<?php echo $manpp; ?>" selected  hidden><?php echo $tennpp; ?></option>
                             <?php
                               $sql = "SELECT * FROM nha_phan_phoi";
                               $result = $conn->query($sql);
@@ -175,41 +237,41 @@
 
                         <div class="mb-3 px-3 col-3">
                           Giá (VNĐ)
-                        <input required min="0" max="10000000000" step="10000" type="number" name="pd_price" class="form-control form-control-lg" placeholder="Nhập giá bán sản phẩm">
+                        <input min="0" max="10000000000" step="10000" type="number" name="giasp" class="form-control form-control-lg" value="<?php echo $giasp ?>">
                       </div>
                     </div>
 
                     <div class="col-12 mt-n4 card-header pb-2 d-flex align-items-center">                    
-                      <div class="mb-3 px-3 col-9">
+                      <div class="mb-3 px-3 col-8">
                           Tên sản phẩm
-                        <input required type="text" name="pd_name" class="form-control form-control-lg" placeholder="Nhập tên sản phẩm">
+                        <input type="text" name="tensp" class="form-control form-control-lg" value="<?php echo $tensp; ?>">
                       </div>
                       <div class="mb-3 px-3 col-3">
                         Số IMEI
                         <br>
-                        <input required type="text" name="imei" class="form-control form-control-lg" placeholder="Nhập IMEI sản phẩm">
+                        <input  type="text" name="imeisp" class="form-control form-control-lg" value="<?php echo $imeisp ?>">
                       </div>
                     </div>
 
                     <div class="col-12 mt-n4 card-header pb-2 d-flex align-items-center"> 
                       <div class="mb-3 px-3 col-3">
                             Số lượng
-                          <input required min="1" max="10000" step="1" type="number" name="pd_quantity" class="form-control form-control-lg" placeholder="Nhập số lượng sản phẩm">
+                          <input  min="1" max="10000" step="1" type="number" name="slsp" class="form-control form-control-lg" value="<?php echo $slsp ?>">
                       </div>                   
                       <div class="mb-3 px-3 col-3">
                           Màu sắc
                           <br>
-                          <input required type="text" name="color" class="form-control form-control-lg" placeholder="Nhập màu sắc sản phẩm">
+                          <input  type="text" name="colorsp" class="form-control form-control-lg" value="<?php echo $colorsp ?>">
                       </div>
                       <div class="mb-3 px-3 col-3">
                           Thời gian bảo hành
                           <br>
-                          <input required type="text" name="baohanh" class="form-control form-control-lg" placeholder="Nhập thời gian bảo hành">
+                          <input  type="text" name="tgbhsp" class="form-control form-control-lg" value="<?php echo $tgbhsp ?>">
                       </div>
                       <div class="mb-3 px-3 col-3">
                           Màn hình
                           <br>
-                          <input required type="text" name="manhinh" class="form-control form-control-lg" placeholder="Nhập loại màn hình">
+                          <input  type="text" name="mhsp" class="form-control form-control-lg" value="<?php echo $mhsp ?>">
                       </div>
                     </div>  
                       
@@ -217,22 +279,22 @@
                       <div class="mb-3 px-3 col-3">
                           Hệ điều hành
                           <br>
-                          <input required type="text" name="hdh" class="form-control form-control-lg" placeholder="Nhập hệ điều hành">
+                          <input  type="text" name="hdhsp" class="form-control form-control-lg" value="<?php echo $hdhsp ?>">
                       </div>                    
                       <div class="mb-3 px-3 col-3">
                           Loại CPU
                           <br>
-                          <input required type="text" name="cpu" class="form-control form-control-lg" placeholder="Nhập loại CPU sản phẩm">
+                          <input  type="text" name="cpusp" class="form-control form-control-lg" value="<?php echo $cpusp ?>">
                       </div>
                       <div class="mb-3 px-3 col-3">
                           Thông số camera trước
                           <br>
-                          <input required type="text" name="camtruoc" class="form-control form-control-lg" placeholder="Nhập thông số camera trước">
+                          <input  type="text" name="ctsp" class="form-control form-control-lg" value="<?php echo $ctsp ?>">
                       </div>
                       <div class="mb-3 px-3 col-3">
                           Thông số camera sau
                           <br>
-                          <input required type="text" name="camsau" class="form-control form-control-lg" placeholder="Nhập thông số camera sau">
+                          <input  type="text" name="cssp" class="form-control form-control-lg" value="<?php echo $cssp ?>">
                       </div>
                     </div>
 
@@ -240,29 +302,29 @@
                     <div class="mb-3 px-3 col-3">
                           RAM
                           <br>
-                          <input required type="text" name="ram" class="form-control form-control-lg" placeholder="Nhập dung lượng bộ nhớ trong">
+                          <input  type="text" name="ramsp" class="form-control form-control-lg" value="<?php echo $ramsp ?>">
                       </div>
                       <div class="mb-3 px-3 col-3">
                           ROOM
                           <br>
-                          <input required type="text" name="room" class="form-control form-control-lg" placeholder="Nhập dung lượng bộ nhớ ngoài">
+                          <input  type="text" name="roomsp" class="form-control form-control-lg" value="<?php echo $roomsp ?>">
                       </div>
                       <div class="mb-3 px-3 col-3">
                           Hỗ trợ sim
                           <br>
-                          <input required type="text" name="sim" class="form-control form-control-lg" placeholder="Nhập sim được hỗ trợ">
+                          <input  type="text" name="simsp" class="form-control form-control-lg" value="<?php echo $simsp ?>">
                       </div>
                       <div class="mb-3 px-3 col-3">
                           Pin
                           <br>
-                          <input required type="text" name="pin" class="form-control form-control-lg" placeholder="Nhập thông số pin - Sạc">
+                          <input  type="text" name="pinsp" class="form-control form-control-lg" value="<?php echo $pinsp ?>">
                       </div>
                     </div>
 
                     <div class="col-12 mt-n4 card-header pb-2 d-flex align-items-center">
                       <div class="mb-3 px-3 col-12">
                           Tính năng sản phẩm
-                        <textarea required row="20" name="tinhnang" style="height: 150px;" class="form-control form-control-lg" placeholder="Nhập mô tả chi tiết tính năng sản phẩm"></textarea>
+                        <input type="text"  row="20" name="tnsp" style="height: 150px;" class="form-control form-control-lg" value="<?php echo $tnsp ?>">
                       </div>
                     </div>
 
@@ -271,10 +333,13 @@
                       <div class="mb-3 px-3 col-3">
                           Tải ảnh sản phẩm:
                           <br>
+                          <input type="hidden" name="old_productImg" value="<?php echo $anhsp;?>" accept="image/*">
                           <input class="mt-3" type="file" name="productImg" id="productImg" accept="image/*">
                       </div>
                       <div class="mb-3 px-3 col-3">
-                          <div id="preview"></div>
+                          <div id="preview">
+                            <img id="old_img" src="../assets/img/product_img/<?php echo $anhsp;?>" class="rounded-circle avatar avatar-xxl ms-4" alt="">
+                          </div>
                           <script>
                             var input = document.getElementById("productImg");
                             var preview = document.getElementById("preview");
@@ -306,15 +371,15 @@
                     </div> -->
                     <div class="col-12 mt-n4 card-header pb-2 d-flex align-items-center">                                                            
                       <div class="col-12 text-center px-3">
-                        <button type="submit" class="btn btn-lg btn-primary btn-lg w-100 mt-4 mb-0">Thêm</button>
+                        <button type="submit" class="btn btn-lg btn-primary btn-lg w-100 mt-4 mb-0">Cập nhật</button>
                       </div>
                     </div>
                 </form>
             </div>
           </div>
-        </div> 
-      </div>
-        
+        </div>
+    </div>
+    
       <footer class="footer pt-3  ">
         <div class="container-fluid">
           <div class="row align-items-center justify-content-lg-between">

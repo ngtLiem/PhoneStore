@@ -109,7 +109,7 @@ if ($uploadOk == 0) {
 
   $nppid = $_POST["source"];
   $pdsl = $_POST["pd_quantity"];
-  // echo "//////////" ;
+
   
   // echo "<br>" . $pdid, $nsxid,  $lspid, $pdimei,  $pdname,  $pdcolor, $pdtn, $pdbh, $pdi, $pdsl, $pdmanhinh, $pdhdh, $pdcamtruoc, $pdcamsau, $pdcamsau, $pdcpu, $pdram, $pdroom, $pdsim, $pdpin;
   
@@ -120,13 +120,18 @@ if ($uploadOk == 0) {
 
 	if ($conn->query($sql) == true) {
     $sql1 = "insert into PHIEU_NHAP values('".$pnid."', sysdate())";
-    $sql2 = "insert into CHITIET_PN values('".$pdid."', '".$pn_id."', '".$nvid."', '".$nppid."', '".$pdsl."', '".$pdprice."')";
-    if ($conn->query($sql2) == true ){
-      $message = "Thêm sản phẩm thành công";
-      echo "<script type='text/javascript'>alert('$message');</script>";
-     header('Refresh: 0;url=products.php');
+    // $sql2 = "insert into CHITIET_PN values('".$pdid."', '".$pnid."', '".$nvid."', '".$nppid."', '".$pdsl."', '".$pdprice."')";
+    if ($conn->query($sql1) == true){ 
+      $sql2 = "insert into CHITIET_PN values('".$pdid."', '".$pnid."', '".$nvid."', '".$nppid."', '".$pdsl."', '".$pdprice."')";
+      if($conn->query($sql2) == true){
+        $message = "Thêm sản phẩm thành công";
+        echo "<script type='text/javascript'>alert('$message');</script>";
+        header('Refresh: 0;url=products.php');
+      } else{
+        echo "Error: " . $sql2 . "<br>" . $conn->error;
+      }
     } else {
-      echo "Error: " . $sql . "<br>" . $conn->error;
+      echo "Error: " . $sql1 . "<br>" . $conn->error;
     }
 
 	} else {

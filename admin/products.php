@@ -186,11 +186,24 @@
                         <table class="table align-items-center mb-0">
                           <thead>
                             <tr>
+                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-1">Mã</th>
                               <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Sản phẩm</th>
-                              <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Mã</th>
-                              <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Giá</th>
                               <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Số lượng</th>
-                              <!-- <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Đơn vị tính</th> -->
+                              <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Giá</th>
+                              
+                              <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">RAM</th>
+                              <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">ROOM</th>
+                              <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Pin</th>
+                              <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Màu sắc</th>
+                              <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">IMEI</th>
+                              <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">TGBH</th>
+                              <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Màn hình</th>
+                              <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Cam trước</th>
+                              <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Cam sau</th>
+                              <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">HĐH</th>
+                              <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">CPU</th>
+                              <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Sim</th>
+                              <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Tính năng</th>
                               <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Ngày nhập</th>
                               <th class="text-secondary opacity-7"></th>
                             </tr>
@@ -204,29 +217,44 @@
                                 $result_all = $result -> fetch_all(MYSQLI_ASSOC);
                                 foreach ($result_all as $row) {
 
+                                  $pdid = $row["SP_MA"];
                                   $soluong = $row["SP_SOLUONGTON"];
                                   $lsp = $rowlsp["LSP_TEN"];
                                   $mlsp = $rowlsp["LSP_MA"];
                                   
-                                  // $sql_nhap = "SELECT p.PN_STT, p.PN_NGAYNHAP, c.SP_MA, c.NPP_MASO
-                                  //                 from PHIEU_NHAP p
-                                  //                 left join CHITIET_PN  c on c.PN_STT = p.PN_STT
-                                  //                 where sp_id = {$row["SP_MA"]}";
+                                  $query = "select ct.PN_STT as stt_pn, npp.NPP_MASO as mnppsp, npp.NPP_TEN as tennpp, pn.PN_NGAYNHAP as ngaynhap
+                                                from chitiet_pn ct
+                                                join phieu_nhap pn on ct.PN_STT=pn.PN_STT
+                                                join nha_phan_phoi npp on ct.NPP_MASO=npp.NPP_MASO
+                                                join san_pham sp on ct.SP_MA=sp.SP_MA
+                                                where sp.SP_MA = {$pdid};";
                                                               
-                                  // $rs = $conn->query($sql_nhap);
-                                  // $row1 = mysqli_fetch_assoc($rs);
-                                  // $nppid = $row1["NPP_MASO"];
-                                  // $ngaynhap = $row1["PN_NGAYNHAP"];
+                                  $rs = $conn->query($query);
+                                  $row1 = mysqli_fetch_assoc($rs);
+                                  $stt_pn = $row1["stt_pn"];
+                                  $ngaynhap = $row1["ngaynhap"];
+                                  $tennpp = $row1["tennpp"];
+                                  $manpp = $row1["mnppsp"];
+                                  
+                                  
+                                  $sql_nsx = "select n.NSX_MA as mnsxsp, n.NSX_TEN as nsxsp, s.SP_MA as masp
+                                                from nha_san_xuat n
+                                                join san_pham s on n.NSX_MA = s.NSX_MA
+                                                where s.SP_MA = {$pdid};";
 
-                                  // $sql_nguon = "select * from NHA_PHAN_PHOI where sp_id = {$row["SP_MA"]}";
-                                  // $rs2 = $conn->query($sql_nguon);
-                                  // $row3 = mysqli_fetch_assoc($rs2);
-                                  // $tennpp = $row3["NPP_TEN"];
-                                  // $manpp = $row3["NPP_MASO"];
-
+                                  $rs_nsx = $conn->query($sql_nsx);
+                                  $row2 = mysqli_fetch_assoc($rs_nsx);
+                                  $mnsxsp = $row2["mnsxsp"];
+                                  $nsxsp = $row2["nsxsp"];
+                                  
 
                                   ?>
                                   <tr class="height-100">
+                                     <!-- ma sp -->
+                                     <td>
+                                      <p class="text-xs font-weight-bold mb-0"><?php echo $row["SP_MA"]; ?></p>
+                                    </td>
+                                  
                                     <td class="w-30" >
                                       <div class="d-flex px-2 py-1">
                                           <!-- hinh anh san pham -->
@@ -245,34 +273,83 @@
                                         <!-- ten san pham -->
                                         <div class="d-flex flex-column justify-content-center">
                                           <h6 class="mb-0 text-md"><?php echo $row["SP_TEN"]; ?></h6>
-                                          <!-- <p class='text-xs text-secondary mb-0'><?php echo $tennpp; ?></p> -->
+                                          <p class='text-xs text-secondary mb-0'><?php echo "Nhà phân phối: " . $tennpp; ?></p>
                                         </div>
                                       </div>
-                                    </td>
-                                    <!-- ma sp -->
-                                    <td>
-                                      <p class="text-xs font-weight-bold mb-0"><?php echo $row["SP_MA"]; ?></p>
-                                    </td>
-                                    <!-- gia sp -->
-                                    <td>
-                                      <p class="text-s font-weight-bold mb-0"><?php echo number_format($row["SP_GIA"], 0) ; ?> VNĐ</p>
                                     </td>
                                     <!-- soluong sp -->
                                     <td>
                                       <p class="text-xs font-weight-bold mb-0"><?php echo $row["SP_SOLUONGTON"]; ?></p>
                                     </td>
-                                    <!-- dvt -->
+                                    <!-- gia sp -->
+                                    <td>
+                                      <p class="text-s font-weight-bold mb-0"><?php echo number_format($row["SP_GIA"], 0) ; ?> VNĐ</p>
+                                    </td>
+                                    
+                                    <!-- ram -->
+                                    <td>
+                                      <p class="text-xs font-weight-bold mb-0"><?php echo $row["SP_RAM"]; ?></p>
+                                    </td>       
+                                    <!-- room -->
+                                    <td>
+                                      <p class="text-xs font-weight-bold mb-0"><?php echo $row["SP_ROOM"]; ?></p>
+                                    </td>
+                                    <!-- pin -->
+                                    <td>
+                                      <p class="text-xs font-weight-bold mb-0"><?php echo $row["SP_PIN"]; ?></p>
+                                    </td>
+                                    <!-- màu sắc -->
+                                    <td>
+                                      <p class="text-xs font-weight-bold mb-0"><?php echo $row["SP_MAUSAC"]; ?></p>
+                                    </td>
+                                    <!-- imei -->
+                                    <td>
+                                      <p class="text-xs font-weight-bold mb-0"><?php echo $row["SP_IMEI"]; ?></p>
+                                    </td>
+                                    <!-- tgbh -->
+                                    <td>
+                                      <p class="text-xs font-weight-bold mb-0"><?php echo $row["SP_TGBH"]; ?></p>
+                                    </td>
+                                    <!-- màn hình -->
+                                    <td>
+                                      <p class="text-xs font-weight-bold mb-0"><?php echo $row["SP_MANHINH"]; ?></p>
+                                    </td>
+                                    <!-- cam trước -->
+                                    <td>
+                                      <p class="text-xs font-weight-bold mb-0"><?php echo $row["SP_CAMTRUOC"]; ?></p>
+                                    </td>
+                                    <!-- cam sau -->
+                                    <td>
+                                      <p class="text-xs font-weight-bold mb-0"><?php echo $row["SP_CAMSAU"]; ?></p>
+                                    </td>
+                                    <!-- hệ điều hành -->
+                                    <td>
+                                      <p class="text-xs font-weight-bold mb-0"><?php echo $row["SP_HDH"]; ?></p>
+                                    </td>
+                                    <!-- cpu -->
+                                    <td>
+                                      <p class="text-xs font-weight-bold mb-0"><?php echo $row["SP_CPU"]; ?></p>
+                                    </td>
+                                    <!-- sim -->
+                                    <td>
+                                      <p class="text-xs font-weight-bold mb-0"><?php echo $row["SP_SIM"]; ?></p>
+                                    </td>
+                                    <!-- tính năng -->
+                                    <td>
+                                      <p class="text-xs font-weight-bold mb-0"><?php echo $row["SP_TINHNANG"]; ?></p>
+                                    </td>
+
                                     <!-- <td>
-                                      <!-- <p class="text-xs font-weight-bold mb-0"><?php //echo $row["SP_DVT"]; ?></p> -->
-                                    <!-- </td> -->
-                                    <!-- ngay them -->
-                                    <!-- <td class="align-middle text-center">
-                                    <p class="text-xs font-weight-bold mb-0"><?php //echo date('d/m/Y', strtotime($ngaynhap)); ?></p>
+                                      <p class="text-xs font-weight-bold mb-0"><?php echo $tennpp; echo $stt_pn;?></p>
                                     </td> -->
+                                    
+                                    <!-- ngay them -->
+                                    <td class="align-middle text-center">
+                                    <p class="text-xs font-weight-bold mb-0"><?php echo date('d/m/Y', strtotime($ngaynhap)); ?></p>
+                                    </td>
                                     <td class="align-middle text-center">
                                       <div class="mt-3 d-flex col-sm-12">
-                                            
-                                        <div class="me-n3 align-middle col-4">
+                                        <div class="me-n1 align-middle col-4">
                                           <!-- <form method="get" action=""> -->
                                             <!-- <input type="hidden" name="pdid_add" value="<?php echo $row["SP_MA"]; ?>"> -->
                                             <button data-id="<?php echo $row["SP_MA"]; ?>" data-name="<?php echo $row["SP_TEN"]; ?>" data-img="<?php echo $avatar_url; ?>" class="addmore-button btn btn-link text-success text-secondary font-weight-bold text-sm">
@@ -281,29 +358,47 @@
                                             </button>
                                           <!-- </form> -->
                                         </div>
-                                        <div class="me-n4 align-middle col-4">
+                                        <div class="me-n0 align-middle col-4">
                                           <form method="post" action="edit_product.php">
                                               <input type="hidden" name="pdid" value="<?php echo $row["SP_MA"]; ?>">
-                                              <input type="hidden" name="anhsp" value="<?php echo $file; ?>">
+                                              <input type="hidden" name="nsxsp" value="<?php echo $nsxsp; ?>">
+                                              <input type="hidden" name="mnsxsp" value="<?php echo $mnsxsp; ?>">
                                               <input type="hidden" name="lsp" value="<?php echo $lsp; ?>">
                                               <input type="hidden" name="mlsp" value="<?php echo $mlsp; ?>">
+
+                                              <input type="hidden" name="stt_pn" value="<?php echo $stt_pn; ?>">
+
+                                              <input type="hidden" name="manpp" value="<?php echo $manpp; ?>">
+                                              <input type="hidden" name="tennpp" value="<?php echo $tennpp; ?>">
+
+                                              <input type="hidden" name="imeisp" value="<?php echo $row["SP_IMEI"]; ?>">
                                               <input type="hidden" name="tensp" value="<?php echo $row["SP_TEN"]; ?>">
+                                              <input type="hidden" name="colorsp" value="<?php echo $row["SP_MAUSAC"]; ?>">
+                                              <input type="hidden" name="tnsp" value="<?php echo $row["SP_TINHNANG"]; ?>">
+                                              <input type="hidden" name="tgbhsp" value="<?php echo $row["SP_TGBH"]; ?>">
+                                              <input type="hidden" name="anhsp" value="<?php echo $row["SP_HINHANH"]; ?>">
+                                              <input type="hidden" name="slsp" value="<?php echo $row["SP_SOLUONGTON"]; ?>">
+                                              <input type="hidden" name="mhsp" value="<?php echo $row["SP_MANHINH"]; ?>">
+                                              <input type="hidden" name="hdhsp" value="<?php echo $row["SP_HDH"]; ?>">
+                                              <input type="hidden" name="ctsp" value="<?php echo $row["SP_CAMTRUOC"]; ?>">
+                                              <input type="hidden" name="cssp" value="<?php echo $row["SP_CAMSAU"]; ?>">
+                                              <input type="hidden" name="cpusp" value="<?php echo $row["SP_CPU"]; ?>">
+                                              <input type="hidden" name="ramsp" value="<?php echo $row["SP_RAM"]; ?>">
+                                              <input type="hidden" name="roomsp" value="<?php echo $row["SP_ROOM"]; ?>">
+                                              <input type="hidden" name="simsp" value="<?php echo $row["SP_SIM"]; ?>">
+                                              <input type="hidden" name="pinsp" value="<?php echo $row["SP_PIN"]; ?>">
                                               <input type="hidden" name="giasp" value="<?php echo $row["SP_GIA"]; ?>">
-                                              <input type="hidden" name="motasp" value="<?php echo $row["SP_MOTA"]; ?>">
-                                              <input type="hidden" name="nguonsp" value="<?php echo $tennh; ?>">
-                                              <input type="hidden" name="manguonsp" value="<?php echo $manh; ?>">
-                                              <!-- <input type="hidden" name="dvtsp" value="<?php echo $row["SP_DVT"]; ?>"> -->
-                                              <input type="hidden" name="slsp" value="<?php echo $row["SP_SOLUONGTON"] ?>">
+
                                               <button onclick="this.form.submit()" class="btn btn-link text-primary font-weight-bold text-sm">
                                                 Sửa
                                               </button>
                                             </form>
                                         </div>
-                                        <div class=" align-middle col-4">
+                                        <div class=" align-middle col-1">
                                           <form method="post" action="del_product.php">
                                               <input type="hidden" name="pdid" value="<?php echo $row["SP_MA"]; ?>">
                                               <button onclick="this.form.submit()" class="addmore-button btn btn-link text-warning text-secondary font-weight-bold text-sm">
-                                                Xoá
+                                                Xóa
                                               </button>
                                             </form>
                                         </div>
