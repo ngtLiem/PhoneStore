@@ -108,7 +108,7 @@ if($nvpass != $nvrepass){
       $nvid = $nv_max_id+1;
 
       $sql = "insert into NHAN_VIEN
-              values ($nvid ,".$nvvaitro." ,'".$nvname."' ,'".$nvad."' ,'".$nvsdt."','".$nvemail."','".$nvsex."', '".$nvbirth->format('y-m-d')."','".$nvus."','".$nvpass."','".$nvimg."')";
+              values ($nvid ,".$nvvaitro." ,'".$nvname."' ,'".$nvad."' ,'".$nvsdt."','".$nvemail."','".$nvsex."','".$nvus."','".$nvpass."','".$nvimg."','".$nvbirth->format('y-m-d')."', sysdate())";
              
       
       if ($conn->query($sql) == TRUE) {

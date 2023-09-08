@@ -220,9 +220,9 @@
                                         <p class="text-sm font-weight-bold mb-0"><?php echo $row["NV_EMAIL"]; ?></p>
                                       </td>
                                       <!-- ngay them -->
-                                      <!-- <td class="align-middle text-center">
+                                      <td class="align-middle text-center">
                                         <span class="text-secondary text-xs font-weight-bold"><?php echo date('d/m/Y', strtotime($row["NV_NGAYTUYEN"])); ?></span>
-                                      </td> -->
+                                      </td>
                                       <td class="align-middle">
                                       <form method="post" action="edit_staff.php">
                                           <input type="hidden" name="nvid" value="<?php echo $row["NV_MA"]; ?>">
