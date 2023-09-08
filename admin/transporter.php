@@ -255,12 +255,12 @@
             <div class="row">
               <div class="col-12">
                 <input type="hidden" name="temp_id" id="temp_id">
-                <div class="mb-3 mt-4 px-3 name">
+                <div class="mb-1 mt-1 px-2 name">
                   
                 </div>
               </div>
               <div class="col-12">
-                  <div class="mb-3 mt-4 px-3 des">
+                  <div class="mb-1 mt-1 px-2 des">
                     
                   </div>
                 </div>

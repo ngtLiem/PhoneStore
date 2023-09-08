@@ -179,7 +179,7 @@
                     $row = mysqli_fetch_assoc($result);
                     $tong_vm = number_format($row["tongtien"], 0);
                   ?>
-                  <h6 class="text-center mb-0">Visa/Mastercard</h6>                  
+                  <h6 class="text-center mb-0">Visa/Mastercard/Amex</h6>                  
                   <hr class="horizontal dark my-2">
                   <h5 class="mb-0">+ <?php echo $tong_vm ?>đ</h5>
                 </div>
