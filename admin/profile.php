@@ -98,7 +98,7 @@
       </div>
     </nav>
     <!-- End Navbar -->
-    <div style="margin-top: 0; !important" class="card shadow-lg mx-4 card-profile-bottom">
+    <div style="margin-top: 0;" class="card shadow-lg mx-4 card-profile-bottom">
       <!-- <div class="card-body p-3">
         <div class="row gx-4">
           <div class="col-auto">
