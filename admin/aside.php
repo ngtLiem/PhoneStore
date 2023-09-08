@@ -112,20 +112,20 @@
           </a>
         </li>
         
-        <?php
-          if($_SESSION["cv"] == '1'){
-            ?>
-            <li class="nav-item">
-              <a class="nav-link <?php echo $sl ?>" href="../admin/backup_page.php">
-                <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                  <i class="fas fa-database text-danger text-sm opacity-10"></i>
-                </div>
-                <span class="nav-link-text ms-1">Sao lưu và Khôi phục</span>
-              </a>
-            </li>
-            <?php
-          }
-        ?>
+        <!-- <?php
+          // if($_SESSION["cv"] == '1'){
+          //   ?>
+          //   <li class="nav-item">
+          //     <a class="nav-link <?php echo $sl ?>" href="../admin/backup_page.php">
+          //       <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+          //         <i class="fas fa-database text-danger text-sm opacity-10"></i>
+          //       </div>
+          //       <span class="nav-link-text ms-1">Sao lưu và Khôi phục</span>
+          //     </a>
+          //   </li>
+          //   <?php
+          // }
+        ?> -->
         <?php
           if($_SESSION["cv"] == '1')
             {
@@ -154,7 +154,7 @@
                     <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                     <i class="fas fa-building text-primary text-sm opacity-10"></i>
                     </div>
-                    <span class="nav-link-text ms-1">Nguồn hàng</span>
+                    <span class="nav-link-text ms-1">Nhà phân phối</span>
                     </a>
                     </li>
                     <li class="nav-item">
