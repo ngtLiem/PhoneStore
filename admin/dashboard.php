@@ -26,6 +26,9 @@
   <!-- <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png"> -->
   <link rel="icon" type="image/png" sizes="76x76" href="../assets/img/logo.png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/brands.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
@@ -722,7 +725,7 @@
                     <td class="w-30">
                       <div class="d-flex px-2 py-1 align-items-center">
                         <div class="icon icon-shape bg-gradient-primary shadow-warning text-center rounded-circle">
-                          <i class="fas fa-fish text-lg opacity-10"></i>
+                        <i class="fa-brands fa-android"></i>
                         </div>
                         <div class="ms-4">
                           <p class="text-xs font-weight-bold mb-0">Loại:</p>
@@ -747,7 +750,7 @@
                     <td class="w-30">
                       <div class="d-flex px-2 py-1 align-items-center">
                         <div class="icon icon-shape bg-gradient-success shadow-warning text-center rounded-circle">
-                        <i class="fas fa-archive text-lg opacity-10"></i>
+                        <i class="fa-brands fa-apple"></i>
                         </div>
                         <div class="ms-4">
                           <p class="text-xs font-weight-bold mb-0">Loại:</p>
@@ -772,7 +775,7 @@
                     <td class="w-30">
                       <div class="d-flex px-2 py-1 align-items-center">
                         <div class="icon icon-shape bg-gradient-warning shadow-warning text-center rounded-circle">
-                        <i class="fas fa-holly-berry text-lg opacity-10"></i>
+                        <i class="fa-thin fa-mobile-retro"></i>
                         </div>
                         <div class="ms-4">
                           <p class="text-xs font-weight-bold mb-0">Loại:</p>
