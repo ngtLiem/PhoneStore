@@ -312,7 +312,7 @@
         </div>
         <div class="col-md-4">
           <div class="card card-profile">
-            <img src="../assets/img/bgr-profile.jpg" alt="Image placeholder" class="card-img-top">
+            <!-- <img src="../assets/img/bgr-profile.jpg" alt="Image placeholder" class="card-img-top"> -->
             <div class="row justify-content-center">
               <div class="col-4 col-lg-4 order-lg-2">
                 <div class="mt-n4 mt-lg-n6 mb-4 mb-lg-0">

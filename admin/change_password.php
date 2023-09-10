@@ -151,7 +151,7 @@
         </div>
         <div class="col-md-4">
           <div class="card card-profile">
-            <img src="../assets/img/bgr-profile.jpg" alt="Image placeholder" class="card-img-top">
+            <!-- <img src="../assets/img/bgr-profile.jpg" alt="Image placeholder" class="card-img-top"> -->
             <div class="row justify-content-center">
               <div class="col-4 col-lg-4 order-lg-2">
                 <div class="mt-n4 mt-lg-n6 mb-4 mb-lg-0">
@@ -173,16 +173,16 @@
               <div class="row">
                 <div class="col">
                   <div class="d-flex justify-content-center">
-                    <div class="d-grid text-center">
-                      <span class="text-lg font-weight-bolder">22</span>
+                  <div class="d-grid text-center">
+                      <span class="text-lg font-weight-bolder">29</span>
                       <span class="text-sm opacity-8">Sản phẩm</span>
                     </div>
                     <div class="d-grid text-center mx-4">
-                      <span class="text-lg font-weight-bolder">10</span>
+                      <span class="text-lg font-weight-bolder">20</span>
                       <span class="text-sm opacity-8">Đơn hàng</span>
                     </div>
                     <div class="d-grid text-center">
-                      <span class="text-lg font-weight-bolder">89</span>
+                      <span class="text-lg font-weight-bolder">100</span>
                       <span class="text-sm opacity-8">Bình luận</span>
                     </div>
                   </div>
