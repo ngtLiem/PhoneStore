@@ -12,8 +12,8 @@
 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 -->
-<!DOCTYPE php>
-<php lang="en">
+<!DOCTYPE html>
+<html lang="en">
 
 <?php
   session_start();
@@ -21,11 +21,26 @@
 ?>
 
 <head>
-  <meta charset="utf-8" />
+<meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
-  <link rel="icon" type="image/png" href="../assets/img/logo-ck.png">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="icon" type="image/png" href="../assets/img/logo.png">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.css">
+	<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.js"></script>
+	<script>
+		$(document).ready( function () {
+			$('#myTable').DataTable();
+		} );
+	</script>
+  <style>
+    #myTable tbody tr:nth-child(odd) {
+      background-color: #ffffff;
+    }
+    #myTable tbody tr {
+      height: 10px;
+    }
+  </style>
   <title>
     Đơn hàng
   </title>
@@ -58,7 +73,7 @@
       <div class="container-fluid py-1 px-3">
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
-            <li class="breadcrumb-item text-sm"><a class="opacity-5 text-white" href="dashboard.php">Trang</a></li>
+            <li class="breadcrumb-item text-sm"><a class="opacity-5 text-white" href="javascript:;">Trang</a></li>
             <li class="breadcrumb-item text-sm text-white active" aria-current="page">Đơn hàng</li>
           </ol>
           <h6 class="font-weight-bolder text-white mb-0">Đơn hàng</h6>
@@ -428,4 +443,4 @@
   
 </body>
 
-</php>
+</html>

@@ -14,7 +14,7 @@ if ($result->num_rows > 0) {
   $row = $result->fetch_assoc();
   $_SESSION["id"] = $row['nv_ma'];
   $_SESSION["pw"] = $row['nv_matkhau'];
-  $_SESSION["role"] = $row['cv_ma'];
+  $_SESSION["cv"] = $row['cv_ma'];
   $_SESSION["nvid"] = $row['nv_ma'];
   $_SESSION["name"] = $row['nv_ten'];
   $_SESSION["email"] = $row['nv_email'];
