@@ -61,7 +61,22 @@
           <div class="ms-md-auto pe-md-3 d-flex align-items-center">
           </div>
           <ul class="navbar-nav  justify-content-end">
-            
+            <!-- <li class="nav-item d-flex align-items-center mb-4 me-4">
+              <div class="icon icon-shape bg-gradient-primary shadow-primary text-center rounded-circle">
+                <img src="../assets/img/staff_img/<?php echo $_SESSION["avt"]; ?>" class="rounded-circle avatar avatar-xl" alt='user'>
+              </div>
+            </li>
+            <li class="nav-item d-flex align-items-center mt-sm-1 ms-3">
+             <nav class=" mt-sm-1" aria-label="breadcrumb">   
+                <h7 class="text-white text mb-0">Xin chào,</h7>
+                <h6 class="font-weight-bolder text-white mt-n1"><?php echo $_SESSION["name"]; ?></h6>      
+                <a href="log_out.php" class="btn btn-outline-light text-white font-weight-bold px-2 mt-n1 py-1">
+                  <span class="d-sm-inline d-none me-sm-1">Đăng xuất</span>
+                  <i class="fas fa-sign-out-alt "></i>
+                </a>
+              </nav>
+            </li>  -->
+
             <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
               <a href="javascript:;" class="nav-link text-white p-0" id="iconNavbarSidenav">
                 <div class="sidenav-toggler-inner">
@@ -85,12 +100,14 @@
               <?php
 
                 $nvid = $_SESSION["nvid"];
-                $tkvaitro = $_SESSION["role"];
+                $tkvaitro = $_SESSION["cv"];
                 $tkavt = $_SESSION["avt"];
                 $nvhoten = $_SESSION["name"];
-                if($tkvaitro == 'staff'){
-                    $tkvt = 'Nhân viên';
-                  } else {
+                if($tkvaitro == '2'){
+                    $tkvt = 'Nhân viên bán hàng';
+                  } else if ($tkvaitro == '3'){
+                    $tkvt = 'Nhân viên bán hàng';
+                  } else{
                     $tkvt = 'Quản lý';
                   } 
 
@@ -173,13 +190,13 @@
               </div>
               <div class="text-center mt-3">
                 <h5>
-                  <?php echo $nvhoten; ?><span class="font-weight-light">, 35</span>
+                  <?php echo $nvhoten; ?><span class="font-weight-light"></span>
                 </h5>
                 <div class="h6 mt-3">
                   <i class="ni business_briefcase-24 mr-2"></i><?php echo $tkvt; ?>
                 </div>
                 <div class="mt-n2">
-                  <i class="ni education_hat mr-2"></i>Cửa hàng cá kiểng Forish
+                  <i class="ni education_hat mr-2"></i>Cửa hàng điện thoại BRIGHT MOBILE
                 </div>
               </div>
             </div>
