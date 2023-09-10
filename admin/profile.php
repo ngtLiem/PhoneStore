@@ -155,7 +155,7 @@
 
                 require 'connect.php';
         
-                $sql = "select nv_ma, nv_ten, nv_diachi, nv_sdt, nv_email, nv_gioitinh, nv_socccd, nv_tendangnhap, nv_matkhau, nv_avatar, nv_ngaytuyen,  nv_ngaysinh, cv_ma from nhan_vien where nv_ma = ".$nvid."";
+                $sql = "select nv_ma, nv_ten, nv_diachi, nv_sdt, nv_email, nv_gioitinh, nv_tendangnhap, nv_matkhau, nv_avatar, nv_ngaytuyen,  nv_ngaysinh, cv_ma from nhan_vien where nv_ma = ".$nvid."";
                 $result = $conn->query($sql);
                 if($result->num_rows > 0 ){
                     $row = mysqli_fetch_assoc($result);
@@ -335,15 +335,15 @@
                 <div class="col">
                   <div class="d-flex justify-content-center">
                     <div class="d-grid text-center">
-                      <span class="text-lg font-weight-bolder">22</span>
+                      <span class="text-lg font-weight-bolder">29</span>
                       <span class="text-sm opacity-8">Sản phẩm</span>
                     </div>
                     <div class="d-grid text-center mx-4">
-                      <span class="text-lg font-weight-bolder">10</span>
+                      <span class="text-lg font-weight-bolder">20</span>
                       <span class="text-sm opacity-8">Đơn hàng</span>
                     </div>
                     <div class="d-grid text-center">
-                      <span class="text-lg font-weight-bolder">89</span>
+                      <span class="text-lg font-weight-bolder">100</span>
                       <span class="text-sm opacity-8">Bình luận</span>
                     </div>
                   </div>

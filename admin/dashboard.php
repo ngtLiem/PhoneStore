@@ -154,7 +154,7 @@
                     ?>
                     <p class="text-sm mb-0 text-uppercase font-weight-bold">Doanh thu tháng <?php echo $thang ."/". $nam ?></p>
                     <h4 class="font-weight-bolder">
-                      <?php echo number_format($tongdoanhthu); ?> VNĐ
+                      <?php echo number_format($tongdoanhthu); ?>VNĐ
                     </h5>
                     <?php
                       if($dt_thangtruoc<$tongdoanhthu){
@@ -535,7 +535,7 @@
                       }
                     ?>
                     <div class="row">
-                      <div class="col-10">
+                      <div class="col-8">
                         <select class="form-control form-control-md" name="year" id="year">
                           <option value="" selected disabled hidden><?php echo $year; ?></option>
                           <option value="2022">2022</option>
@@ -600,13 +600,13 @@
                   .carousel-caption {
                     z-index: 1;
                   }
-
+/* slider quản trị */
                 </style>
                 <!-- Top1 -->
                 <div class="carousel-item h-100 active" style="background-image: url('../assets/img/c1.jpg'); background-size: cover;">
                   <div class="carousel-caption d-none d-md-block bottom-0 text-start start-0 ms-4">
-                      <h4 class="text-white">"Aquatic elegance for your home!" </h4> 
-                    <h5 class="text-white"> A simple, elegant way to describe ornamental fish.</h5>
+                      <h4 class="text-white">"My phone is an essential part of my life!" </h4> 
+                    <h5 class="text-white"> The phone is where many people's memories, contacts, and work are stored. </h5>
                   </div>
                 </div>
                 <!-- Top2 -->
