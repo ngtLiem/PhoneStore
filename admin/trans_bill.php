@@ -1,17 +1,4 @@
-<!--
-=========================================================
-* Argon Dashboard 2 - v2.0.4
-=========================================================
 
-* Product Page: https://www.creative-tim.com/product/argon-dashboard
-* Copyright 2022 Creative Tim (https://www.creative-tim.com)
-* Licensed under MIT (https://www.creative-tim.com/license)
-* Coded by Creative Tim
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
--->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -25,7 +12,7 @@
   <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
   <link rel="icon" type="image/png" href="../assets/img/favicon.png">
   <title>
-    Nhà phân phối sản phẩm
+    Đơn vận chuyển
   </title>
   <!--     Fonts and icons     -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
@@ -46,7 +33,7 @@
   </div>
   
   <?php
-    $active = 'nh'; 
+    $active = 'dvc'; 
     require 'aside.php';
   ?>
 
@@ -57,9 +44,9 @@
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
             <li class="breadcrumb-item text-sm"><a class="opacity-5 text-white" href="javascript:;">Trang</a></li>
-            <li class="breadcrumb-item text-sm text-white active" aria-current="page">Nhà phân phối</li>
+            <li class="breadcrumb-item text-sm text-white active" aria-current="page">Đơn vận chuyển</li>
           </ol>
-          <h6 class="font-weight-bolder text-white mb-0">Nhà phân phối</h6>
+          <h6 class="font-weight-bolder text-white mb-0">Đơn vận chuyển</h6>
         </nav>
         <!-- Đoạn này -->
         <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
@@ -112,11 +99,11 @@
                 <div class="card-header pb-0 p-3">
                   <div class="row">
                     <div class="col-6 d-flex align-items-center">
-                      <h6 class="mb-0">Danh sách nhà phân phối</h6>
+                      <h6 class="mb-0">Danh sách đơn vận chuyển</h6>
                     </div>
                     <div class="col-6 text-end">
                       <?php
-                        $sql = "select * from nha_phan_phoi";
+                        $sql = "select * from don_van_chuyen";
                       ?>
                     </div>
                   </div>
@@ -127,14 +114,13 @@
                         <table class="table align-items-center mb-0">
                           <thead>
                             <tr class="col-12">
-                              <th class="col-1 text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Mã số</th>
-                              <th class="col-4 text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Tên</th>                              
-                              <!-- <th class="col-4 text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Địa chỉ</th>   -->
-                              <!-- <th class="col-4 text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Số điện thoại</th> -->
-                              <!-- <th class="col-4 text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Email</th>   -->
-                              <!-- <th class="col-4 text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Website</th>   -->
-                              <th class="col-6 text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Mô tả</th>  
-                              <th class="col-1 text-secondary opacity-7"></th>
+                              <th class="col-1 text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Mã đơn</th>
+                              <th class="col-2 text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Tên Cty VC</th>                              
+                              <th class="col-1 text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Đến</th>
+                              <th class="col-2 text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Ngày đi</th> 
+                              <th class="col-2 text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Ngày đến</th>   
+                              <th class="col-2 text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Trạng thái</th>   
+                              <th class="col-2 text-secondary opacity-7"></th>
 
                             </tr>
                           </thead>
@@ -151,45 +137,86 @@
                                   <tr class="height-100">
                                     <td class="align-middle text-center" >
                                       <!-- ma dt -->
-                                      <?php echo $row["NPP_MASO"] ?>
+                                      <?php echo $row["DVC_MA"] ?>
                                     </td>
 
                                     <td class="align-middle text-center">
                                       <!-- ten dt -->
-                                      <?php echo $row["NPP_TEN"] ?>
+                                      <?php 
+                                        $sql_nvc = "select NVC_TEN from NHA_VAN_CHUYEN where NVC_MA = '".$row["NVC_MA"]."'";
+                                        $result_nvc = $conn->query($sql_nvc);
+                                        if ($result_nvc->num_rows > 0) {
+                                            $result_nvc = $conn->query($sql_nvc);
+                                            $row_nvc = mysqli_fetch_assoc($result_nvc);
+                                            echo $row_nvc["NVC_TEN"];
+                                        }
+                                      ?>
                                     </td>
 
-                                    <!-- <td class="align-middle text-center">
-                                      <!-- ten dt -->
-                                      <?php // echo $row["NPP_DIACHI"] ?>
-                                    <!-- </td> -->
-
-                                    <!-- <td class="align-middle text-center"> -->
-                                      <!-- ten dt -->
-                                      <?php // echo $row["NPP_SDT"] ?>
-                                    <!-- </td> -->
-
-                                    <!-- <td class="align-middle text-center"> -->
-                                      <!-- ten dt -->
-                                      <?php //echo $row["NPP_EMAIL"] ?>
-                                    <!-- </td> -->
-
-                                    <!-- <td class="align-middle text-center"> -->
-                                      <!-- ten dt -->
-                                      <?php // echo $row["NPP_WEBSITE"] ?>
-                                    <!-- </td> -->
+                                    <td class="align-middle text-center">
+                                      <!-- dia diem -->
+                                      <?php echo $row["DVC_DIACHI"] ?>
+                                    </td>
 
                                     <td class="align-middle text-center">
-                                      <!-- mota dt -->
-                                      <?php echo $row["NPP_MOTA"] ?>
+                                      <!-- tg di -->
+                                      <?php echo date('d/m/Y', strtotime($row["DVC_TGBATDAU"])) ?>
+                                    </td>
+
+                                    <td class="align-middle text-center">
+                                      <!-- tg den -->
+                                      <?php echo date('d/m/Y', strtotime($row["DVC_TGHOANTHANH"])) ?>
                                     </td>
                                     
                                     <td class="align-middle text-center">
+                                        <?php
+                                            $style="";
+                                            $stt="";
+                                            $currentDate = date('Y-m-d'); // Lấy ngày hiện tại
+                                            $startDate = $row["DVC_TGBATDAU"];
+                                            $finishDate = $row["DVC_TGHOANTHANH"];
+                                            if (strtotime($currentDate) < strtotime($startDate)) {
+                                                $stt="Chưa bắt đầu";
+                                                $style = "btn-primary";
+                                            } elseif((strtotime($currentDate) >= strtotime($startDate)) && (strtotime($currentDate) <= strtotime($finishDate))) {
+                                                $stt="Đang vận chuyển";
+                                                $style = "btn-warning";
+                                            } else {
+                                                $stt="Đã hoàn thành";
+                                                $style = "btn-success";
+                                            }
+                                        ?>
+                                        <button class="btn text-xs font-weight-bold mb-0 <?php echo $style; ?>"><?php echo $stt ?></button>
+                                   </td>
+
+                                    <td class="align-middle text-center">
                                       <div class="mt-3 d-flex col-sm-12">
-                                        <button data-id="<?php echo $row["NPP_MASO"];?>" data-name="<?php echo $row["NPP_TEN"];?>" data-des="<?php echo $row["NPP_MOTA"];?>" class="edit-btn btn btn-link text-primary font-weight-bold text-sm">
+                                        <?php
+                                          if ($stt=="Chưa bắt đầu"){
+                                            $dp = "";
+                                          } else {
+                                            $dp = "disabled";
+                                          }
+                                        ?>
+                                        <button data-id=<?php echo $row["DVC_MA"] ?>
+                                                data-nvcid=<?php echo $row["NVC_MA"] ?>
+                                                data-nvc="<?php echo $row_nvc["NVC_TEN"]?>"
+                                                data-des="<?php echo $row["DVC_DIACHI"] ?>"
+                                                data-start="<?php echo $row["DVC_TGBATDAU"] ?>"
+                                                data-finish="<?php echo $row["DVC_TGHOANTHANH"] ?>"
+                                                <?php echo $dp ?> class="edit-btn btn btn-link text-primary font-weight-bold text-sm">
                                           Sửa
                                         </button>
-                                      
+                                        <form action="detail_trans_bill.php" method="post">
+                                          <input type="hidden" name="dvcid" value="<?php echo $row["DVC_MA"] ?>">
+                                          <input type="hidden" name="nvc" value="<?php echo $row_nvc["NVC_TEN"]?>">
+                                          <input type="hidden" name="des" value="<?php echo $row["DVC_DIACHI"]?>">
+                                          <input type="hidden" name="start" value="<?php echo $row["DVC_TGBATDAU"]?>">
+                                          <input type="hidden" name="finish" value="<?php echo $row["DVC_TGHOANTHANH"]?>">
+                                          <button type="submit" class="view-btn btn btn-link text-warning font-weight-bold text-sm">
+                                            Chi tiết
+                                          </button>
+                                        </form>
                                       </div>
                                     </td>
                                   </tr>
@@ -211,30 +238,56 @@
           <div class="card">
             <div class="card-header pb-0 p-3">
               <div class="row">
-                <div class="col-7 d-flex align-items-center">
-                  <h6 class="mb-0">Thêm nhà phân phối mới</h6>
+                <div class="col-12 d-flex align-items-center">
+                  <h6 class="mb-0">Thêm ĐVC mới</h6>
                 </div>
-                <div class="col-2 text-center"></div>
-                <div class="col-3 text-center"></div>
               </div>
             </div>
             <div class="card-body p-3 pb-0">
-            <form action="add_source.php" method="post">
+            <form action="add_transbill.php" method="post">
               <div class="row">
                 <div class="col-12 mt-4">
-                  Tên nhà phân phối:
-                  <input required type="text" name="ten" class="form-control form-control-lg mt-1" placeholder="Tên đối tác">
+                  Tên công ty VC:
+                  <select name="ctvc" class="form form-control form-control-lg" id="city" aria-label=".form-select-sm">
+                    <option value="" selected hidden disabled>- Tên NVC -
+                    <?php
+                        $sql_nvc = "select * from NHA_VAN_CHUYEN";
+                        $rs_nvc = $conn->query($sql_nvc);
+                        if ($rs_nvc->num_rows > 0) {
+                            $rs_nvc = $conn->query($sql_nvc);
+                            $rsnvc_all = $rs_nvc -> fetch_all(MYSQLI_ASSOC);
+                            foreach ($rsnvc_all as $r_nvc) {
+                            ?>
+                                <option value=<?php echo $r_nvc["NVC_MA"] ?>><?php echo $r_nvc["NVC_TEN"] ?>
+                            <?php
+                            }
+                        }
+                    ?>          
+                  </select>
                 </div>
               </div>
               <div class="row">
                 <div class="col-12 mt-3">
-                  Mô tả nhà phân phối:
-                  <textarea required id="myTextarea" name="mota" class="form-control form-control-md mt-1">Mô tả đối tác</textarea>
+                  Giao đến:
+                  <input required name="giaoden" class="form form-control form-control-lg" list="browsers" placeholder="- Tỉnh/Thành phố -" >
+                  <?php require 'datalist_provine.php' ?>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-12 mt-3">
+                  Ngày bắt đầu:
+                  <input required class="form form-control form-control-lg" type="date" name="start_date" id="">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-12 mt-3">
+                  Ngày hoàn thành:
+                  <input required class="form form-control form-control-lg" type="date" name="finish_date" id="">
                 </div>
               </div>
               <div class="row">
                 <div class="col-12 text-center mt-4">
-                    <button type="submit" class="btn btn-primary mt-2">Thêm đối tác</button>
+                    <button type="submit" class="btn btn-primary mt-2">Thêm ĐVC</button>
                   </div>
                 </div>
               </div>
@@ -259,7 +312,7 @@
 
     .my-box {
       width: 30%;
-      height: 42%;
+      height: auto;
       background-color: #fff;
       border-radius: 10px;
       position: absolute;
@@ -272,22 +325,32 @@
   </style>
   <div class="overlay" id="overlay">
     <div class="my-box">
-      <h5 class="ms-3 mt-3 text-primary">Cập nhật thông tin đối tác</h5>
+      <h5 class="ms-3 mt-3 text-primary">Cập nhật thông tin đơn vận chuyển</h5>
       <div class="row">
         <div class="col-12">
-          <form action="update_pdsource.php" method="post">
+          <form action="update_transbill.php" method="post" enctype=multipart/form-data>
             <div class="row">
               <div class="col-12">
                 <input type="hidden" name="temp_id" id="temp_id">
-                <div class="mb-3 mt-4 px-3 name">
+                <div class="mb-3 mt-4 px-3 nvc">
                   
                 </div>
               </div>
               <div class="col-12">
+                <?php require 'datalist_provine.php' ?>
                   <div class="mb-3 mt-4 px-3 des">
                     
                   </div>
-                </div>
+              </div>
+              <div class="col-12">
+                  <div class="mb-3 mt-4 px-3 start">
+                    
+                  </div>
+              </div>
+              <div class="col-12">
+                  <div class="mb-3 mt-4 px-3 finish">
+                    
+                  </div>
               </div>
               <div class="row">
                 <div class="col-12 d-flex justify-content-center align-items-center" >
@@ -317,8 +380,11 @@
     function showProductDetails(event) {
       // Lấy ID của sản phẩm được click
       const id = event.target.getAttribute('data-id');
-      const name = event.target.getAttribute('data-name');
+      const nvcid = event.target.getAttribute('data-nvcid');
+      const nvc = event.target.getAttribute('data-nvc');
       const des = event.target.getAttribute('data-des');
+      const start = event.target.getAttribute('data-start');
+      const finish = event.target.getAttribute('data-finish');
       
       
       document.getElementById("temp_id").value = id;
@@ -328,10 +394,14 @@
       overlay.style.display = 'block';
 
       // Hiển thị thông tin chi tiết của sản phẩm
-      const productName = document.querySelector('.name');
-      productName.innerHTML = 'Tên đối tác <input required value="' + name + '" type="text" name="name" class="form-control form-control-lg mt-3">';
-      const productImg = document.querySelector('.des');
-      productImg.innerHTML = 'Mô tả <textarea required id="myTextarea" name="des" class="form-control form-control-md mt-1">'+des+'</textarea>';
+      const nvct = document.querySelector('.nvc');
+      nvct.innerHTML = 'Tên Cty vận chuyển <input class="form-control form-control-lg mt-1" disabled value = "'+nvc+'" />'
+      const dest = document.querySelector('.des');
+      dest.innerHTML = 'Vận chuyển đến <input required name="giaoden" class="form form-control form-control-lg" list="browsers" value="'+des+'" >'                    
+      const startt = document.querySelector('.start');
+      startt.innerHTML = 'Ngày đi <input required class="form form-control form-control-lg" type="date" name="start_date" id="" value="'+start+'">'
+      const finisht = document.querySelector('.finish');
+      finisht.innerHTML = 'Ngày đến <input required class="form form-control form-control-lg" type="date" name="finish_date" id="" value="'+finish+'">'
       
     }
 

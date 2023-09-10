@@ -165,7 +165,8 @@
                         </p>
                         <?php
                       } else {
-                        $perc = round(($tongdoanhthu / $dt_thangtruoc)*100, 2);
+                        $dt = ($tongdoanhthu / $dt_thangtruoc)*100;
+                        $perc = round($dt, 2);
                         ?>                        
                         <p class="mb-0">
                           <span class="text-danger text-sm font-weight-bolder">-<?php echo $perc ?>% </span>so với tháng trước

@@ -15,8 +15,6 @@
 		$sql .= ", HD_LIDOHUY = '{$reason}'";
 	};
 	
-    
-
 
 	if ($status!=1){
 		$sql .= ", NV_MA = {$nvid}";

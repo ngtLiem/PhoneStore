@@ -134,7 +134,11 @@
                       if(isset($_GET["timkiem"])){
                         $search = $_GET["timkiem"];
                         if ($search != null) {
-                          $sql = "SELECT * FROM khach_hang WHERE kh_hoten LIKE '%".$search."%'";
+                          $sql = "SELECT * FROM khach_hang WHERE kh_ten LIKE '%".$search."%'";
+                        // } else {
+                        //   $message = "Không có tên khách hàng bạn vừa nhập, vui lòng nhập lại.";
+                        //   echo "<script type='text/javascript'>alert('$message');</script>";
+                        //   header('Refresh: 0;url=custommer.php');
                         }
                       }
                     ?>
@@ -146,7 +150,7 @@
                           <thead>
                             <tr>
                               <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Khách hàng</th>
-                              <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">địa chỉ</th>
+                              <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Địa chỉ</th>
                               <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">SĐT</th>
                               <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Email</th>
                               <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Ngày đăng ký</th>
