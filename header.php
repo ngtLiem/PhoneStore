@@ -3,7 +3,7 @@
             <!-- logo -->
             <div class="col-lg-3 col-md-3 col-sm-3 col-xs-8">
                 <div class="logo">
-                    <a href="index.html"><img src="assets/img/logo.png" alt="" style="width: 50%; height: 50px; "> </a>
+                    <a href="index.php"><img src="assets/img/logo.png" alt="" style="width: 50%; height: 50px; "> </a>
                 </div>
             </div>
             <!-- /.logo -->
