@@ -21,9 +21,9 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
-  <link rel="icon" type="image/png" href="../assets/img/favicon.png">
+  <link rel="icon" type="image/png" href="../assets/img/logo.png">
   <title>
-    Thêm sản phẩm
+    Sản phẩm
   </title>
   <!--     Fonts and icons     -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
@@ -38,11 +38,10 @@
 </head>
 
 <body class="g-sidenav-show   bg-gray-100">
-<!-- Nguyên đoạn này -->
-<div class="position-absolute w-100 min-height-400 top-0" style="background-image: url('https://www.apple.com/lae/iphone-14-pro/images/key-features/hero/hero__cj6i78tzkp8i_large.jpg'); background-position-y: 50%;">
-    <!-- <span class="mask bg-primary opacity-5"></span> -->
+  <!-- Nguyên đoạn này -->
+  <div class="position-absolute w-100 min-height-400 top-0" style="background-image: url('https://media-cdn-v2.laodong.vn/storage/newsportal/2022/9/21/1095693/Screen-Shot-2022-09-.jpg?w=660'); background-position-y: 100%;">
+    <span class="mask bg-primary opacity-5"></span>
   </div>
-  
   <?php
     $active = 'sp'; 
     require 'aside.php';

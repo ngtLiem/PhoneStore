@@ -38,8 +38,8 @@
 </head>
 
 <body class="g-sidenav-show bg-gray-100">
-<div class="position-absolute w-100 min-height-400 top-0" style="background-image: url('https://www.apple.com/lae/iphone-14-pro/images/key-features/hero/hero__cj6i78tzkp8i_large.jpg'); background-position-y: 50%;">
-    <!-- <span class="mask bg-primary opacity-5"></span> -->
+  <div class="position-absolute w-100 min-height-400 top-0" style="background-image: url('https://media-cdn-v2.laodong.vn/storage/newsportal/2022/9/21/1095693/Screen-Shot-2022-09-.jpg?w=660'); background-position-y: 100%;">
+    <span class="mask bg-primary opacity-5"></span>
   </div>
   
   <?php
