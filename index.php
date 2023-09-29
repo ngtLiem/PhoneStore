@@ -91,13 +91,14 @@
                 <div class="add-two-by-one-column">
                     <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
                         <div class="tow-column-add zoom-img">
-                            <a href="#"><img src="img/product/shope-add1.jpg" alt="shope-add" /></a>
+                            <a href="#"><img src="assets/img/slides/slide7.png" alt="shope-add" /></a>
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                         <div class="one-column-add zoom-img">
-                            <a href="#"><img src="img/product/shope-add2.jpg" alt="shope-add" /></a>
+                            <a href="#"><img src="assets/img/slides/ban1.png" alt="shope-add" /></a>
                         </div>
+												
                     </div>
                 </div>
                 <!-- ADD-TWO-BY-ONE-COLUMN END -->
@@ -110,280 +111,23 @@
 						<?php include "cate_products.php" ?>
 
 
-            <div class="row">
-                <!-- BESTSELLER-PRODUCTS-AREA START -->
-                <div class="bestseller-products-area">
-                    <div class="center-title-area">
-                        <h2 class="center-title">bestseller</h2>
-                    </div>
-                    <div class="col-xs-12">
-                        <div class="row">
-                            <!-- BESTSELLER-CAROUSEL START -->
-                            <div class="bestseller-carousel">
-                                <!-- BESTSELLER-SINGLE-ITEM START -->
-                                <div class="item">
-                                    <div class="single-product-item">
-                                        <div class="product-image">
-                                            <a href="#"><img src="img/product/sale/1.jpg" alt="product-image" /></a>
-                                            <a href="#" class="new-mark-box">sale!</a>
-                                            <div class="overlay-content">
-                                                <ul>
-                                                    <li><a href="#" title="Quick view"><i class="fa fa-search"></i></a>
-                                                    </li>
-                                                    <li><a href="#" title="Quick view"><i
-                                                                class="fa fa-shopping-cart"></i></a></li>
-                                                    <li><a href="#" title="Quick view"><i class="fa fa-retweet"></i></a>
-                                                    </li>
-                                                    <li><a href="#" title="Quick view"><i class="fa fa-heart-o"></i></a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <div class="product-info">
-                                            <div class="customar-comments-box">
-                                                <div class="rating-box">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                </div>
-                                                <div class="review-box">
-                                                    <span>1 Review (s)</span>
-                                                </div>
-                                            </div>
-                                            <a href="single-product.html">Blouse</a>
-                                            <div class="price-box">
-                                                <span class="price">$22.95</span>
-                                                <span class="old-price">$27.00</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- BESTSELLER-SINGLE-ITEM END -->
-                                <!-- BESTSELLER-SINGLE-ITEM START -->
-                                <div class="item">
-                                    <div class="single-product-item">
-                                        <div class="product-image">
-                                            <a href="#"><img src="img/product/sale/3.jpg" alt="product-image" /></a>
-                                            <a href="#" class="new-mark-box">new</a>
-                                            <div class="overlay-content">
-                                                <ul>
-                                                    <li><a href="#" title="Quick view"><i class="fa fa-search"></i></a>
-                                                    </li>
-                                                    <li><a href="#" title="Quick view"><i
-                                                                class="fa fa-shopping-cart"></i></a></li>
-                                                    <li><a href="#" title="Quick view"><i class="fa fa-retweet"></i></a>
-                                                    </li>
-                                                    <li><a href="#" title="Quick view"><i class="fa fa-heart-o"></i></a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <div class="product-info">
-                                            <div class="customar-comments-box">
-                                                <div class="rating-box">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star-half-empty"></i>
-                                                </div>
-                                                <div class="review-box">
-                                                    <span>1 Review (s)</span>
-                                                </div>
-                                            </div>
-                                            <a href="single-product.html">Faded Short Sleeves T-shirt</a>
-                                            <div class="price-box">
-                                                <span class="price">$16.51</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- BESTSELLER-SINGLE-ITEM END -->
-                                <!-- BESTSELLER-SINGLE-ITEM START -->
-                                <div class="item">
-                                    <div class="single-product-item">
-                                        <div class="product-image">
-                                            <a href="#"><img src="img/product/sale/9.jpg" alt="product-image" /></a>
-                                            <a href="#" class="new-mark-box">sale!</a>
-                                            <div class="overlay-content">
-                                                <ul>
-                                                    <li><a href="#" title="Quick view"><i class="fa fa-search"></i></a>
-                                                    </li>
-                                                    <li><a href="#" title="Quick view"><i
-                                                                class="fa fa-shopping-cart"></i></a></li>
-                                                    <li><a href="#" title="Quick view"><i class="fa fa-retweet"></i></a>
-                                                    </li>
-                                                    <li><a href="#" title="Quick view"><i class="fa fa-heart-o"></i></a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <div class="product-info">
-                                            <div class="customar-comments-box">
-                                                <div class="rating-box">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star-half-empty"></i>
-                                                    <i class="fa fa-star-half-empty"></i>
-                                                </div>
-                                                <div class="review-box">
-                                                    <span>1 Review (s)</span>
-                                                </div>
-                                            </div>
-                                            <a href="single-product.html">Printed Dress</a>
-                                            <div class="price-box">
-                                                <span class="price">$23.40</span>
-                                                <span class="old-price">$26.00</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- BESTSELLER-SINGLE-ITEM END -->
-                                <!-- BESTSELLER-SINGLE-ITEM START -->
-                                <div class="item">
-                                    <div class="single-product-item">
-                                        <div class="product-image">
-                                            <a href="#"><img src="img/product/sale/13.jpg" alt="product-image" /></a>
-                                            <a href="#" class="new-mark-box">new</a>
-                                            <div class="overlay-content">
-                                                <ul>
-                                                    <li><a href="#" title="Quick view"><i class="fa fa-search"></i></a>
-                                                    </li>
-                                                    <li><a href="#" title="Quick view"><i
-                                                                class="fa fa-shopping-cart"></i></a></li>
-                                                    <li><a href="#" title="Quick view"><i class="fa fa-retweet"></i></a>
-                                                    </li>
-                                                    <li><a href="#" title="Quick view"><i class="fa fa-heart-o"></i></a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <div class="product-info">
-                                            <div class="customar-comments-box">
-                                                <div class="rating-box">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                </div>
-                                                <div class="review-box">
-                                                    <span>1 Review (s)</span>
-                                                </div>
-                                            </div>
-                                            <a href="single-product.html">Printed Summer Dress</a>
-                                            <div class="price-box">
-                                                <span class="price">$30.50</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- BESTSELLER-SINGLE-ITEM END -->
-                                <!-- BESTSELLER-SINGLE-ITEM START -->
-                                <div class="item">
-                                    <div class="single-product-item">
-                                        <div class="product-image">
-                                            <a href="#"><img src="img/product/sale/3.jpg" alt="product-image" /></a>
-                                            <a href="#" class="new-mark-box">new</a>
-                                            <div class="overlay-content">
-                                                <ul>
-                                                    <li><a href="#" title="Quick view"><i class="fa fa-search"></i></a>
-                                                    </li>
-                                                    <li><a href="#" title="Quick view"><i
-                                                                class="fa fa-shopping-cart"></i></a></li>
-                                                    <li><a href="#" title="Quick view"><i class="fa fa-retweet"></i></a>
-                                                    </li>
-                                                    <li><a href="#" title="Quick view"><i class="fa fa-heart-o"></i></a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <div class="product-info">
-                                            <div class="customar-comments-box">
-                                                <div class="rating-box">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star-half-empty"></i>
-                                                </div>
-                                                <div class="review-box">
-                                                    <span>1 Review (s)</span>
-                                                </div>
-                                            </div>
-                                            <a href="single-product.html">Faded Short Sleeves T-shirt</a>
-                                            <div class="price-box">
-                                                <span class="price">$16.51</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- BESTSELLER-SINGLE-ITEM END -->
-                                <!-- BESTSELLER-SINGLE-ITEM START -->
-                                <div class="item">
-                                    <div class="single-product-item">
-                                        <div class="product-image">
-                                            <a href="#"><img src="img/product/sale/7.jpg" alt="product-image" /></a>
-                                            <a href="#" class="new-mark-box">new</a>
-                                            <div class="overlay-content">
-                                                <ul>
-                                                    <li><a href="#" title="Quick view"><i class="fa fa-search"></i></a>
-                                                    </li>
-                                                    <li><a href="#" title="Quick view"><i
-                                                                class="fa fa-shopping-cart"></i></a></li>
-                                                    <li><a href="#" title="Quick view"><i class="fa fa-retweet"></i></a>
-                                                    </li>
-                                                    <li><a href="#" title="Quick view"><i class="fa fa-heart-o"></i></a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <div class="product-info">
-                                            <div class="customar-comments-box">
-                                                <div class="rating-box">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star-half-empty"></i>
-                                                    <i class="fa fa-star-half-empty"></i>
-                                                </div>
-                                                <div class="review-box">
-                                                    <span>1 Review (s)</span>
-                                                </div>
-                                            </div>
-                                            <a href="single-product.html">Printed Chiffon Dress</a>
-                                            <div class="price-box">
-                                                <span class="price">$16.40</span>
-                                                <span class="old-price">$20.50</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- BESTSELLER-SINGLE-ITEM END -->
-                            </div>
-                            <!-- BESTSELLER-CAROUSEL END -->
-                        </div>
-                    </div>
-                </div>
-                <!-- BESTSELLER-PRODUCTS-AREA END -->
-            </div>
+					<?php include "selling_products.php" ?>
+
+					<!-- Images shop now -->
             <div class="row">
                 <!-- IMAGE-ADD-AREA START -->
                 <div class="image-add-area">
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                         <!-- ONEHALF-ADD START -->
                         <div class="onehalf-add-shope zoom-img">
-                            <a href="#"><img src="img/product/one-helf1.jpg" alt="shope-add" /></a>
+                            <a href="#"><img src="assets/img/slides/shop_now.png" alt="shope-add" /></a>
                         </div>
                         <!-- ONEHALF-ADD END -->
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                         <!-- ONEHALF-ADD START -->
                         <div class="onehalf-add-shope zoom-img">
-                            <a href="#"><img src="img/product/one-helf2.jpg" alt="shope-add" /></a>
+                            <a href="#"><img src="assets/img/slides/shop_now2.png" alt="shope-add" /></a>
                         </div>
                         <!-- ONEHALF-ADD END -->
                     </div>
