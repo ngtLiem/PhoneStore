@@ -189,7 +189,7 @@
 						<div class="mainmenu">
 							<nav>
 								<ul class="list-inline mega-menu">
-									<li><a href="index.html">Home</a></li>
+									<li><a href="index.php">Home</a></li>
 									<li>
 										<a href="category.php">Điện thoại</a>
 										<!-- DRODOWN-MEGA-MENU START -->
