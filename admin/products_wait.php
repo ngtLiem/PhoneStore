@@ -217,11 +217,11 @@
                                         from gio_hang gh 
                                         join hoa_don hd on gh.GH_MA=hd.GH_MA
                                         join khach_hang kh on kh.KH_MA=gh.KH_MA
-                                        where hd.HD_STT=1;";
+                                        where hd.HD_STT=1";
 
                             //   $sql_kh = "SELECT * FROM khach_hang WHERE KH_MA = {$row["KH_MA"]}";
                               $result1 = $conn->query($sql_kh);
-                              if ($result1->num_rows > 0) {
+                              if($result1->num_rows > 0) {
                               $result1 = $conn->query($sql_kh);
                               $result_all1 = $result1 -> fetch_all(MYSQLI_ASSOC);
                               foreach ($result_all1 as $row1) {

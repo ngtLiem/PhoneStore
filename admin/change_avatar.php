@@ -149,7 +149,7 @@
               <?php
 
                 $nvid = $_SESSION["nvid"];
-                $tkvaitro = $_SESSION["role"];
+                $tkvaitro = $_SESSION["cv"];
                 $tkavt = $_SESSION["avt"];
                 $nvhoten = $_SESSION["name"];
                 if($tkvaitro == '2'){

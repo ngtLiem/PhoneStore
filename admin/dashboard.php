@@ -645,41 +645,32 @@
               </div>
             </div>
             <?php
-              $sql_ck="select count(*) as tongsp
+              $sql_android="select count(ct.cthd_slb) as tongspandroid
                       from chi_tiet_hd ct
                       inner join san_pham sp on sp.SP_MA = ct.SP_MA
                       inner join loai_sp l on l.LSP_MA = sp.LSP_MA
-                      where l.LSP_MA=1;";
-              $rs = $conn->query($sql_ck);
+                      where l.LSP_MA=1";
+              $rs = $conn->query($sql_android);
               $row = mysqli_fetch_assoc($rs);
-              $tongsp_ck = $row["tongsp"];
+              $tongsp_android = $row["tongspandroid"];
 
-              $sql_ta="select count(*) as tongsp
+              $sql_iphone="select count(ct.cthd_slb) as tongspip
                         from chi_tiet_hd ct
                         inner join san_pham sp on sp.SP_MA = ct.SP_MA
                         inner join loai_sp l on l.LSP_MA = sp.LSP_MA
-                        where l.LSP_MA=2;";
-              $rs = $conn->query($sql_ta);
+                        where l.LSP_MA=2";
+              $rs = $conn->query($sql_iphone);
               $row = mysqli_fetch_assoc($rs);
-              $tongsp_ta = $row["tongsp"];
+              $tongsp_iphone = $row["tongspip"];
 
-              $sql_tt="select count(*) as tongsp
+              $sql_tt="select count(ct.cthd_slb) as tongsp
                         from chi_tiet_hd ct
                         inner join san_pham sp on sp.SP_MA = ct.SP_MA
                         inner join loai_sp l on l.LSP_MA = sp.LSP_MA
-                        where l.LSP_MA=3;";
+                        where l.LSP_MA=3";
               $rs = $conn->query($sql_tt);
               $row = mysqli_fetch_assoc($rs);
               $tongsp_tt = $row["tongsp"];
-
-              $sql_k="select count(*) as tongsp
-                        from chi_tiet_hd ct
-                        inner join san_pham sp on sp.SP_MA = ct.SP_MA
-                        inner join loai_sp l on l.LSP_MA = sp.LSP_MA
-                        where l.LSP_MA=4;";
-              $rs = $conn->query($sql_k);
-              $row = mysqli_fetch_assoc($rs);
-              $tongsp_k = $row["tongsp"];
 
              $sql = "SELECT SUM(SAN_PHAM.SP_GIA * CHI_TIET_HD.CTHD_SLB) AS TONG_TIEN
                                     FROM SAN_PHAM
@@ -691,16 +682,16 @@
               
               $row1 = $result->fetch_assoc();
               if ($row1) {
-                  $tt_ck = $row1['TONG_TIEN'];
+                  $tt_android = $row1['TONG_TIEN'];
               } else {
-                  $tt_ck = 0;
+                  $tt_android = 0;
               }
 
               $row2 = $result->fetch_assoc();
               if ($row2) {
-                  $tt_ta = $row2['TONG_TIEN'];
+                  $tt_iphone = $row2['TONG_TIEN'];
               } else {
-                  $tt_ta = 0;
+                  $tt_iphone = 0;
               }
 
               $row3 = $result->fetch_assoc();
@@ -710,12 +701,7 @@
                   $tt_tt = 0;
               }
 
-              $row4 = $result->fetch_assoc();
-              if ($row4) {
-                  $tt_k = $row4['TONG_TIEN'];
-              } else {
-                  $tt_k = 0;
-              }
+              
 
 
             ?>
@@ -737,13 +723,13 @@
                     <td>
                       <div class="text-center">
                         <p class="text-xs font-weight-bold mb-0">Đã bán:</p>
-                        <h6 class="text-sm mb-0"><?php echo $tongsp_ck; ?></h6>
+                        <h6 class="text-sm mb-0"><?php echo $tongsp_android . " đơn" ;?></h6>
                       </div>
                     </td>
                     <td>
                       <div class="text-center">
                         <p class="text-xs font-weight-bold mb-0">Tổng thu:</p>
-                        <h6 class="text-sm mb-0"><?php echo number_format($tt_ck, 0) ; ?>đ</h6>
+                        <h6 class="text-sm mb-0"><?php echo number_format($tt_android, 0) ; ?>đ</h6>
                       </div>
                     </td>
                   </tr>
@@ -762,13 +748,13 @@
                     <td>
                       <div class="text-center">
                         <p class="text-xs font-weight-bold mb-0">Đã bán:</p>
-                        <h6 class="text-sm mb-0"><?php echo $tongsp_ta; ?></h6>
+                        <h6 class="text-sm mb-0"><?php echo $tongsp_iphone . " đơn" ; ?></h6>
                       </div>
                     </td>
                     <td>
                       <div class="text-center">
                         <p class="text-xs font-weight-bold mb-0">Tổng thu:</p>
-                        <h6 class="text-sm mb-0"><?php echo number_format($tt_ta, 0); ?>đ</h6>
+                        <h6 class="text-sm mb-0"><?php echo number_format($tt_iphone, 0); ?>đ</h6>
                       </div>
                     </td>
                   </tr>
@@ -787,7 +773,7 @@
                     <td>
                       <div class="text-center">
                         <p class="text-xs font-weight-bold mb-0">Đã bán:</p>
-                        <h6 class="text-sm mb-0"><?php echo $tongsp_tt; ?></h6>
+                        <h6 class="text-sm mb-0"><?php echo $tongsp_tt . " đơn" ; ?></h6>
                       </div>
                     </td>
                     <td>
@@ -809,8 +795,8 @@
                       from san_pham sp
                       join chi_tiet_hd ct on sp.sp_ma = ct.sp_ma
                       group by sp.sp_ma, sp.sp_ten
-                      order by so_hd desc
-                      limit 4;  ";
+                      order by so_ban desc
+                      limit 4";
 
               $result = $conn->query($sql);
               $row1 = $result->fetch_assoc();
