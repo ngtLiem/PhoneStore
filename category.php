@@ -52,7 +52,7 @@
         <link rel="stylesheet" href="css/main.css">
 		<!-- STYLE CSS 
 		============================================ -->
-        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="style.css">
 		<!-- RESPONSIVE CSS 
 		============================================ -->
         <link rel="stylesheet" href="css/responsive.css">
@@ -79,14 +79,15 @@
 			</div>
 
 			<div class="row">
-				<div id="main-content" class="col-md-9">
+				<div id="main-content" class="col-md-10">
 					<div class="row">
-						<div class="col-md-12">
+						<div class="col-md-10">
 							<div class="products">
 							<?php
 							   require 'connect.php';
 							   //lay san pham theo id
 							   $maloaisp = $_GET["maloaisp"];
+							   
 							   $result = mysqli_query($conn, 'select count(SP_MA) as total from san_pham where LSP_MA = '.$maloaisp);
 							   $row = mysqli_fetch_assoc($result);
 							   $total_records = $row['total'];		
@@ -171,7 +172,7 @@
 				</div>
 				<?php 
 	
-	include "sidebar.php"
+	// include "sidebar.php"
 	?>
 			</div>
 		</div>

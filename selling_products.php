@@ -12,11 +12,11 @@
 										<?php 
 											require 'connect.php';
 											$sql = "select sp.sp_ma as id, sp.sp_ten as ten, sp.sp_gia as gia, sp.SP_HINHANH as anh, sum(ct.cthd_slb) as so_ban, count(distinct ct.hd_stt) as so_hd
-                      from san_pham sp
-                      join chi_tiet_hd ct on sp.sp_ma = ct.sp_ma
-                      group by sp.sp_ma, sp.sp_ten
-                      order by so_hd desc
-                      limit 5;  ";
+                                from san_pham sp
+                                join chi_tiet_hd ct on sp.sp_ma = ct.sp_ma
+                                group by sp.sp_ma, sp.sp_ten
+                                order by so_ban desc
+                                limit 5;  ";            
 											$result = $conn->query($sql);
 											$row1 = $result->fetch_assoc();
 											$row2 = $result->fetch_assoc();

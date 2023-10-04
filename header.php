@@ -194,13 +194,13 @@
 										<a href="category.php">Điện thoại</a>
 										<!-- DRODOWN-MEGA-MENU START -->
 										<div class="drodown-mega-menu">
-											<div class="left-mega col-xs-4">
+											<div class="left-mega col-xs-0">
 												<div class="mega-menu-list">
 													<a class="mega-menu-title" href="category.php">Loại điện thoại</a>
 													<ul>
 													<?php
 														require 'connect.php';
-														$sql = "select LSP_MA, LSP_TEN from loai_sp";
+														$sql = "select LSP_MA as maloaisp, LSP_TEN from loai_sp";
 														$result = $conn->query($sql);
 														if($result->num_rows > 0){
 															$result = $conn->query($sql);
