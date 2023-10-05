@@ -142,10 +142,10 @@
 											
 											$row = mysqli_fetch_assoc($result);
 											$total_records = $row['total'];		
-											if($row['total'] === 0)
-											{
-											header('Location: khongcosanpham.php');
-											}					   
+											// if($row['total'] === 0)
+											// {
+											// header('Location: khongcosanpham.php');
+											// }					   
 											$offset =1;
 											// BƯỚC 3: TÌM LIMIT VÀ CURRENT_PAGE
 											$current_page = isset($_GET['page']) ? $_GET['page'] : 1;
@@ -171,11 +171,11 @@
 											 // output data of each row
 											 while ($row = mysqli_fetch_assoc($result)){
 													?>
-									<li class="gategory-product-list col-lg-3 col-md-4 col-sm-6 col-xs-12" >
+									<li class="gategory-product-list col-lg-3 col-md-5 col-sm-6 col-xs-12" style="height: 330px;" >
 										<div class="single-product-item">
 											<div class="product-image">
 											<a href="product.php?id=<?php echo $row["SP_MA"] ?>"><img src="assets/img/product_img/<?php echo $row["SP_HINHANH"]?>" alt="product-image" /></a> 
-											<a href="#" class="new-mark-box">new</a>
+											<!-- <a href="#" class="new-mark-box">new</a> -->
 												<div class="overlay-content">
 													<ul>
 														<li><a href="#" title="Quick view"><i class="fa fa-search"></i></a></li>
@@ -214,7 +214,7 @@
 						</div>
 						<!-- ALL GATEGORY-PRODUCT END -->
 
-
+  
 						<!-- Tính số trang và chuyển trang -->
 						<!-- PRODUCT-SHOOTING-RESULT START -->
 						<div class="product-shooting-result product-shooting-result-border">
