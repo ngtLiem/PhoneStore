@@ -191,7 +191,7 @@
 								<ul class="list-inline mega-menu">
 									<li><a href="index.php">Home</a></li>
 									<li>
-										<a href="category.php">Điện thoại</a>
+										<a href="products.php">Điện thoại</a>
 										<!-- DRODOWN-MEGA-MENU START -->
 										<div class="drodown-mega-menu">
 											<div class="left-mega col-xs-0">

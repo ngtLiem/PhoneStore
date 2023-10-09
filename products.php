@@ -18,7 +18,6 @@
 						<div class="bstore-breadcrumb">
 							<a href="index.html">Home</a>
 							<span><i class="fa fa-caret-right"></i></span>
-							
 							<span>Women</span>
 						</div>
 						<!-- BSTORE-BREADCRUMB END -->
@@ -137,9 +136,9 @@
 										<?php 
 											require 'connect.php';
 											//lay san pham theo id
-											$maloaisp = $_GET["maloaisp"];
 											
-											$result = mysqli_query($conn, 'select * from san_pham where LSP_MA = '.$maloaisp);
+											
+											$result = mysqli_query($conn, 'select * from san_pham');
 											 // output data of each row
 											 while ($row = mysqli_fetch_assoc($result)){
 													?>

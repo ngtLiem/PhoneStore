@@ -43,78 +43,99 @@
     </div>
   </div>
   <main class="main-content  mt-0">
-    <section>
-      <div class="page-header min-vh-100">
-        <div class="container">
-          <div class="row">
-            <div class="col-xl-4 col-lg-5 col-md-7 d-flex flex-column mx-lg-0 mx-auto">
-              <div class="card card-plain">
-                <div class="card-header pb-0 text-start">
-                  <h4 class="font-weight-bolder">Đăng nhập trang quản lý</h4>
-                  <p class="mb-0">Nhập username và password để đăng nhập</p>
+    <div class="page-header align-items-start min-vh-100" style="background-image: url('https://image.cnbcfm.com/api/v1/image/107251619-1686051547501-gettyimages-1258478229-porzycki-applewwd230605_npwsW.jpeg?v=1691112586&w=740&h=416&ffmt=webp&vtcrop=y');">
+      <span class="mask bg-gradient-dark opacity-6"></span>
+      <div class="container my-auto">
+        <div class="row">
+          <div class="col-lg-4 col-md-8 col-12 mx-auto">
+            <div class="card z-index-0 fadeIn3 fadeInBottom">
+              <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+                <div class="bg-gradient-info shadow-primary border-radius-lg py-3 pe-1">
+                  <h4 class="text-white font-weight-bolder text-center mt-2 mb-0">Đăng nhập trang quản trị</h4>
+                  <h3 class="text-outline-primary font-weight-bolder text-center text-uppercase">Bright Mobile</h3>
+                  <div class="row mt-3">
+                    <div class="col-2 text-center ms-auto">
+                      <a class="btn btn-link px-3" href="javascript:;">
+                        <i class="fa fa-facebook text-white text-lg"></i>
+                      </a>
+                    </div>
+                    <div class="col-2 text-center px-1">
+                      <a class="btn btn-link px-3" href="javascript:;">
+                        <i class="fa fa-github text-white text-lg"></i>
+                      </a>
+                    </div>
+                    <div class="col-2 text-center me-auto">
+                      <a class="btn btn-link px-3" href="javascript:;">
+                        <i class="fa fa-google text-white text-lg"></i>
+                      </a>
+                    </div>
+                  </div>
                 </div>
-                <div class="card-body">
-                  <form role="form" method="post" action="log.php">
-                    <div class="mb-3">
-                      <input required type="text" name="usname" class="form-control form-control-lg" placeholder="Username" aria-label="Username">
-                    </div>
-                    <div class="mb-3">
-                      <input required type="password" name="pass" class="form-control form-control-lg" placeholder="Password" aria-label="Password" id="passInput">
-                    </div>
-                    <div class="mb-3 d-flex justify-content-center">                      
-                      <button class="btn btn-link" type="button" id="showPasswordBtn">
-                        Hiện mật khẩu <i class="fa fa-eye" aria-hidden="true"></i>
-                      </button>
-                    </div>
-                    <!-- <div class="form-check form-switch">
-                      <input class="form-check-input" type="checkbox" id="rememberMe">
-                      <label class="form-check-label" for="rememberMe">Remember me</label>
-                    </div> -->
-                    <div class="text-center">
+              </div>
+              <div class="card-body">
+                <form role="form" class="text-start"  method="post" action="log.php">
+                  <div class="input-group input-group-outline my-3">
+                    <!-- <label class="form-label">Username</label> -->
+                    <input required type="text" name="usname" class="form-control form-control-lg" placeholder="Username" aria-label="Username">
+                  </div>
+                  <div class="input-group input-group-outline mb-3">
+                    <!-- <label class="form-label">Password</label> -->
+                    <input required type="password" name="pass" class="form-control form-control-lg" placeholder="Password" aria-label="Password" id="passInput">
+                  </div>
+                  <div class="form-check form-switch d-flex align-items-center mb-3">
+                    <input class="form-check-input" type="checkbox" id="rememberMe" checked>
+                    <label class="form-check-label mb-0 ms-3" for="rememberMe">Remember me</label>
+                  </div>
+                  <div class="text-center">
                       <button type="submit" class="btn btn-lg btn-primary btn-lg w-100 mt-n3 mb-0">Đăng nhập</button>
                     </div>
-                  </form>
-                  <div class="text-center">
-                    <p class="mt-3 text-xs text-secondary ">- Hoặc -</p>
-                  </div>
-                  <div class="text-center">
-                    <a href="../index.php" class="btn btn-lg btn-outline-primary text-primary btn-lg w-100 mt-0 mb-0">Quay lại trang bán hàng</a>
-                  </div>
-                </div>
-                <script>
-                  const passInput = document.getElementById('passInput');
-                  const showPasswordBtn = document.getElementById('showPasswordBtn');
-                  showPasswordBtn.addEventListener('click', () => {
-                      if (passInput.type === 'password') {
-                          passInput.type = 'text';
-                          showPasswordBtn.innerHTML = 'Ẩn mật khẩu <i class="fa fa-eye-slash" aria-hidden="true"></i>';
-                      } else {
-                          passInput.type = 'password';
-                          showPasswordBtn.innerHTML = 'Hiện mật khẩu <i class="fa fa-eye" aria-hidden="true"></i>';
-                      }
-                  });
-                </script>
-
-                <!-- <div class="card-footer text-center pt-0 px-lg-2 px-1">
-                  <p class="mb-4 text-sm mx-auto">
+									<p class="mt-4 text-sm text-center">
                     Don't have an account?
-                    <a href="javascript:;" class="text-primary text-gradient font-weight-bold">Sign up</a>
+                    <a href="../admin/sign-up.php" class="text-primary text-gradient font-weight-bold">Sign up</a>
                   </p>
-                </div> -->
-              </div>
-            </div>
-            <div class="col-6 d-lg-flex d-none h-100 my-auto pe-0 position-absolute top-0 end-0 text-center justify-content-center flex-column">
-              <div class="position-relative bg-gradient-primary h-100 m-3 px-7 border-radius-lg d-flex flex-column justify-content-center overflow-hidden" style="background-image: url('https://image.cnbcfm.com/api/v1/image/107251619-1686051547501-gettyimages-1258478229-porzycki-applewwd230605_npwsW.jpeg?v=1691112586&w=740&h=416&ffmt=webp&vtcrop=y');
-          background-size: cover;">
-                <span class="mask bg-gradient-primary opacity-6"></span>
-                <h4 class="mt-5 text-white font-weight-bolder position-relative">"2TL Smartphone Store"</h4>
-                <p class="text-white position-relative">Mô tả gì gì đó!!!!!!!!!!!</p>
+
+                  <p class="mt-4 text-sm text-center">
+                    <a href="../index.php" class="text-primary text-gradient font-weight-bold">Quay lại trang bán hàng</a>
+                  </p>
+                </form>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </section>
+      <footer class="footer position-absolute bottom-2 py-2 w-100">
+        <div class="container">
+          <div class="row align-items-center justify-content-lg-between">
+            <div class="col-12 col-md-6 my-auto">
+              <div class="copyright text-center text-sm text-white text-lg-start">
+                © <script>
+                  document.write(new Date().getFullYear())
+                </script>,
+                made with <i class="fa fa-heart" aria-hidden="true"></i> by
+                <a href="https://www.creative-tim.com" class="font-weight-bold text-white" target="_blank">Creative Tim</a>
+                for a better web.
+              </div>
+            </div>
+            <div class="col-12 col-md-6">
+              <ul class="nav nav-footer justify-content-center justify-content-lg-end">
+                <li class="nav-item">
+                  <a href="https://www.creative-tim.com" class="nav-link text-white" target="_blank">Creative Tim</a>
+                </li>
+                <li class="nav-item">
+                  <a href="https://www.creative-tim.com/presentation" class="nav-link text-white" target="_blank">About Us</a>
+                </li>
+                <li class="nav-item">
+                  <a href="https://www.creative-tim.com/blog" class="nav-link text-white" target="_blank">Blog</a>
+                </li>
+                <li class="nav-item">
+                  <a href="https://www.creative-tim.com/license" class="nav-link pe-0 text-white" target="_blank">License</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
   </main>
   <!--   Core JS Files   -->
   <script src="../assets/js/core/popper.min.js"></script>

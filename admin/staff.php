@@ -41,8 +41,8 @@
 </head>
 
 <body class="g-sidenav-show   bg-gray-100">
-<div class="position-absolute w-100 min-height-300 top-0" style="background-image: url('https://www.apple.com/lae/iphone-14-pro/images/key-features/hero/hero__cj6i78tzkp8i_large.jpg'); background-position-y: 50%;">
-    <!-- <span class="mask bg-primary opacity-6"></span> -->
+  <div class="position-absolute w-100 min-height-400 top-0" style="background-image: url('https://media-cdn-v2.laodong.vn/storage/newsportal/2022/9/21/1095693/Screen-Shot-2022-09-.jpg?w=660'); background-position-y: 100%;">
+    <span class="mask bg-primary opacity-5"></span>
   </div>
 <!-- Đoạn aside -->
 
@@ -72,7 +72,7 @@
           </div>
           <ul class="navbar-nav  justify-content-end">
             <li class="nav-item d-flex align-items-center mb-4 me-4">
-              <div class="icon icon-shape bg-gradient-primary shadow-primary text-center rounded-circle">
+              <div class="icon icon-shape text-center rounded-circle">
                 <img src="../assets/img/staff_img/<?php echo $_SESSION["avt"]; ?>" class="rounded-circle avatar avatar-xl" alt='user'>
               </div>
             </li>

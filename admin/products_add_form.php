@@ -43,7 +43,7 @@
     <span class="mask bg-primary opacity-5"></span>
   </div>
   <?php
-    $active = 'sp'; 
+    $active = 'tsp'; 
     require 'aside.php';
   ?>
 
@@ -68,7 +68,7 @@
           </div>
           <ul class="navbar-nav  justify-content-end">
             <li class="nav-item d-flex align-items-center mb-4 me-4">
-              <div class="icon icon-shape bg-gradient-primary shadow-primary text-center rounded-circle">
+              <div class="icon icon-shape text-center rounded-circle">
                 <img src="../assets/img/staff_img/<?php echo $_SESSION["avt"]; ?>" class="rounded-circle avatar avatar-xl" alt='user'>
               </div>
             </li>
