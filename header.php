@@ -1,9 +1,16 @@
+<?php
+session_start();
+							  require 'connect.php';
+							  
+							 
+							 ?>
+							  
 <!-- HEADER-TOP START -->
 <div class="header-top">
 			<div class="container">
 				<div class="row">
 					<!-- HEADER-LEFT-MENU START -->
-					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+					<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
 						<div class="header-left-menu">
 							<div class="welcome-info">
 								Welcome <span>Bright Mobile</span>
@@ -53,18 +60,42 @@
 					<!-- HEADER-LEFT-MENU END -->
 
 					<!-- HEADER-RIGHT-MENU START -->
-					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-						<div class="header-right-menu">
+					<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+						<!-- <div class="header-right-menu">
 							<nav>
 								<ul class="list-inline">
-									<li><a href="checkout.html">Check Out</a></li>
-									<li><a href="wishlist.html">Wishlist</a></li>
-									<li><a href="my-account.html">My Account</a></li>
-									<li><a href="cart.html">My Cart</a></li>
-									<li><a href="registration.html">Sign in</a></li>
+									<li><a href="checkout.php">Check Out</a></li>
+									<li><a href="wishlist.php">Wishlist</a></li>
+									<li><a href="my-account.php">My Account</a></li>
+									<li><a href="cart.php">My Cart</a></li>
+									<li><a href="registration.php">Sign in</a></li>
+									
 								</ul>									
 							</nav>
-						</div>
+						</div> -->
+					</div>
+					<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+						<div class="header-right-menu">
+					<nav>
+					<ul class="list-inline">
+							<?php
+							 // require "login.php";
+							 
+							      if(!isset($_SESSION["id"])) // If session is not set then redirect to Login Page
+							       {
+							           printf(' <li><a href="registration.php"><span class="glyphicon glyphicon-log-in"></span> Đăng nhập</a></li>
+										 ');
+							       }
+							       else{
+							       	echo '<li>  Xin chào ' ; echo '<span style="color:Tomato;"><a href="ttkh.php"><b>' . $_SESSION['name'] . '</b></a></span></li>' ;
+									echo '<li><span class="glyphicon glyphicon-log-out"></span><a href="logout.php"> Đăng xuất!</a></li>';
+							       }
+
+							?>
+							
+							</ul>
+							</nav>
+							</div>
 					</div>
 					<!-- HEADER-RIGHT-MENU END -->
 				</div>
@@ -84,7 +115,7 @@
 						<!-- LOGO END -->
 						<!-- HEADER-RIGHT-CALLUS START -->
 						<div class="header-right-callus">
-							<h3 style="text-align: center;">Hot line</h3>
+							<h3>call us free</h3>
 							<span>0123-456-789</span>
 						</div>
 						<!-- HEADER-RIGHT-CALLUS END -->
