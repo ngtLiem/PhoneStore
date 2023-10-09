@@ -11,14 +11,24 @@
     <!-- MAIN-CONTENT-SECTION START -->
 		<section class="main-content-section">
 			<div class="container">
+				<?php
+					require 'connect.php';
+					$idsp = $_GET["id"];
+					$sql = "SELECT * FROM san_pham sp
+							join loai_sp lsp on lsp.LSP_MA=sp.LSP_MA
+							where sp.SP_MA=".$idsp;
+					$result=$conn->query($sql);
+					$row=$result->fetch_assoc();
+					$maloaisp = $row["LSP_MA"];
+				?>
 				<div class="row">
 					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 						<!-- BSTORE-BREADCRUMB START -->
 						<div class="bstore-breadcrumb">
-							<a href="index.html">HOMe<span><i class="fa fa-caret-right"></i> </span> </a>
+							<a href="index.php">Home<span><i class="fa fa-caret-right"></i> </span> </a>
 							<span> <i class="fa fa-caret-right"> </i> </span>
-							<a href="shop-gird.html"> women </a>
-							<span> Faded Short Sleeves T-shirt </span>
+							<a href="products.php"> Điện thoại </a>
+							<span> <?php echo $row["SP_TEN"]; ?> </span>
 						</div>
 						<!-- BSTORE-BREADCRUMB END -->
 					</div>
@@ -33,50 +43,23 @@
 									<div class="tab-content">
 										<div class="tab-pane active" id="thumbnail_1">
 											<div class="single-product-image">
-												<img src="img/product/sale/1.jpg" alt="single-product-image" />
+												<img src="assets/img/product_img/<?php echo $row["SP_HINHANH"] ?>" alt="single-product-image" />
 												<a class="new-mark-box" href="#">new</a>
-												<a class="fancybox" href="img/product/sale/1.jpg" data-fancybox-group="gallery"><span class="btn large-btn">View larger <i class="fa fa-search-plus"></i></span></a>
+												<a class="fancybox" href="assets/img/product_img/<?php echo $row["SP_HINHANH"] ?>" data-fancybox-group="gallery"><span class="btn large-btn text-dark">Phóng to <i class="fa fa-search-plus"></i></span></a>
 											</div>	
 										</div>
-										<div class="tab-pane" id="thumbnail_2">
+										<!-- Hiển thị nhiều ảnh -->
+										<!-- <div class="tab-pane" id="thumbnail_2">
 											<div class="single-product-image">
 												<img src="img/product/sale/3.jpg" alt="single-product-image" />
 												<a class="new-mark-box" href="#">new</a>
 												<a class="fancybox" href="img/product/sale/3.jpg" data-fancybox-group="gallery"><span class="btn large-btn">View larger <i class="fa fa-search-plus"></i></span></a>
 											</div>	
-										</div>
-										<div class="tab-pane" id="thumbnail_3">
-											<div class="single-product-image">
-												<img src="img/product/sale/9.jpg" alt="single-product-image" />
-												<a class="new-mark-box" href="#">new</a>
-												<a class="fancybox" href="img/product/sale/9.jpg" data-fancybox-group="gallery"><span class="btn large-btn">View larger <i class="fa fa-search-plus"></i></span></a>
-											</div>	
-										</div>
-										<div class="tab-pane" id="thumbnail_4">
-											<div class="single-product-image">
-												<img src="img/product/sale/13.jpg" alt="single-product-image" />
-												<a class="new-mark-box" href="#">new</a>
-												<a class="fancybox" href="img/product/sale/13.jpg" data-fancybox-group="gallery"><span class="btn large-btn">View larger <i class="fa fa-search-plus"></i></span></a>
-											</div>	
-										</div>
-										<div class="tab-pane" id="thumbnail_5">
-											<div class="single-product-image">
-												<img src="img/product/sale/7.jpg" alt="single-product-image" />
-												<a class="new-mark-box" href="#">new</a>
-												<a class="fancybox" href="img/product/sale/7.jpg" data-fancybox-group="gallery"><span class="btn large-btn">View larger <i class="fa fa-search-plus"></i></span></a>
-											</div>	
-										</div>
-										<div class="tab-pane" id="thumbnail_6">
-											<div class="single-product-image">
-												<img src="img/product/sale/12.jpg" alt="single-product-image" />
-												<a class="new-mark-box" href="#">new</a>
-												<a class="fancybox" href="img/product/sale/12.jpg" data-fancybox-group="gallery"><span class="btn large-btn">View larger <i class="fa fa-search-plus"></i></span></a>
-											</div>	
-										</div>
+										</div> -->
 									</div>										
 								</div>
-								<div class="select-product">
-									<!-- Nav tabs -->
+								<!-- <div class="select-product">
+									
 									<ul class="nav nav-tabs select-product-tab bxslider">
 										<li class="active">
 											<a href="#thumbnail_1" data-toggle="tab"><img src="img/product/sidebar_product/1.jpg" alt="pro-thumbnail" /></a>
@@ -97,11 +80,11 @@
 											<a href="#thumbnail_6" data-toggle="tab"><img src="img/product/sidebar_product/6.jpg" alt="pro-thumbnail" /></a>
 										</li>
 									</ul>										
-								</div>
+								</div> -->
 							</div>
 							<div class="col-lg-7 col-md-7 col-sm-8 col-xs-12">
 								<div class="single-product-descirption">
-									<h2>Faded Short Sleeves T-shirt</h2>
+									<h2><?php echo $row["SP_TEN"]; ?></h2>
 									<div class="single-product-social-share">
 										<ul>
 											<li><a href="#" class="twi-link"><i class="fa fa-twitter"></i>Tweet</a></li>
@@ -126,32 +109,34 @@
 										</div>		
 									</div>
 									<div class="single-product-condition">
-										<p>Reference: <span>demo_1</span></p>
-										<p>Condition: <span>New product</span></p>
-									</div>
-									<div class="single-product-price">
-										<h2>$16.51</h2>
-									</div>
-									<div class="single-product-desc">
-										<p>Faded short sleeves t-shirt with high neckline. Soft and stretchy material for a comfortable fit. Accessorize with a straw hat and you're ready for summer!</p>
+										<p>Loại điện thoại: <span class="text-uppercase"></span><?php echo $row["LSP_TEN"]; ?></span></p>
+										<p>Tình trạng: <span>Mới</span></p>
+										
 										<div class="product-in-stock">
-											<p>300 Items<span>In stock</span></p>
+										<p>Còn lại: <span><?php echo $row["SP_SOLUONGTON"]; ?></span></p>
 										</div>
 									</div>
-									<div class="single-product-info">
+									<div class="single-product-price">
+										<h2><?php echo number_format($row["SP_GIA"]); ?> VND</h2>
+									</div>
+									<!-- <div class="single-product-desc">
+										<p>Faded short sleeves t-shirt with high neckline. Soft and stretchy material for a comfortable fit. Accessorize with a straw hat and you're ready for summer!</p>
+										
+									</div> -->
+									<!-- <div class="single-product-info">
 										<a href="#"><i class="fa fa-envelope"></i></a>
 										<a href="#"><i class="fa fa-print"></i></a>
 										<a href="#"><i class="fa fa-heart"></i></a>
-									</div>
+									</div> -->
 									<div class="single-product-quantity">
-										<p class="small-title">Quantity</p> 
+										<p class="small-title">Số lượng</p> 
 										<div class="cart-quantity">
 											<div class="cart-plus-minus-button single-qty-btn">
 												<input class="cart-plus-minus sing-pro-qty" type="text" name="qtybutton" value="0">
 											</div>
 										</div>
 									</div>
-									<div class="single-product-size">
+									<!-- <div class="single-product-size">
 										<p class="small-title">Size </p> 
 										<select name="product-size" id="product-size">
 											<option value="">S</option>
@@ -163,9 +148,9 @@
 										<p class="small-title">Color </p> 
 										<a href="#"><span></span></a>
 										<a class="color-blue" href="#"><span></span></a>
-									</div>
+									</div> -->
 									<div class="single-product-add-cart">
-										<a class="add-cart-text" title="Add to cart" href="#">Add to cart</a>
+										<a class="add-cart-text" title="Add to cart" href="#">Thêm vào giỏ hàng</a>
 									</div>
 								</div>
 							</div>
@@ -177,33 +162,60 @@
 								<div class="product-more-info-tab">
 									<!-- Nav tabs -->
 									<ul class="nav nav-tabs more-info-tab">
-										<li class="active"><a href="#moreinfo" data-toggle="tab">more info</a></li>
-										<li><a href="#datasheet" data-toggle="tab">data sheet</a></li>
-										<li><a href="#review" data-toggle="tab">reviews</a></li>
+										<li class="active"><a href="#moreinfo" data-toggle="tab">Mô tả</a></li>
+										<li><a href="#datasheet" data-toggle="tab">Thông tin cấu hình</a></li>
+										<li><a href="#review" data-toggle="tab">Đánh giá</a></li>
 									</ul>
 									  <!-- Tab panes -->
 									<div class="tab-content">
 										<div class="tab-pane active" id="moreinfo">
+											<h3 class="text-uppercase text-info">Tính năng nổi bật</h3>
 											<div class="tab-description">
-												<p>Fashion has been creating well-designed collections since 2010. The brand offers feminine designs delivering stylish separates and statement dresses which have since evolved into a full ready-to-wear collection in which every item is a vital part of a woman's wardrobe. The result? Cool, easy, chic looks with youthful elegance and unmistakable signature style. All the beautiful pieces are made in Italy and manufactured with the greatest attention. Now Fashion extends to a range of accessories including shoes, hats, belts and more!</p>
+												<div innerHTML><p><?php echo $row["SP_TINHNANG"]; ?></p></div>
 											</div>
 										</div>
+										
 										<div class="tab-pane" id="datasheet">
 											<div class="deta-sheet">
 												<table class="table-data-sheet">			
 													<tbody>
 														<tr class="odd">
-															<td>Compositions</td>
-															<td>Cotton</td>
+															<td>Màn hình:</td>
+															<td><?php echo $row["SP_MANHINH"]; ?></td>
 														</tr>
 														<tr class="even">
-															<td class="td-bg">Styles</td>
-															<td class="td-bg">Casual</td>
+															<td class="td-bg">Hệ điều hành:</td>
+															<td class="td-bg"><?php echo $row["SP_HDH"]; ?></td>
 														</tr>
 														<tr class="odd">
-															<td>Properties</td>
-															<td>Short Sleeve</td>
+															<td>Camera sau:</td>
+															<td><?php echo $row["SP_CAMSAU"]; ?></td>
 														</tr>
+														<tr class="even">
+															<td class="td-bg">Camera trước:</td>
+															<td class="td-bg"><?php echo $row["SP_CAMTRUOC"]; ?></td>
+														</tr>
+														<tr class="odd">
+															<td>Chip:</td>
+															<td><?php echo $row["SP_CPU"]; ?></td>
+														</tr>
+														<tr class="even">
+															<td class="td-bg">RAM:</td>
+															<td class="td-bg"><?php echo $row["SP_RAM"]; ?></td>
+														</tr>
+														<tr class="odd">
+															<td>Dung lượng lưu trữ:</td>
+															<td><?php echo $row["SP_ROOM"]; ?></td>
+														</tr>
+														<tr class="even">
+															<td class="td-bg">Sim:</td>
+															<td class="td-bg"><?php echo $row["SP_SIM"]; ?></td>
+														</tr>
+														<tr class="odd">
+															<td>Pin, sạc:</td>
+															<td><?php echo $row["SP_PIN"]; ?></td>
+														</tr>
+														
 													</tbody>
 												</table>				
 											</div>
@@ -242,384 +254,10 @@
 							</div>
 						</div>
 						<!-- SINGLE-PRODUCT INFO TAB END -->
-						<!-- RELATED-PRODUCTS-AREA START -->
-						<div class="row">
-							<div class="col-sm-12">
-								<div class="left-title-area">
-									<h2 class="left-title">related products</h2>
-								</div>	
-							</div>
-							<div class="related-product-area featured-products-area">
-								<div class="col-sm-12">
-									<div class=" row">
-										<!-- RELATED-CAROUSEL START -->
-										<div class="related-product">
-											<!-- SINGLE-PRODUCT-ITEM START -->
-											<div class="item">
-												<div class="single-product-item">
-													<div class="product-image">
-														<a href="#"><img src="img/product/sale/3.jpg" alt="product-image" /></a>
-													</div>
-													<div class="product-info">
-														<div class="customar-comments-box">
-															<div class="rating-box">
-																<i class="fa fa-star"></i>
-																<i class="fa fa-star"></i>
-																<i class="fa fa-star"></i>
-																<i class="fa fa-star"></i>
-																<i class="fa fa-star-half-empty"></i>
-															</div>
-															<div class="review-box">
-																<span>1 Review(s)</span>
-															</div>
-														</div>
-														<a href="#">Faded Short T-sh...</a>
-														<div class="price-box">
-															<span class="price">$16.51</span>
-														</div>
-													</div>
-												</div>							
-											</div>
-											<!-- SINGLE-PRODUCT-ITEM END -->
-											<!-- SINGLE-PRODUCT-ITEM START -->
-											<div class="item">
-												<div class="single-product-item">
-													<div class="product-image">
-														<a href="#"><img src="img/product/sale/1.jpg" alt="product-image" /></a>
-													</div>
-													<div class="product-info">
-														<div class="customar-comments-box">
-															<div class="rating-box">
-																<i class="fa fa-star"></i>
-																<i class="fa fa-star"></i>
-																<i class="fa fa-star"></i>
-																<i class="fa fa-star"></i>
-																<i class="fa fa-star"></i>
-															</div>
-															<div class="review-box">
-																<span>1 Review(s)</span>
-															</div>
-														</div>
-														<a href="#">Blouse</a>
-														<div class="price-box">
-															<span class="price">$22.95</span>
-															<span class="old-price">$27.00</span>
-														</div>
-													</div>
-												</div>							
-											</div>
-											<!-- SINGLE-PRODUCT-ITEM END -->
-											<!-- SINGLE-PRODUCT-ITEM START -->								
-											<div class="item">
-												<div class="single-product-item">
-													<div class="product-image">
-														<a href="#"><img src="img/product/sale/9.jpg" alt="product-image" /></a>
-													</div>
-													<div class="product-info">
-														<div class="customar-comments-box">
-															<div class="rating-box">
-																<i class="fa fa-star"></i>
-																<i class="fa fa-star"></i>
-																<i class="fa fa-star"></i>
-																<i class="fa fa-star-half-empty"></i>
-																<i class="fa fa-star-half-empty"></i>
-															</div>
-															<div class="review-box">
-																<span>1 Review(s)</span>
-															</div>
-														</div>
-														<a href="#">Printed Dress</a>
-														<div class="price-box">
-															<span class="price">$23.40</span>
-															<span class="old-price">$26.00</span>
-														</div>
-													</div>
-												</div>							
-											</div>
-											<!-- SINGLE-PRODUCT-ITEM END -->
-											<!-- SINGLE-PRODUCT-ITEM START -->								
-											<div class="item">
-												<div class="single-product-item">
-													<div class="product-image">
-														<a href="#"><img src="img/product/sale/5.jpg" alt="product-image" /></a>
-														<div class="overlay-content">
-														</div>
-													</div>
-													<div class="product-info">
-														<div class="customar-comments-box">
-															<div class="rating-box">
-																<i class="fa fa-star"></i>
-																<i class="fa fa-star"></i>
-																<i class="fa fa-star"></i>
-																<i class="fa fa-star"></i>
-																<i class="fa fa-star-half-empty"></i>
-															</div>
-															<div class="review-box">
-																<span>1 Review(s)</span>
-															</div>
-														</div>
-														<a href="#">Printed Dress</a>
-														<div class="price-box">
-															<span class="price">$50.99</span>
-														</div>
-													</div>
-												</div>							
-											</div>		
-											<!-- SINGLE-PRODUCT-ITEM END -->
-											<!-- SINGLE-PRODUCT-ITEM START -->								
-											<div class="item">
-												<div class="single-product-item">
-													<div class="product-image">
-														<a href="#"><img src="img/product/sale/12.jpg" alt="product-image" /></a>
-													</div>
-													<div class="product-info">
-														<div class="customar-comments-box">
-															<div class="rating-box">
-																<i class="fa fa-star"></i>
-																<i class="fa fa-star"></i>
-																<i class="fa fa-star"></i>
-																<i class="fa fa-star-half-empty"></i>
-																<i class="fa fa-star-half-empty"></i>
-															</div>
-															<div class="review-box">
-																<span>1 Review(s)</span>
-															</div>
-														</div>
-														<a href="#">Printed Summer Dr...</a>
-														<div class="price-box">
-															<span class="price">$28.98</span>
-															<span class="old-price">$30.51</span>
-														</div>
-													</div>
-												</div>							
-											</div>		
-											<!-- SINGLE-PRODUCT-ITEM END -->
-											<!-- SINGLE-PRODUCT-ITEM START -->								
-											<div class="item">
-												<div class="single-product-item">
-													<div class="product-image">
-														<a href="#"><img src="img/product/sale/13.jpg" alt="product-image" /></a>
-													</div>
-													<div class="product-info">
-														<div class="customar-comments-box">
-															<div class="rating-box">
-																<i class="fa fa-star"></i>
-																<i class="fa fa-star"></i>
-																<i class="fa fa-star"></i>
-																<i class="fa fa-star"></i>
-																<i class="fa fa-star"></i>
-															</div>
-															<div class="review-box">
-																<span>1 Review(s)</span>
-															</div>
-														</div>
-														<a href="#">Printed Summer</a>
-														<div class="price-box">
-															<span class="price">$30.50</span>
-														</div>
-													</div>
-												</div>							
-											</div>	
-											<!-- SINGLE-PRODUCT-ITEM END -->
-											<!-- SINGLE-PRODUCT-ITEM START -->								
-											<div class="item">
-												<div class="single-product-item">
-													<div class="product-image">
-														<a href="#"><img src="img/product/sale/7.jpg" alt="product-image" /></a>
-													</div>
-													<div class="product-info">
-														<div class="customar-comments-box">
-															<div class="rating-box">
-																<i class="fa fa-star"></i>
-																<i class="fa fa-star"></i>
-																<i class="fa fa-star"></i>
-																<i class="fa fa-star-half-empty"></i>
-																<i class="fa fa-star-half-empty"></i>
-															</div>
-															<div class="review-box">
-																<span>1 Review(s)</span>
-															</div>
-														</div>
-														<a href="#">Printed Chiffon Dr...</a>
-														<div class="price-box">
-															<span class="price">$16.40</span>
-															<span class="old-price">$20.50</span>
-														</div>
-													</div>
-												</div>							
-											</div>		
-											<!-- SINGLE-PRODUCT-ITEM END -->
-											<!-- SINGLE-PRODUCT-ITEM START -->								
-											<div class="item">
-												<div class="single-product-item">
-													<div class="product-image">
-														<a href="#"><img src="img/product/sale/11.jpg" alt="product-image" /></a>
-													</div>
-													<div class="product-info">
-														<div class="customar-comments-box">
-															<div class="rating-box">
-																<i class="fa fa-star"></i>
-																<i class="fa fa-star"></i>
-																<i class="fa fa-star"></i>
-																<i class="fa fa-star"></i>
-																<i class="fa fa-star"></i>
-															</div>
-															<div class="review-box">
-																<span>1 Review(s)</span>
-															</div>
-														</div>
-														<a href="#">Printed Dress</a>
-														<div class="price-box">
-															<span class="price">$26.00</span>
-														</div>
-													</div>
-												</div>							
-											</div>		
-											<!-- SINGLE-PRODUCT-ITEM END -->
-											<!-- SINGLE-PRODUCT-ITEM START -->								
-											<div class="item">
-												<div class="single-product-item">
-													<div class="product-image">
-														<a href="#"><img src="img/product/sale/10.jpg" alt="product-image" /></a>
-													</div>
-													<div class="product-info">
-														<div class="customar-comments-box">
-															<div class="rating-box">
-																<i class="fa fa-star"></i>
-																<i class="fa fa-star"></i>
-																<i class="fa fa-star"></i>
-																<i class="fa fa-star-half-empty"></i>
-																<i class="fa fa-star-half-empty"></i>
-															</div>
-															<div class="review-box">
-																<span>1 Review(s)</span>
-															</div>
-														</div>
-														<a href="#">Printed Dress</a>
-														<div class="price-box">
-															<span class="price">$26.00</span>
-														</div>
-													</div>
-												</div>							
-											</div>		
-											<!-- SINGLE-PRODUCT-ITEM END -->
-											<!-- SINGLE-PRODUCT-ITEM START -->								
-											<div class="item">
-												<div class="single-product-item">
-													<div class="product-image">
-														<a href="#"><img src="img/product/sale/2.jpg" alt="product-image" /></a>
-													</div>
-													<div class="product-info">
-														<div class="customar-comments-box">
-															<div class="rating-box">
-																<i class="fa fa-star"></i>
-																<i class="fa fa-star"></i>
-																<i class="fa fa-star"></i>
-																<i class="fa fa-star"></i>
-																<i class="fa fa-star"></i>
-															</div>
-															<div class="review-box">
-																<span>1 Review(s)</span>
-															</div>
-														</div>
-														<a href="#">Blouse</a>
-														<div class="price-box">
-															<span class="price">$27.00</span>
-														</div>
-													</div>
-												</div>							
-											</div>		
-											<!-- SINGLE-PRODUCT-ITEM END -->
-											<!-- SINGLE-PRODUCT-ITEM START -->								
-											<div class="item">
-												<div class="single-product-item">
-													<div class="product-image">
-														<a href="#"><img src="img/product/sale/4.jpg" alt="product-image" /></a>
-													</div>
-													<div class="product-info">
-														<div class="customar-comments-box">
-															<div class="rating-box">
-																<i class="fa fa-star"></i>
-																<i class="fa fa-star"></i>
-																<i class="fa fa-star"></i>
-																<i class="fa fa-star"></i>
-																<i class="fa fa-star-half-empty"></i>
-															</div>
-															<div class="review-box">
-																<span>1 Review(s)</span>
-															</div>
-														</div>
-														<a href="#">Faded Short Sle...</a>
-														<div class="price-box">
-															<span class="price">$16.51</span>
-														</div>
-													</div>
-												</div>							
-											</div>		
-											<!-- SINGLE-PRODUCT-ITEM END -->
-											<!-- SINGLE-PRODUCT-ITEM START -->								
-											<div class="item">
-												<div class="single-product-item">
-													<div class="product-image">
-														<a href="#"><img src="img/product/sale/6.jpg" alt="product-image" /></a>
-													</div>
-													<div class="product-info">
-														<div class="customar-comments-box">
-															<div class="rating-box">
-																<i class="fa fa-star"></i>
-																<i class="fa fa-star"></i>
-																<i class="fa fa-star"></i>
-																<i class="fa fa-star"></i>
-																<i class="fa fa-star"></i>
-															</div>
-															<div class="review-box">
-																<span>1 Review(s)</span>
-															</div>
-														</div>
-														<a href="#">Printed Chiffon Dr...</a>
-														<div class="price-box">
-															<span class="price">$16.40</span>
-															<span class="old-price">$20.50</span>
-														</div>
-													</div>
-												</div>							
-											</div>		
-											<!-- SINGLE-PRODUCT-ITEM END -->
-											<!-- SINGLE-PRODUCT-ITEM START -->								
-											<div class="item">
-												<div class="single-product-item">
-													<div class="product-image">
-														<a href="#"><img src="img/product/sale/8.jpg" alt="product-image" /></a>
-													</div>
-													<div class="product-info">
-														<div class="customar-comments-box">
-															<div class="rating-box">
-																<i class="fa fa-star"></i>
-																<i class="fa fa-star"></i>
-																<i class="fa fa-star"></i>
-																<i class="fa fa-star"></i>
-																<i class="fa fa-star-half-empty"></i>
-															</div>
-															<div class="review-box">
-																<span>1 Review(s)</span>
-															</div>
-														</div>
-														<a href="#">Printed Dress</a>
-														<div class="price-box">
-															<span class="price">$26.00</span>
-														</div>
-													</div>
-												</div>							
-											</div>	
-											<!-- SINGLE-PRODUCT-ITEM END -->
-											<!-- SINGLE-PRODUCT-ITEM START -->								
-										</div>
-										<!-- RELATED-CAROUSEL END -->
-									</div>	
-								</div>
-							</div>	
-						</div>
-						<!-- RELATED-PRODUCTS-AREA END -->
+						
+						<!-- SẢN PHẨM TƯƠNG TỰ -->
+						<?php require 'related_products.php' ?>
+
 					</div>
 					<!-- RIGHT SIDE BAR START -->
 					<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
@@ -686,7 +324,7 @@
 			</div>
 		</section>
 		<!-- MAIN-CONTENT-SECTION END -->
-
+		
 
     <?php 
 include "brand.php";

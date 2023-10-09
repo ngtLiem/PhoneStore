@@ -18,7 +18,7 @@
 						<div class="bstore-breadcrumb">
 							<a href="index.html">Home</a>
 							<span><i class="fa fa-caret-right"></i></span>
-							<span>Women</span>
+							<span>Điện thoại</span>
 						</div>
 						<!-- BSTORE-BREADCRUMB END -->
 					</div>
