@@ -116,6 +116,7 @@
 										<p>Còn lại: <span><?php echo $row["SP_SOLUONGTON"]; ?></span></p>
 										</div>
 									</div>
+									<form name="form3" id="ff3" method="post" action="add_cart.php">
 									<div class="single-product-price">
 										<h2><?php echo number_format($row["SP_GIA"]); ?> VND</h2>
 									</div>
@@ -132,7 +133,7 @@
 										<p class="small-title">Số lượng</p> 
 										<div class="cart-quantity">
 											<div class="cart-plus-minus-button single-qty-btn">
-												<input class="cart-plus-minus sing-pro-qty" type="text" name="qtybutton" value="0">
+												<input class="cart-plus-minus sing-pro-qty" type="number" name="slsp" value="1">
 											</div>
 										</div>
 									</div>
@@ -149,9 +150,14 @@
 										<a href="#"><span></span></a>
 										<a class="color-blue" href="#"><span></span></a>
 									</div> -->
+									
 									<div class="single-product-add-cart">
-										<a class="add-cart-text" title="Add to cart" href="#">Thêm vào giỏ hàng</a>
+										<!-- <a class="add-cart-text" title="Add to cart" href="#">Thêm vào giỏ hàng</a> -->
+										<input type="submit" name="submit" id="add-to-cart" class="btn btn-2" value="Thêm vào giỏ hàng" />
+										<input type="hidden" name="acction" value="them vao gio hang" />
+										<input type="hidden" name="id" value="<?php echo $row["SP_MA"] ?>" />
 									</div>
+								</form>
 								</div>
 							</div>
 						</div>
