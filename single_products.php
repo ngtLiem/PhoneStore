@@ -25,7 +25,7 @@
 					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 						<!-- BSTORE-BREADCRUMB START -->
 						<div class="bstore-breadcrumb">
-							<a href="index.php">Home<span><i class="fa fa-caret-right"></i> </span> </a>
+							<a href="index.php">Home<span><i class="fa fa-caret-right"></i></span></a>
 							<span> <i class="fa fa-caret-right"> </i> </span>
 							<a href="products.php"> Điện thoại </a>
 							<span> <?php echo $row["SP_TEN"]; ?> </span>

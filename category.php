@@ -12,20 +12,31 @@
     <section class="main-content-section">
       <div class="container">
 				<!-- HIỂN THỊ TÊN TRANG WEB -->
-				<div class="row">
-					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-						<!-- BSTORE-BREADCRUMB START -->
-						<div class="bstore-breadcrumb">
-							<a href="index.html">Home</a>
-							<span><i class="fa fa-caret-right"></i></span>
-							
-							<span>Women</span>
-						</div>
-						<!-- BSTORE-BREADCRUMB END -->
-					</div>
-				</div>
+			<div class="row">
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+					<!-- BSTORE-BREADCRUMB START -->
+					<?php
+						require 'connect.php';
 
-      <?php include "slidebar.php" ?>
+						$idlsp = $_GET["maloaisp"];
+						$sql = "select *, count(sp.SP_MA) as sosp
+						from san_pham sp
+						join loai_sp lsp on sp.LSP_MA=lsp.LSP_MA
+						where lsp.LSP_MA= " .$idlsp;
+						$rs = $conn->query($sql);
+						$row = $rs->fetch_assoc();
+					?>
+					<div class="bstore-breadcrumb">
+						<a href="index.php">Home<span><i class="fa fa-caret-right"></i></span></a>
+						<span> <i class="fa fa-caret-right"> </i> </span>
+						<a href="products.php"> Điện thoại </a>
+						<span> <?php echo $row["LSP_TEN"]; ?> </span>
+					</div>
+					<!-- BSTORE-BREADCRUMB END -->
+				</div>
+			</div>
+
+     		<?php include "slidebar.php" ?>
 
 			<div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
 				<!-- hình đầu trang web -->
@@ -33,11 +44,11 @@
 							<!-- PRODUCT-CATEGORY-HEADER START -->
 							<div class="product-category-header">
 								<div class="category-header-image">
-									<img src="img/category-header.jpg" alt="category-header" />
+									<img src="assets/img/slides/BIG-T10-800-200-800x200.png" alt="category-header" />
 									<div class="category-header-text">
-										<h2>Women </h2>
+										<!-- <h2>Women </h2>
 										<strong>You will find here all woman fashion collections.</strong>
-										<p>This category includes all the basics of your wardrobe and much more:<br /> shoes, accessories, printed t-shirts, feminine dresses, women's jeans!</p>
+										<p>This category includes all the basics of your wardrobe and much more:<br /> shoes, accessories, printed t-shirts, feminine dresses, women's jeans!</p> -->
 									</div>									
 								</div>
 							</div>
@@ -48,8 +59,8 @@
 							<div class="product-category-title">
 								<!-- PRODUCT-CATEGORY-TITLE START -->
 								<h1>
-									<span class="cat-name">Women</span>
-									<span class="count-product">There are 13 products.</span>
+									<span class="cat-name"><?php echo $row["LSP_TEN"]; ?></span>
+									<span class="count-product">There are <?php echo $row["sosp"]; ?> products.</span>
 								</h1>
 								<!-- PRODUCT-CATEGORY-TITLE END -->
 							</div>
