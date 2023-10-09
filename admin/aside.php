@@ -16,56 +16,56 @@
     $tttk="";
     switch ($active){
         case 'db':
-            $db = "active";
+            $db = "active bg-info";
             break;
         case 'hd':
-            $hd = "active";
+            $hd = "active bg-info";
             break;
         case 'dh':
-            $dh = "active";
+            $dh = "active bg-info";
             break;
         case 'kh':
-            $kh = "active";
+            $kh = "active bg-info";
             break;
         case 'sl':
-            $sl = "active";
+            $sl = "active bg-info";
             break;
         case 'nv':
-            $nv = "active";
+            $nv = "active bg-info";
             break;
         case 'tnv':
-            $tnv = "active";
+            $tnv = "active bg-info";
             break;
         case 'nh':
-            $nh = "active";
+            $nh = "active bg-info";
             break;
         case 'dvvc':
-            $dvvc = "active";
+            $dvvc = "active bg-info";
             break;
         case 'dvc':
-            $dvc = "active";
+            $dvc = "active bg-info";
             break;
         case 'sp':
-            $sp = "active";
+            $sp = "active bg-info";
             break;
         case 'tsp':
-            $tsp = "active";
+            $tsp = "active bg-info";
             break;
         case 'dg':
-            $dg = "active";
+            $dg = "active bg-info";
             break;
         case 'tt':
-            $tt = "active";
+            $tt = "active bg-info";
             break;
         case 'tttk':
-            $tttk = "active";
+            $tttk = "active bg-info";
             break;
 
     }
 
 ?>
 
-<aside class="sidenav bg-white navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-4 " id="sidenav-main">
+<aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-4 bg-white" id="sidenav-main">
     <div class="sidenav-header">
       <!-- <i class="fas fa-times p-3 cursor-pointer text-secondary opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i> -->
       <a class="navbar-brand m-0" href="#" target="_blank">

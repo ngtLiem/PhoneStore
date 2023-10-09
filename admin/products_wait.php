@@ -58,9 +58,9 @@
 
 <body class="g-sidenav-show   bg-gray-100">
   <!-- Nguyên đoạn này -->
-  <div class="position-absolute w-100 min-height-400 top-0" style="background-image: url('https://media-cdn-v2.laodong.vn/storage/newsportal/2022/9/21/1095693/Screen-Shot-2022-09-.jpg?w=660'); background-position-y: 100%;">
+  <!-- <div class="position-absolute w-100 min-height-400 top-0" style="background-image: url('https://media-cdn-v2.laodong.vn/storage/newsportal/2022/9/21/1095693/Screen-Shot-2022-09-.jpg?w=660'); background-position-y: 100%;">
     <span class="mask bg-primary opacity-5"></span>
-  </div>>
+  </div> -->
   
   <?php
     $active = 'dh'; 
@@ -73,10 +73,10 @@
       <div class="container-fluid py-1 px-3">
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
-          <li class="breadcrumb-item text-sm"><a class="opacity-5 text-white" href="dashboard.php">Trang</a></li>
-            <li class="breadcrumb-item text-sm text-white active" aria-current="page">Đơn hàng</li>
+          <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="dashboard.php">Trang</a></li>
+            <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Đơn hàng</li>
           </ol>
-          <h6 class="font-weight-bolder text-white mb-0">Đơn hàng</h6>
+          <h6 class="font-weight-bolder text-dark mb-0">Đơn hàng</h6>
         </nav>
 
         <!-- Đoạn này -->
@@ -87,7 +87,7 @@
               <input type="text" class="form-control" placeholder="Type here..."> -->
             </div>
           </div>
-          <ul class="navbar-nav  justify-content-end">
+          <!-- <ul class="navbar-nav  justify-content-end">
             <li class="nav-item d-flex align-items-center mb-4 me-4">
               <div class="icon icon-shape  text-center rounded-circle">
                 <img src="../assets/img/staff_img/<?php echo $_SESSION["avt"]; ?>" class="rounded-circle avatar avatar-xl" alt='user'>
@@ -113,13 +113,14 @@
                 </div>
               </a>
             </li>
-          </ul>
+          </ul> -->
+          <?php require 'nav.php'; ?>
         </div>
       </div>
     </nav>
     <!-- End Navbar --> 
     <div class="row">
-        <div class="col-12  px-4">
+        <div class="col-12 px-4 my-3">
               <div class="card mb-4">
                 <form action="#" method="get">
                   <div class="card-header pb-2 d-flex align-items-center">

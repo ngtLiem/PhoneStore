@@ -38,9 +38,9 @@
 </head>
 
 <body class="g-sidenav-show   bg-gray-100">
-  <div class="position-absolute w-100 min-height-400 top-0" style="background-image: url('https://media-cdn-v2.laodong.vn/storage/newsportal/2022/9/21/1095693/Screen-Shot-2022-09-.jpg?w=660'); background-position-y: 100%;">
+  <!-- <div class="position-absolute w-100 min-height-400 top-0" style="background-image: url('https://media-cdn-v2.laodong.vn/storage/newsportal/2022/9/21/1095693/Screen-Shot-2022-09-.jpg?w=660'); background-position-y: 100%;">
     <span class="mask bg-primary opacity-5"></span>
-  </div>
+  </div> -->
   
   <?php
     $active = 'tnv'; 
@@ -66,7 +66,7 @@
               <input type="text" class="form-control" placeholder="Type here..."> -->
             </div>
           </div>
-          <ul class="navbar-nav  justify-content-end">
+          <!-- <ul class="navbar-nav  justify-content-end">
             <li class="nav-item d-flex align-items-center mb-4 me-4">
               <div class="icon icon-shape text-center rounded-circle">
                 <img src="../assets/img/staff_img/<?php echo $_SESSION["avt"]; ?>" class="rounded-circle avatar avatar-xl" alt='user'>
@@ -92,7 +92,8 @@
                 </div>
               </a>
             </li>
-          </ul>
+          </ul> -->
+          <?php require 'nav.php'; ?>
         </div>
       </div>
     </nav>

@@ -32,6 +32,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">
+
   <title>
     Trang quản lý Smartphone Store
   </title>
@@ -48,10 +50,10 @@
 </head>
 <body class="g-sidenav-show  bg-gray-100">
   <!-- Nguyên đoạn này -->
-  
-  <div class="position-absolute w-100 min-height-400 top-0" style="background-image: url('https://media-cdn-v2.laodong.vn/storage/newsportal/2022/9/21/1095693/Screen-Shot-2022-09-.jpg?w=660'); background-position-y: 100%;">
+  <!-- backgroud -->
+  <!-- <div class="position-absolute w-100 min-height-400 top-0" style="background-image: url('https://media-cdn-v2.laodong.vn/storage/newsportal/2022/9/21/1095693/Screen-Shot-2022-09-.jpg?w=660'); background-position-y: 100%;">
     <span class="mask bg-primary opacity-5"></span>
-  </div>
+  </div> -->
   
   <!-- dark sidebar -->
   <!-- <aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-4 ps ps--active-y bg-default " id="sidenav-main">  -->
@@ -74,21 +76,21 @@
           <h6 class="font-weight-bolder text-white mb-0">Tổng quan</h6>
         </nav> -->
         <!-- <div class="position-absolute mt-5 z-index-2" style="left: 30%; font-family: 'Montserrat', sans-serif; text-shadow: 0px 0px 7px #000000;"> -->
-        <div class="mt-5 text-center" style="font-family: 'Montserrat', sans-serif; text-shadow: 5px 5px 10px #000000;">
-          <h3  class="text-white">
+        <!-- <div class="mt-5 text-center" style="font-family: 'Montserrat', sans-serif; text-shadow: 5px 5px 10px #000000;"> -->
+          <h3  class="text-black mt-5 text-center" style="font-family: 'Montserrat', sans-serif; text-shadow: 5px 5px 10px #000000;">
             CỬA HÀNG ĐIỆN THOẠI BRIGHT MOBILE
           </h3>
-        </div>  
+        <!-- </div>   -->
         <!-- </div> -->
         <!-- Đoạn này -->
         <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
           <div class="ms-md-auto pe-md-3 d-flex align-items-center">
-            <div class="input-group">
-              <!-- <span class="input-group-text text-body"><i class="fas fa-search" aria-hidden="true"></i></span>
-              <input type="text" class="form-control" placeholder="Type here..."> -->
-            </div>
-          </div>
-          <ul class="navbar-nav  justify-content-end">
+            <!-- <div class="input-group">
+              <span class="input-group-text text-body"><i class="fas fa-search" aria-hidden="true"></i></span>
+              <input type="text" class="form-control" placeholder="Type here...">
+            </div> -->
+         
+          <!-- <ul class="navbar-nav  justify-content-end">
             <li class="nav-item d-flex align-items-center mb-4 me-4">
               <div class="icon icon-shape text-center rounded-circle">
               <img src="../assets/img/staff_img/<?php echo $_SESSION["avt"]; ?>" class="rounded-circle avatar avatar-xl" alt='user'>
@@ -96,9 +98,9 @@
             </li>
             <li class="nav-item d-flex align-items-center mt-sm-1 ms-3">
              <nav class=" mt-sm-1" aria-label="breadcrumb">   
-                <h7 class="text-white text mb-0">Xin chào,</h7>
-                <h6 class="font-weight-bolder text-white mt-n1"><?php echo $_SESSION["name"]; ?></h6>      
-                <a href="log_out.php" class="btn btn-outline-light text-white font-weight-bold px-2 mt-n1 py-1">
+                <h7 class="text-info text mb-0">Xin chào,</h7>
+                <h6 class="font-weight-bolder text-dark mt-n1"><?php echo $_SESSION["name"]; ?></h6>      
+                <a href="log_out.php" class="btn btn-outline-light text-dark font-weight-bold px-2 mt-n1 py-1">
                   <span class="d-sm-inline d-none me-sm-1">Đăng xuất</span>
                   <i class="fas fa-sign-out-alt "></i>
                 </a>
@@ -114,7 +116,8 @@
                 </div>
               </a>
             </li>
-          </ul>
+          </ul> -->
+          <?php require 'nav.php'; ?>
         </div>
       </div>
     </nav>
@@ -153,10 +156,20 @@
                       }
                     ?>
                     <p class="text-sm mb-0 text-uppercase font-weight-bold">Doanh thu tháng <?php echo $thang ."/". $nam ?></p>
-                    <h4 class="font-weight-bolder">
-                      <?php echo number_format($tongdoanhthu); ?>VNĐ
-                    </h5>
-                    <?php
+                    <!-- <h4 class="font-weight-bolder">
+                      <?php echo number_format($tongdoanhthu); ?> VND
+                    </h4> -->
+                  </div>
+                </div>
+                <div class="col-3 text-end">
+                  <div class="icon icon-shape bg-gradient-primary shadow-light border-radius-xl text-center">
+                    <i class="ni ni-money-coins text-lg opacity-10" aria-hidden="true"></i>
+                  </div>
+                </div>
+                <h4 class="font-weight-bolder">
+                  <?php echo number_format($tongdoanhthu); ?> VND
+                </h4>
+                <?php
                       if($dt_thangtruoc<$tongdoanhthu){
                         $perc = round(($dt_thangtruoc / $tongdoanhthu)*100, 2);
                         ?>                        
@@ -174,14 +187,6 @@
                         <?php
                       }
                     ?>
-                  </div>
-                </div>
-                <div class="col-4 text-end">
-                  <div class="icon icon-shape bg-gradient-primary shadow-primary text-center rounded-circle">
-                    <i class="ni ni-money-coins text-lg opacity-10" aria-hidden="true"></i>
-                  </div>
-                  <!-- <img style="height:55px;" src="https://img.icons8.com/3d-fluency/94/null/money-bag.png"/> -->
-                </div>
               </div>
             </div>
           </div>
@@ -216,7 +221,7 @@
                   </div>
                 </div>
                 <div class="col-4 text-end">
-                  <div class="icon icon-shape bg-gradient-danger shadow-danger text-center rounded-circle">
+                  <div class="icon icon-shape bg-gradient-danger shadow-danger text-center border-radius-xl">
                     <i class="fas fa-file-invoice-dollar text-lg opacity-10" aria-hidden="true"></i>
                   </div>
                   <!-- <img style="height:55px;" src="https://img.icons8.com/3d-fluency/94/null/bill.png"/> -->
@@ -254,7 +259,7 @@
                   </div>
                 </div>
                 <div class="col-4 text-end">
-                  <div class="icon icon-shape bg-gradient-success shadow-success text-center rounded-circle">
+                  <div class="icon icon-shape bg-gradient-success shadow-success text-center border-radius-xl ">
                     <i class="ni ni-paper-diploma text-lg opacity-10" aria-hidden="true"></i>
                   </div>
                   <!-- <img style="height:55px;" src="https://img.icons8.com/3d-fluency/94/null/businessman.png"/> -->
@@ -291,7 +296,7 @@
                   </div>
                 </div>
                 <div class="col-4 text-end">
-                  <div class="icon icon-shape bg-gradient-warning shadow-warning text-center rounded-circle">
+                  <div class="icon icon-shape bg-gradient-warning shadow-warning text-center border-radius-xl">
                     <i class="fas fa-users text-lg opacity-10"></i>
                   </div>
                   <!-- <img style="height:55px;" src="https://img.icons8.com/3d-fluency/94/null/manager.png"/> -->
@@ -540,6 +545,7 @@
                           <option value="" selected disabled hidden><?php echo $year; ?></option>
                           <option value="2022">2022</option>
                           <option value="2023">2023</option>
+                          <option value="2024">2024</option>
                         </select>
                       </div>
                       <div class="col-1">
@@ -585,42 +591,31 @@
           <div class="card card-carousel overflow-hidden h-100 p-0">
             <div id="carouselExampleCaptions" class="carousel slide h-100" data-bs-ride="carousel">
               <div class="carousel-inner border-radius-lg h-100">
-                <style>
-                  .carousel-item::before {
-                    content: "";
-                    display: block;
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    width: 100%;
-                    height: 100%;
-                    background-color: rgba(0, 0, 0, 0.2); /* hoặc giá trị màu tối ưa thích */
-                  }
-
-                  .carousel-caption {
-                    z-index: 1;
-                  }
-/* slider quản trị */
-                </style>
-                <!-- Top1 -->
-                <div class="carousel-item h-100 active" style="background-image: url('../assets/img/c1.jpg'); background-size: cover;">
-                  <div class="carousel-caption d-none d-md-block bottom-0 text-start start-0 ms-4">
-                      <h4 class="text-white">"My phone is an essential part of my life!" </h4> 
-                    <h5 class="text-white"> The phone is where many people's memories, contacts, and work are stored. </h5>
+                <div class="carousel-item h-100 active" style="background-image: url('../assets/img/carousel-1.jpg');background-size: cover;">
+                  <div class="carousel-caption d-none d-md-block bottom-0 text-start start-0 ms-5">
+                    <div class="icon icon-shape icon-sm bg-white text-center border-radius-md mb-3">
+                      <i class="ni ni-camera-compact text-dark opacity-10"></i>
+                    </div>
+                    <h5 class="text-white mb-1">Get started with Argon</h5>
+                    <p>There’s nothing I really wanted to do in life that I wasn’t able to get good at.</p>
                   </div>
                 </div>
-                <!-- Top2 -->
-                <div class="carousel-item h-100" style="background-image: url('../assets/img/c2.jpg'); background-size: cover;">
-                  <div class="carousel-caption d-none d-md-block bottom-0 text-start start-0 ms-4">
-                    <h4 class="text-white">"Colorful companions for your space!"</h4>      
-                    <h5 class="text-white">A catchy way to highlight the vibrant hues of ornamental fish.</h5>
+                <div class="carousel-item h-100" style="background-image: url('../assets/img/carousel-2.jpg'); background-size: cover;">
+                  <div class="carousel-caption d-none d-md-block bottom-0 text-start start-0 ms-5">
+                    <div class="icon icon-shape icon-sm bg-white text-center border-radius-md mb-3">
+                      <i class="ni ni-bulb-61 text-dark opacity-10"></i>
+                    </div>
+                    <h5 class="text-white mb-1">Faster way to create web pages</h5>
+                    <p>That’s my skill. I’m not really specifically talented at anything except for the ability to learn.</p>
                   </div>
                 </div>
-                <!-- Top3 -->
-                <div class="carousel-item h-100" style="background-image: url('../assets/img/c3.jpg'); background-size: cover;">
-                  <div class="carousel-caption d-none d-md-block bottom-0 text-start start-0 ms-4">
-                    <h4 class="text-white">"Underwater serenity in your own home!"</h4>  
-                    <h5 class="text-white">A concise way to describe the peaceful ambiance of ornamental fish.</h5>
+                <div class="carousel-item h-100" style="background-image: url('../assets/img/carousel-3.jpg');background-size: cover;">
+                  <div class="carousel-caption d-none d-md-block bottom-0 text-start start-0 ms-5">
+                    <div class="icon icon-shape icon-sm bg-white text-center border-radius-md mb-3">
+                      <i class="ni ni-trophy text-dark opacity-10"></i>
+                    </div>
+                    <h5 class="text-white mb-1">Share with us your design tips!</h5>
+                    <p>Don’t be afraid to be wrong because you can’t learn anything from a compliment.</p>
                   </div>
                 </div>
               </div>
@@ -636,6 +631,7 @@
           </div>
         </div>
       </div>
+      <!-- thong ke don hang theo loai -->
       <div class="row mt-4">
         <div class="col-lg-7 mb-lg-0 mb-4">
           <div class="card ">
@@ -941,6 +937,8 @@
   <script src="../assets/js/plugins/smooth-scrollbar.min.js"></script>
   <script src="../assets/js/plugins/chartjs.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js"></script>
   <!-- chart by month -->
   <script>
     var ctx = document.getElementById('myChart-m').getContext('2d');
