@@ -231,7 +231,7 @@
 						<!-- RETURNE-CONTINUE-SHOP START -->
 						<div class="returne-continue-shop">
 							<a href="index.php" class="continueshoping"><i class="fa fa-chevron-left"></i>Continue shopping</a>
-							<a href="checkout-signin.php" class="procedtocheckout">Proceed to checkout<i class="fa fa-chevron-right"></i></a>
+							<a href="checkout-address.php" class="procedtocheckout">Proceed to checkout<i class="fa fa-chevron-right"></i></a>
 						</div>	
 						<!-- RETURNE-CONTINUE-SHOP END -->						
 					</div>
