@@ -269,15 +269,18 @@
 						<div class="product-left-sidebar">
 							<h2 class="left-title">Tags </h2>
 							<div class="category-tag">
-								<a href="#">fashion</a>
-								<a href="#">handbags</a>
-								<a href="#">women</a>
-								<a href="#">men</a>
-								<a href="#">kids</a>
-								<a href="#">New</a>
-								<a href="#">Accessories</a>
-								<a href="#">clothing</a>
-								<a href="#">New</a>
+								<a href="#">Mới</a>
+								<a href="#">Màu vàng gold</a>
+								<a href="#">Iphone 15</a>
+								<a href="#">Bán chạy</a>
+								<a href="#">Chơi game</a>
+								<a href="#">Ram 6 GB</a>
+								<a href="#">Sạc siêu nhanh</a>
+								<a href="#">Pin trâu</a>
+								<a href="#">Samsung S22+</a>
+								<a href="#">Oppo reno 10</a>
+								<a href="#">Iphone 14 Pro</a>
+								<a href="#">Giá rẻ</a>
 							</div>
 						</div>
 						<!-- SINGLE SIDEBAR TAG END -->

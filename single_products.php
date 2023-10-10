@@ -269,36 +269,29 @@
 					<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
 						<!-- SINGLE SIDE BAR START -->
 						<div class="single-product-right-sidebar">
-							<h2 class="left-title">Viewed products</h2>
+							<h2 class="left-title">Sản phẩm mới nhất</h2>
 							<ul>
+								<?php
+								$sql = "select sp.SP_MA, sp.SP_HINHANH, sp.SP_GIA, sp.SP_TEN
+								from chitiet_pn ct 
+								join san_pham sp on ct.SP_MA=sp.SP_MA 
+								join phieu_nhap pn on ct.PN_STT=pn.PN_STT 
+								ORDER BY pn.PN_NGAYNHAP
+								DESC LIMIT 3";
+
+								$result = $conn->query($sql);
+								if($result->num_rows>0){
+								while($row = $result->fetch_assoc()){
+								?>
+								
 								<li>
-									<a href="#"><img src="img/product/sidebar_product/2.jpg" alt="" /></a>
-									<div class="r-sidebar-pro-content">
-										<h5><a href="#">Faded Short ...</a></h5>
-										<p>Faded short sleeves t-shirt with high...</p>
+									<a href="single_products.php?id=<?php echo $row["SP_MA"]; ?>"><img src="assets/img/product_img/<?php echo $row["SP_HINHANH"]; ?>" alt="" style="width:30%" /></a>
+									<div class="product-info">
+										<h3><a href="single_products.php?id=<?php echo $row["SP_MA"]; ?>"><?php echo $row["SP_TEN"]; ?></a></h3>
+										<p style="color:blue"></p><?php echo number_format($row["SP_GIA"]);?> VND</p>
 									</div>
 								</li>
-								<li>
-									<a href="#"><img src="img/product/sidebar_product/4.jpg" alt="" /></a>
-									<div class="r-sidebar-pro-content">
-										<h5><a href="#">Printed Chif ..</a></h5>
-										<p>Printed chiffon knee length dress...</p>
-									</div>
-								</li>
-								<li>
-									<a href="#"><img src="img/product/sidebar_product/6.jpg" alt="" /></a>
-									<div class="r-sidebar-pro-content">
-										<h5><a href="#">Printed Sum ...</a></h5>
-										<p>Long printed dress with thin...</p>
-									</div>
-								</li>
-								<li>
-									<a href="#"><img src="img/product/sidebar_product/1.jpg" alt="" /></a>
-									<div class="r-sidebar-pro-content">
-										<h5><a href="#">Printed Dress </a></h5>
-										<p>100% cotton double printed dress....</p>
-									</div>
-								</li>
+								<?php }}?>
 							</ul>
 						</div>	
 						<!-- SINGLE SIDE BAR END -->
@@ -306,15 +299,18 @@
 						<div class="single-product-right-sidebar clearfix">
 							<h2 class="left-title">Tags </h2>
 							<div class="category-tag">
-								<a href="#">fashion</a>
-								<a href="#">handbags</a>
-								<a href="#">women</a>
-								<a href="#">men</a>
-								<a href="#">kids</a>
-								<a href="#">New</a>
-								<a href="#">Accessories</a>
-								<a href="#">clothing</a>
-								<a href="#">New</a>
+								<a href="#">Mới</a>
+								<a href="#">Màu vàng gold</a>
+								<a href="#">Iphone 15</a>
+								<a href="#">Bán chạy</a>
+								<a href="#">Chơi game</a>
+								<a href="#">Ram 6 GB</a>
+								<a href="#">Sạc siêu nhanh</a>
+								<a href="#">Pin trâu</a>
+								<a href="#">Samsung S22+</a>
+								<a href="#">Oppo reno 10</a>
+								<a href="#">Iphone 14 Pro</a>
+								<a href="#">Giá rẻ</a>
 							</div>							
 						</div>	
 						<!-- SINGLE SIDE BAR END -->

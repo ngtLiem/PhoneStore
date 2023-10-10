@@ -31,14 +31,10 @@
 						<div class="right-all-product">
 							<!-- PRODUCT-CATEGORY-HEADER START -->
 							<div class="product-category-header">
-								<div class="category-header-image">
-									<img src="img/category-header.jpg" alt="category-header" />
-									<div class="category-header-text">
-										<h2>Women </h2>
-										<strong>You will find here all woman fashion collections.</strong>
-										<p>This category includes all the basics of your wardrobe and much more:<br /> shoes, accessories, printed t-shirts, feminine dresses, women's jeans!</p>
-									</div>									
-								</div>
+								<!-- <div class="category-header-image">
+									<img src="assets/img/slides/slide2.png" alt="category-header" />									
+								</div> -->
+								<?php require 'slider.php' ?>
 							</div>
 							<!-- PRODUCT-CATEGORY-HEADER END -->
 

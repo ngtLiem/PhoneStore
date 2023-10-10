@@ -44,12 +44,13 @@
 							<!-- PRODUCT-CATEGORY-HEADER START -->
 							<div class="product-category-header">
 								<div class="category-header-image">
-									<img src="assets/img/slides/BIG-T10-800-200-800x200.png" alt="category-header" />
-									<div class="category-header-text">
+									<!-- <img src="assets/img/slides/BIG-T10-800-200-800x200.png" alt="category-header" />
+									<div class="category-header-text"> -->
 										<!-- <h2>Women </h2>
 										<strong>You will find here all woman fashion collections.</strong>
 										<p>This category includes all the basics of your wardrobe and much more:<br /> shoes, accessories, printed t-shirts, feminine dresses, women's jeans!</p> -->
-									</div>									
+									<!-- </div>									 -->
+									<?php require 'slider.php' ?>
 								</div>
 							</div>
 							<!-- PRODUCT-CATEGORY-HEADER END -->

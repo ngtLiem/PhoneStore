@@ -10,7 +10,7 @@
 								</div>
 								<div class="facality-text">
 									<h3 class="facality-heading-text">FREE SHIPPING</h3>
-									<span>on order over $100</span>
+									<span>với đơn từ 7 000 000</span>
 								</div>
 							</div>
 						</div>
@@ -22,8 +22,8 @@
 									<i class="fa fa-umbrella"></i>
 								</div>
 								<div class="facality-text">
-									<h3 class="facality-heading-text">24/7 SUPPORT</h3>
-									<span>online consultations</span>
+									<h3 class="facality-heading-text">Hỗ trợ 24/7</h3>
+									<span>tư vấn trực tuyến</span>
 								</div>
 							</div>
 						</div>
@@ -35,8 +35,8 @@
 									<i class="fa fa-calendar"></i>
 								</div>
 								<div class="facality-text">
-									<h3 class="facality-heading-text">DAILY UPDATES</h3>
-									<span>Check out store for latest</span>
+									<h3 class="facality-heading-text">Daily update</h3>
+									<span> thông tin mới</span>
 								</div>
 							</div>
 						</div>
@@ -48,8 +48,8 @@
 									<i class="fa fa-refresh"></i>
 								</div>
 								<div class="facality-text">
-									<h3 class="facality-heading-text">30-DAY RETURNS</h3>
-									<span>moneyback guarantee</span>
+									<h3 class="facality-heading-text">Đổi trả trong 30 ngày</h3>
+									<span>hoàn trả chi phí</span>
 								</div>
 							</div>
 						</div>		

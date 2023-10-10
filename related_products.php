@@ -2,7 +2,7 @@
 <div class="row">
     <div class="col-sm-12">
         <div class="left-title-area">
-            <h2 class="left-title">related products</h2>
+            <h2 class="left-title">sản phẩm tương tự</h2>
         </div>
     </div>
     <div class="related-product-area featured-products-area">
