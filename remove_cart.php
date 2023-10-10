@@ -4,6 +4,11 @@ session_start();
 $spid = $_POST["idsprm"];
 $khid = $_SESSION["khid"];
 
+// $spid = $_GET["idsprm"];
+// $message = "$spid";
+// echo "<script type='text/javascript'>alert('$message');</script>";
+
+
 $sql_giasp = "select SP_GIA from san_pham where SP_MA = {$spid}";
         $result_giasp = $conn->query($sql_giasp);
         $giasp = $result_giasp->fetch_assoc()["SP_GIA"];
@@ -21,7 +26,6 @@ $ghma = $row["GH_MA"];
 if(isset($_POST['remove'])){
     $sql = "delete from chitiet_gh where SP_MA = $spid and GH_MA = $ghma";
     if ($conn->query($sql)==true){
-
         $sql1 = "delete from gio_hang where GH_MA =$ghma and KH_MA = $khid";
         if($conn->query($sql1) ==true){
             $message = "Đã xoá sản phẩm ra khỏi giỏ hàng";

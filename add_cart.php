@@ -47,7 +47,8 @@
                         if($conn->query($sql2)==true){
                             $message = "Cập nhật giỏ hàng thành công";
                             echo "<script type='text/javascript'>alert('$message');</script>";
-                            header('Refresh: 0;url=single_products.php?id='.$spid);
+                            // header('Refresh: 0;url=single_products.php?id='.$spid);
+                            header('Refresh: 0;url=cart.php');
                         } else{
                             echo "Error: " . $sql2 . "<br>" . $conn->error;
                         }
@@ -73,7 +74,8 @@
                     if($conn->query($sql_ctgh) == true){
                         $message = "Thêm sản phẩm vào giỏ hàng thành công";
                         echo "<script type='text/javascript'>alert('$message');</script>";
-                        header('Refresh: 0;url=single_products.php?id='.$spid);
+                        // header('Refresh: 0;url=single_products.php?id='.$spid);
+                        header('Refresh: 0;url=cart.php');
                     }
                 } else{
                     echo "Error: " . $sqlgh . "<br>" . $conn->error;

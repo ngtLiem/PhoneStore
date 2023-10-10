@@ -27,7 +27,7 @@
 						<div class="bstore-breadcrumb">
 							<a href="index.html">home</a>
 							<span><i class="fa fa-caret-right	"></i></span>
-							<span>Your shopping cart</span>
+							<span>Giỏ hàng</span>
 						</div>
 						<!-- BSTORE-BREADCRUMB END -->
 					</div>
@@ -36,7 +36,7 @@
 				<div class="row">
 					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 						
-						<h2 class="page-title">Shopping-cart summary <span class="shop-pro-item">Your shopping cart contains: <?php require 'slsp_tronggh.php'; ?> products</span></h2>
+						<h2 class="page-title">Thông tin chi tiết giỏ hàng <span class="shop-pro-item">Số lượng sản phẩm trong giỏ hàng: <?php require 'slsp_tronggh.php'; ?> sản phẩm</span></h2>
 						
 					</div>	
 					
@@ -122,7 +122,7 @@
 										</td>
 										<td class="cart-delete text-center">
 											<span>
-												<a href="#" type="submit" name="remove" class="cart_quantity_delete" title="Delete"><i class="fa fa-trash-o"></i></a>
+												<a href="remove_cart.php?idsprm=<?php echo $s["SP_MA"]; ?>" type="submit" name="remove" class="cart_quantity_delete" title="Delete"><i class="fa fa-trash-o"></i></a>
 												<input type="submit" name="remove" value="Delete" class="btn btn-default pull-right" style="color: #000 !important;"/>
 												<input type="hidden" name="idsprm" value="<?php echo $s["SP_MA"] ?>" />
 											</span>
