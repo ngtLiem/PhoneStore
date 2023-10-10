@@ -10,15 +10,10 @@
         $slsp = intval($_POST["slsp"]);
         $khid = $_SESSION["khid"];
 
-        
-        
         // Lay gia sp
         $sql_giasp = "select SP_GIA from san_pham where SP_MA = {$spid}";
         $result_giasp = $conn->query($sql_giasp);
         $giasp = $result_giasp->fetch_assoc()["SP_GIA"];
-
-
-        
 
         // Kiem tra san pham da co trong gio hang chua
         $check_exist = "select count(*) as tontai 
@@ -44,6 +39,7 @@
                     $sql1 = "UPDATE chitiet_gh SET CTGH_SOLUONG = CTGH_SOLUONG + '".$slsp."' WHERE SP_MA = '".$spid."' AND GH_MA = '".$ghma."'";
 
                     if($conn->query($sql1)==true){
+                        // Cập nhật tổng tiền và tổng số lượng sản phẩm trong giỏ hàng
                         $sql2 = "UPDATE gio_hang SET GH_TONGTIEN = (SELECT SUM(CTGH_SOLUONG * '".$giasp."') FROM chitiet_gh WHERE GH_MA = '".$ghma."'), GH_TONGSP = (SELECT SUM(CTGH_SOLUONG) FROM chitiet_gh WHERE GH_MA = '".$ghma."') WHERE KH_MA = '".$khid."' AND GH_MA = '".$ghma."'" ;
                         if($conn->query($sql2)==true){
                             $message = "Cập nhật giỏ hàng thành công";
@@ -58,9 +54,6 @@
                 } else{
                     echo "Error: " . $sql . "<br>" . $conn->error;
                 }
-
-
-                // Cập nhật tổng tiền và tổng số lượng sản phẩm trong giỏ hàng
                 
             } else {
                 // Lay id lon nhat cua gio hang
@@ -84,14 +77,6 @@
                 }
                 
             }
-        
-            // if($conn->query($sql) == true){
                 
-            // } else {
-                
-            // }
-        
-                
-        
     }
 ?>
