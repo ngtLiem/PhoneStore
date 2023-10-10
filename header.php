@@ -1,9 +1,7 @@
 <?php
 session_start();
-							  require 'connect.php';
-							  
-							 
-							 ?>
+require 'connect.php';						 
+?>
 							  
 <!-- HEADER-TOP START -->
 <div class="header-top">
@@ -83,8 +81,7 @@ session_start();
 							 
 							      if(!isset($_SESSION["id"])) // If session is not set then redirect to Login Page
 							       {
-							           printf(' <li><a href="registration.php"><span class="glyphicon glyphicon-log-in"></span> Đăng nhập</a></li>
-										 ');
+							           printf(' <li><a href="registration.php"><span class="glyphicon glyphicon-log-in"></span> Đăng nhập</a></li>');
 							       }
 							       else{
 							       	echo '<li>  Xin chào ' ; echo '<span style="color:Tomato;"><a href="ttkh.php"><b>' . $_SESSION['name'] . '</b></a></span></li>' ;
@@ -128,7 +125,7 @@ session_start();
 									<select name="catsearch" class="cat-search">
 										<option value="">Danh mục</option>
 									<?php
-									require 'connect.php';
+									
 									$sql = "select LSP_MA, LSP_TEN from loai_sp";
 									$result = $conn->query($sql);
 									if($result->num_rows > 0){
@@ -169,47 +166,68 @@ session_start();
 					<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 pull-right shopingcartarea">
 						<div class="shopping-cart-out pull-right">
 							<div class="shopping-cart">
-								<a class="shop-link" href="cart.html" title="View my shopping cart">
+							
+								<a class="shop-link" href="cart.php" title="View my shopping cart">
 									<i class="fa fa-shopping-cart cart-icon"></i>
 									<b>Giỏ hàng</b>
-									<span class="ajax-cart-quantity">2</span>
+									<span class="ajax-cart-quantity"><?php require 'slsp_tronggh.php'; ?></span>
 								</a>
-								<div class="shipping-cart-overly">
-									<div class="shipping-item">
-										<span class="cross-icon"><i class="fa fa-times-circle"></i></span>
-										<div class="shipping-item-image">
-											<a href="#"><img src="img/shopping-image.jpg" alt="shopping image" /></a>
+								<!-- hien thi san pham trong gio hang -->
+								<div class="shipping-cart-overly" style="height:auto; width: 35	0px;">
+									<?php
+										if(isset($_SESSION["khid"])){
+											$khid = $_SESSION["khid"];
+											$sql = "select sp.SP_TEN, sp.SP_GIA, ct.CTGH_SOLUONG, sp.SP_HINHANH, sp.SP_MA
+														from san_pham sp 
+														join chitiet_gh ct on ct.SP_MA=sp.SP_MA
+														join gio_hang gh on gh.GH_MA=ct.GH_MA
+														join khach_hang kh on kh.KH_MA=gh.KH_MA
+														where kh.KH_MA = {$khid}";
+											
+											$result = $conn->query($sql);
+											if($result->num_rows>0){
+												while($row = mysqli_fetch_assoc($result)){
+									?>
+												
+										<div class="shipping-item">
+											<span class="cross-icon"><i class="fa fa-times-circle"></i></span>
+											<div class="shipping-item-image">
+												<a href="single_products.php?id=<?php echo $row["SP_MA"]; ?>"><img src="assets/img/product_img/<?php echo $row["SP_HINHANH"] ?>" alt="shopping image" style="width: 20%;" /></a>
+											</div>
+											<div class="shipping-item-text">
+												<span><?php echo $row["CTGH_SOLUONG"]; ?> <span class="pro-quan-x">x</span> <a href="single_products.php?id=<?php echo $row["SP_MA"]; ?>" class="pro-cat"><?php echo $row["SP_TEN"]; ?></a></span>
+												<!-- <span class="pro-quality"><a href="#">S,Black</a></span> -->
+												<p>Giá <?php echo number_format($row["SP_GIA"]) ?>đ</p>
+											</div>
+										</div>																									
+								<?php	
+										}													
+									} 
+									$sql_tt = "select sum(GH_TONGTIEN) as tongtien
+														from gio_hang gh
+														join khach_hang kh on kh.KH_MA=gh.KH_MA
+														where kh.KH_MA = {$khid}";
+									$rs = $conn->query($sql_tt);
+									$tong = $rs->fetch_assoc()["tongtien"];
+								?>
+										
+										<div class="shipping-total-bill">
+											<!-- <div class="cart-prices">
+												<span class="shipping-cost">$2.00</span>
+												<span>Shipping</span>
+											</div> -->
+											<div class="total-shipping-prices">
+												<span class="shipping-total text-success"><?php echo number_format($tong) ?>đ</span>
+												<span>Tổng</span>
+											</div>										
 										</div>
-										<div class="shipping-item-text">
-											<span>2 <span class="pro-quan-x">x</span> <a href="#" class="pro-cat">Watch</a></span>
-											<span class="pro-quality"><a href="#">S,Black</a></span>
-											<p>$22.95</p>
-										</div>
-									</div>
-									<!-- <div class="shipping-item">
-										<span class="cross-icon"><i class="fa fa-times-circle"></i></span>
-										<div class="shipping-item-image">
-											<a href="#"><img src="img/shopping-image2.jpg" alt="shopping image" /></a>
-										</div>
-										<div class="shipping-item-text">
-											<span>2 <span class="pro-quan-x">x</span> <a href="#" class="pro-cat">Women Bag</a></span>
-											<span class="pro-quality"><a href="#">S,Gary</a></span>
-											<p>$19.95</p>
-										</div>
-									</div> -->
-									<div class="shipping-total-bill">
-										<div class="cart-prices">
-											<span class="shipping-cost">$2.00</span>
-											<span>Shipping</span>
-										</div>
-										<div class="total-shipping-prices">
-											<span class="shipping-total">$24.95</span>
-											<span>Total</span>
-										</div>										
-									</div>
-									<div class="shipping-checkout-btn">
-										<a href="checkout.php">Check out <i class="fa fa-chevron-right"></i></a>
-									</div>
+										<div class="shipping-checkout-btn">
+											<a href="checkout.php">Check out <i class="fa fa-chevron-right"></i></a>
+										</div>	
+								<?php								
+								}
+								?>				
+													
 								</div>
 							</div>
 						</div>
