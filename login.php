@@ -31,7 +31,7 @@ if ($result->num_rows > 0) {
 } else {
   $message = "Tài khoản hoặc mật khẩu không đúng. Vui lòng thử lại!.";
   echo "<script type='text/javascript'>alert('$message');</script>";
-  header('Refresh: 0;url=sign-in.php');
+  header('Refresh: 0;url=registration.php');
 }
 
 $conn->close();

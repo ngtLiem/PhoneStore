@@ -297,7 +297,7 @@ include "footer.php";
         var mapOptions = {
             zoom: 8,
             scrollwheel: false,
-            center: new google.maps.LatLng(35.149868, -90.046678)
+            center: new google.maps.LatLng(10.031157, 105.769171)
         };
         var map = new google.maps.Map(document.getElementById('googleMap'),
             mapOptions);

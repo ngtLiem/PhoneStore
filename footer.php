@@ -87,7 +87,8 @@
 										<!-- GOOGLE-MAP-AREA START -->
 										<div class="google-map-area">
 											<div class="google-map">
-												<div id="googleMap" style="width:100%;height:150px;"></div>
+												<div id="googleMap" style="width:100%;height:150px;">
+												
 											</div>
 										</div>
 										<!-- GOOGLE-MAP-AREA END -->
@@ -103,10 +104,10 @@
 											<div class="single-f-widget">
 												<h2>Categories</h2>
 												<ul>
-													<li><a href="shop-gird.html"><i class="fa fa-angle-double-right"></i>Women </a></li>
-													<li><a href="shop-gird.html"><i class="fa fa-angle-double-right"></i>Men</a></li>
-													<li><a href="shop-gird.html"><i class="fa fa-angle-double-right"></i>clothing</a></li>
-													<li><a href="shop-gird.html"><i class="fa fa-angle-double-right"></i>kids</a></li>
+													<li><a href="category.php?maloaisp=1"><i class="fa fa-angle-double-right"></i>Android </a></li>
+													<li><a href="category.php?maloaisp=2"><i class="fa fa-angle-double-right"></i>iPhone (iOS)</a></li>
+													<li><a href="category.php?maloaisp=3"><i class="fa fa-angle-double-right"></i>Điện thoại thông dụng</a></li>
+													<!-- <li><a href="shop-gird.html"><i class="fa fa-angle-double-right"></i>kids</a></li> -->
 												</ul>
 											</div>
 										</div>
@@ -163,8 +164,10 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+						
 						<div class="copy-right">
-							<address>Copyright © 2015 <a href="http://bootexperts.com/">BootExperts</a> All Rights Reserved</address>
+							<address>Copyright © <script>document.write(new Date().getFullYear())</script> <a href="http://bootexperts.com/">BootExperts</a> All Rights Reserved</address>
+							<a href="admin/sign-in.php">Administration</a>
 						</div>
 						<div class="scroll-to-top">
 							<a href="#" class="bstore-scrollertop"><i class="fa fa-angle-double-up"></i></a>
