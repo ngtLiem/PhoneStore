@@ -118,36 +118,18 @@ require 'connect.php';
 						<!-- HEADER-RIGHT-CALLUS END -->
 						<!-- CATEGORYS-PRODUCT-SEARCH START -->
 						<div class="categorys-product-search">
-							<form action="search.php" method="post" class="search-form-cat">
+							<form action="search.php" method="get" class="search-form-cat">
 								<div class="search-product form-group">
-
-								
-									<select name="catsearch" class="cat-search">
+									<select name="catsearch" class="cat-search" id="catsearch">
 										<option value="">Danh mục</option>
-									<?php
-									
-									$sql = "select LSP_MA, LSP_TEN from loai_sp";
-									$result = $conn->query($sql);
-									if($result->num_rows > 0){
-										$result = $conn->query($sql);
-										$result_all = $result->fetch_all(MYSQLI_ASSOC);
-										foreach($result_all as $row){
-											echo "<option value=" .$row["LSP_MA"]. ">".$row["LSP_TEN"]."</option>";
-											echo "<option value=" .$row["LSP_MA"]. ">".$row["LSP_TEN"]."</option>";
-											?>
+										<option value="1">Android</option>
+										<option value="2">IPhone (IOS)</option>
+										<option value="3">Điện thoại thông dụng</option>
 									</select>
-
-
-
-									<input type="text" class="form-control search-form" name="s" placeholder="Enter your search key ... " />
-									<button class="search-button" value="Search" name="s" type="submit">
+									<input type="text" class="form-control search-form" name="txtSearch" placeholder="Enter your search key ... " />
+									<button class="search-button" type="submit">
 										<i class="fa fa-search"></i>
 									</button>				
-									<?php
-										}
-									}
-								?>
-														 
 								</div>
 							</form>
 						</div>
