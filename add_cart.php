@@ -26,9 +26,9 @@
             if ($r["tontai"]>0) {
                 // Tìm giỏ hàng của khách hàng
                 $sql = "select gh.GH_MA 
-                from gio_hang gh
-                join chitiet_gh ctgh on ctgh.GH_MA=gh.GH_MA 
-                where  gh.KH_MA= {$khid} and ctgh.SP_MA= {$spid}";
+                            from gio_hang gh
+                            join chitiet_gh ctgh on ctgh.GH_MA=gh.GH_MA 
+                            where  gh.KH_MA= {$khid} and ctgh.SP_MA= {$spid}";
 
                 $result_magh = $conn->query($sql);
                 $row = $result_magh->fetch_assoc();
@@ -40,7 +40,10 @@
 
                     if($conn->query($sql1)==true){
                         // Cập nhật tổng tiền và tổng số lượng sản phẩm trong giỏ hàng
-                        $sql2 = "UPDATE gio_hang SET GH_TONGTIEN = (SELECT SUM(CTGH_SOLUONG * '".$giasp."') FROM chitiet_gh WHERE GH_MA = '".$ghma."'), GH_TONGSP = (SELECT SUM(CTGH_SOLUONG) FROM chitiet_gh WHERE GH_MA = '".$ghma."') WHERE KH_MA = '".$khid."' AND GH_MA = '".$ghma."'" ;
+                        $sql2 = "UPDATE gio_hang SET 
+                                    GH_TONGTIEN = (SELECT SUM(CTGH_SOLUONG * '".$giasp."') FROM chitiet_gh WHERE GH_MA = '".$ghma."'), 
+                                    GH_TONGSP = (SELECT SUM(CTGH_SOLUONG) FROM chitiet_gh WHERE GH_MA = '".$ghma."') 
+                                    WHERE KH_MA = '".$khid."' AND GH_MA = '".$ghma."'" ;
                         if($conn->query($sql2)==true){
                             $message = "Cập nhật giỏ hàng thành công";
                             echo "<script type='text/javascript'>alert('$message');</script>";

@@ -116,10 +116,15 @@
 											<div class="cart-plus-minus-button">
 												<input class="cart-plus-minus" type="number" min="1" max="99" name="qty" value="<?php echo $sp["CTGH_SOLUONG"]; ?>">
 											</div>
+											<div>
+											<input type="submit" name="update" style="margin-top:15px; " value="Cập nhật" class="btn btn-default" />
+										</div>
 										</td>
 										<td class="cart-delete text-center">
 											<span>
-												<a href="#" class="cart_quantity_delete" title="Delete"><i class="fa fa-trash-o"></i></a>
+												<a href="#" type="submit" name="remove" class="cart_quantity_delete" title="Delete"><i class="fa fa-trash-o"></i></a>
+												<input type="submit" name="remove" value="Delete" class="btn btn-default pull-right" style="color: #000 !important;"/>
+												<input type="hidden" name="idsprm" value="<?php echo $s["SP_MA"] ?>" />
 											</span>
 										</td>
 										<td class="cart-total">
