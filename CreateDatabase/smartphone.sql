@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 05, 2023 lúc 06:20 PM
+-- Thời gian đã tạo: Th10 09, 2023 lúc 10:17 PM
 -- Phiên bản máy phục vụ: 10.4.28-MariaDB
 -- Phiên bản PHP: 8.0.28
 
@@ -38,8 +38,8 @@ CREATE TABLE `chitiet_gh` (
 --
 
 INSERT INTO `chitiet_gh` (`SP_MA`, `GH_MA`, `CTGH_SOLUONG`) VALUES
-(1, 1, 1),
-(4, 2, 1),
+(1, 1, 5),
+(4, 2, 4),
 (5, 4, 1),
 (6, 3, 2);
 
@@ -160,7 +160,8 @@ CREATE TABLE `don_van_chuyen` (
 INSERT INTO `don_van_chuyen` (`DVC_MA`, `NVC_MA`, `DVC_DIACHI`, `DVC_TGBATDAU`, `DVC_TGHOANTHANH`) VALUES
 (1, 1, 'Tp.Cần Thơ', '2023-09-29', '2023-09-30'),
 (2, 2, 'Xuân Khánh, Ninh Kiều, Cần Thơ', '2023-10-02', '2023-10-02'),
-(3, 2, 'Tp - Cần Thơ', '2023-10-02', '2023-10-02');
+(3, 2, 'Tp - Cần Thơ', '2023-10-02', '2023-10-02'),
+(4, 1, 'Bạc Liêu', '2023-10-08', '2023-10-08');
 
 -- --------------------------------------------------------
 
@@ -171,19 +172,19 @@ INSERT INTO `don_van_chuyen` (`DVC_MA`, `NVC_MA`, `DVC_DIACHI`, `DVC_TGBATDAU`, 
 CREATE TABLE `gio_hang` (
   `GH_MA` int(11) NOT NULL,
   `KH_MA` int(11) NOT NULL,
-  `GH_TONGTIEN` float NOT NULL,
-  `GH_TONGSP` int(11) NOT NULL
+  `GH_TONGSP` int(11) NOT NULL,
+  `GH_TONGTIEN` float DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `gio_hang`
 --
 
-INSERT INTO `gio_hang` (`GH_MA`, `KH_MA`, `GH_TONGTIEN`, `GH_TONGSP`) VALUES
-(1, 1, 26490000, 1),
-(2, 1, 19990000, 1),
-(3, 2, 19980000, 2),
-(4, 2, 5990000, 1);
+INSERT INTO `gio_hang` (`GH_MA`, `KH_MA`, `GH_TONGSP`, `GH_TONGTIEN`) VALUES
+(1, 1, 4, 79960000),
+(2, 1, 4, 79960000),
+(3, 2, 2, 19980000),
+(4, 2, 1, 5990000);
 
 -- --------------------------------------------------------
 
@@ -380,7 +381,7 @@ CREATE TABLE `nha_van_chuyen` (
 
 INSERT INTO `nha_van_chuyen` (`NVC_MA`, `NVC_TEN`, `NVC_CHIPHI`, `NVC_MOTA`) VALUES
 (1, 'Giao hàng tiết kiệm', 10000, 'Tốc độ nhanh, tiết kiệm chi phí, an toàn.'),
-(2, 'Giao hàng nhanh', 15000, 'Giao hàng nhanh chóng, an toàn, hiệu quả, tiết kiệm thời gian cho khách hàng.'),
+(2, 'Giao hÃ ng nhanh', 15000, 'Nhanh, an toÃ n, giÃ¡ hop lÃ½\r\n'),
 (3, 'J&T Express', 18000, 'Chuyển phát đơn hàng nhanh chóng.');
 
 -- --------------------------------------------------------
@@ -476,7 +477,7 @@ CREATE TABLE `san_pham` (
   `SP_IMEI` int(11) NOT NULL,
   `SP_TEN` varchar(200) NOT NULL,
   `SP_MAUSAC` varchar(50) NOT NULL,
-  `SP_TINHNANG` varchar(250) NOT NULL,
+  `SP_TINHNANG` text NOT NULL,
   `SP_TGBH` varchar(100) NOT NULL,
   `SP_HINHANH` char(200) NOT NULL,
   `SP_SOLUONGTON` int(11) NOT NULL,
@@ -497,21 +498,21 @@ CREATE TABLE `san_pham` (
 --
 
 INSERT INTO `san_pham` (`SP_MA`, `NSX_MA`, `LSP_MA`, `SP_IMEI`, `SP_TEN`, `SP_MAUSAC`, `SP_TINHNANG`, `SP_TGBH`, `SP_HINHANH`, `SP_SOLUONGTON`, `SP_MANHINH`, `SP_HDH`, `SP_CAMTRUOC`, `SP_CAMSAU`, `SP_CPU`, `SP_RAM`, `SP_ROOM`, `SP_SIM`, `SP_PIN`, `SP_GIA`) VALUES
-(1, 1, 2, 1021202020, 'IPHONE 14 PROMAX', 'Tím', 'Phát hiện va chạm (Crash Detection)\r\nMàn hình luôn hiển thị AOD\r\nChạm 2 lần sáng màn hình\r\nApple Pay\r\nLoa kép', '1 năm', 'iphone-14-pro-max-tim-thumb-600x600.jpg', 50, 'OLED, 6.7\", Super Retina XDR', ' iOS 16', ' 12 MP', ' Chính 48 MP & Phụ 12 MP, 12 MP', 'Apple A16 Bionic', '6 GB', '128 GB', '1 Nano SIM & 1 eSIM, Hỗ trợ 5G', '4323 mAh, 20 W', 26490000),
-(2, 3, 1, 1215404211, 'Điện thoại OPPO Reno10 5G 128GB ', 'Xanh', 'Mở khoá vân tay dưới màn hình\r\nMở khoá khuôn mặt\r\nChế độ đơn giản (Giao diện đơn giản)\r\nCử chỉ thông minh\r\nMở rộng bộ nhớ RAM\r\nMàn hình luôn hiển thị AOD\r\nỨng dụng kép (Nhân bản ứng dụng)', '1 năm', 'oppo-reno10-blue-thumbnew-600x600.jpg', 20, 'AMOLED, 6.7\", Full HD+', 'Android 13', '32 MP', ' Chính 64 MP & Phụ 32 MP, 8 MP', ' MediaTek Dimensity 7050 5G 8 nhân', '8 GB', '128 GB', '2 Nano SIM (SIM 2 chung khe thẻ nhớ), Hỗ trợ 5G', ' 5000 mAh, 67 W', 9690000),
-(3, 7, 1, 1022006535, 'Điện thoại Xiaomi Redmi 12 4GB', 'Bạc', 'Mở khoá vân tay cạnh viền\r\nMở khoá khuôn mặtCử chỉ thông minh\r\nMở rộng bộ nhớ RAM\r\nChặn cuộc gọi\r\nChặn tin nhắn\r\nChạm 2 lần tắt/sáng màn hình\r\nThu nhỏ màn hình sử dụng một tay\r\nĐa cửa sổ (chia đôi màn hình)\r\nKhông gian thứ hai\r\nTrợ lý ảo Google Assis', '1 năm', 'xiaomi-redmi-12-bac-thumb-600x600.jpg', 38, 'IPS LCD, 6.79\", Full HD+', 'Android 13', '8 MP', 'Chính 50 MP & Phụ 8 MP, 2 MP', 'MediaTek Helio G88', '4 GB', '128 GB', '2 Nano SIM (SIM 2 chung khe thẻ nhớ), Hỗ trợ 4G', '5000 mAh, 18 W', 3790000),
-(4, 3, 1, 1252351223, 'Điện thoại OPPO Find N2 Flip 5G', 'Tím', 'Mở khoá vân tay cạnh viền\r\nMở khoá khuôn mặt\r\nCử chỉ thông minh\r\nMở rộng bộ nhớ RAM\r\nỨng dụng kép (Nhân bản ứng dụng)\r\nThu nhỏ màn hình sử dụng một tay\r\nĐa cửa sổ (chia đôi màn hình)\r\nChế độ trẻ em (Không gian trẻ em)', '1 năm', 'oppo-find-n2-flip-purple-thumb-1-600x600-1-600x600.jpg', 20, 'AMOLED, Chính 6.8\" & Phụ 3.26\", Full HD+', 'Android 13', '32 MP', 'Chính 50 MP & Phụ 8 MP', 'MediaTek Dimensity 9000+ 8 nhân', '8 GB', '256 GB', '2 Nano SIM, Hỗ trợ 5G', '4300 mAh, 44 W', 19990000),
-(5, 4, 1, 1030503030, 'Điện thoại vivo Y36 128GB', 'Xanh dương', 'Mở khoá vân tay cạnh viền\r\nMở khoá khuôn mặt\r\nCử chỉ thông minh\r\nMở rộng bộ nhớ RAM\r\nChế độ đơn giản (Giao diện đơn giản)\r\n\r\nCử chỉ thông minh\r\n\r\nMở rộng bộ nhớ RAM\r\n\r\nÂm thanh Hi-Res Audio\r\n\r\nChặn cuộc gọi\r\n\r\nChặn tin nhắn\r\n\r\nChạm 2 lần tắt/sáng màn', '1 năm', 'vivo-y36-xanh-thumbnew-600x600.jpg', 32, '\r\nIPS LCD, 6.64\", Full HD+', 'Android 13', '16 MP', 'Chính 50 MP & Phụ 2 MP', '\r\nSnapdragon 680', '8 GB', '128 GB', '2 Nano SIM, Hỗ trợ 4G', '5000 mAh, 44 W', 5990000),
-(6, 2, 1, 1205462504, 'Điện thoại Samsung Galaxy S21 FE 5G (6GB/128GB)', 'Xanh lá nhạt', 'Mở khoá vân tay dưới màn hình\r\nMở khoá khuôn mặt\r\nMàn hình luôn hiển thị AOD\r\nChạm 2 lần sáng màn hình\r\nÂm thanh Dolby Audio\r\nChặn cuộc gọi\r\nChặn tin nhắn\r\nTrợ lý ảo Samsung Bixby\r\nThu nhỏ màn hình sử dụng một tay\r\nSamsung Pay\r\nÂm thanh AKG\r\nSamsung ', '1 năm', 'Samsung-Galaxy-S21-FE-vang-1-2-600x600.jpg', 28, 'Dynamic AMOLED 2X, 6.4\", Full HD+', 'Android 12', '32 MP', 'Chính 12 MP & Phụ 12 MP, 8 MP', 'Exynos 2100', '6 GB', '128 GB', '2 Nano Sim, Hỗ trợ 5G', '4500 mAh, 25W', 9990000),
-(7, 1, 2, 1020302020, 'Điện thoại IPHONE 14', 'Tím nhạt', 'Mở khoá khuôn mặt Face ID\r\nPhát hiện va chạm (Crash Detection)\r\nChạm 2 lần sáng màn hình\r\nApple Pay\r\nLoa kép', '1 năm', 'iPhone-14-thumb-tim-1-600x600.jpg', 23, 'OLED, 6.1\", Super Retina XDR', 'iOS 16', '12 MP', '2 camera 12MP', 'Apple A15 Bionic', '6 GB', '128GB', '1 Nano SIM & 1 eSIM, Hỗ trợ 5G', '3279 mAh, 20W', 19190000),
-(8, 1, 2, 1020302222, 'Điện thoại IPHONE 12 64GB', 'Xanh lá', 'Mở khoá khuôn mặt Face ID\r\nKháng nước bụi IP68\r\nGhi âm có microphone chuyên dụng chống ồn', '1 năm', 'iphone-12-xanh-la-new-2-600x600.jpg', 20, 'OLED, 6.1\", Super Retina XDR', 'iOS 15', '12 MP', '2 camera 12MP', 'Apple A14 Bionic', '4 GB', '64 GB', '1 Nano SIM & 1 eSIM, Hỗ trợ 5G', '2815 mAh, 20W', 15490000),
-(9, 1, 2, 1020336549, 'Điện thoại IPHONE 14 Pro', 'Vàng', 'Mở khoá khuôn mặt Face ID\r\nPhát hiện va chạm (Crash Detection)\r\nMàn hình luôn hiển thị AOD\r\nChạm 2 lần sáng màn hình\r\nApple Pay\r\nLoa kép', '1 năm', 'iphone-14-pro-vang-thumb-600x600.jpg', 23, 'OLED, 6.1\", Super Retina XDR', 'iOS 16', '12 MP', 'Chính 48 MP & Phụ 12 MP, 12 MP', 'Apple A16 Bionic', '6 GB', '128GB', '1 Nano SIM & 1 eSIM, Hỗ trợ 5G', '3200 mAh, 20W', 24190000),
-(10, 1, 2, 1020495349, 'Điện thoại IPHONE 14 Plus 128GB', 'Đen', 'Mở khoá khuôn mặt Face ID\r\nPhát hiện va chạm (Crash Detection)\r\nChạm 2 lần sáng màn hình\r\nApple Pay\r\nLoa kép', '1 năm', 'iPhone-14-plus-thumb-den-600x600.jpg', 20, 'OLED, 6.7\", Super Retina XDR', 'iOS 16', '12 MP', '2 camera 12 MP', 'Apple A15 Bionic', '6 GB', '128GB', '1 Nano SIM & 1 eSIM, Hỗ trợ 5G', '4325 mAh, 20W', 21790000),
-(11, 1, 2, 1020325609, 'Điện thoại IPHONE 13 128GB', 'Hồng', 'Mở khoá khuôn mặt Face ID\r\nPhát hiện va chạm (Crash Detection)\r\nMàn hình luôn hiển thị AOD\r\nChạm 2 lần sáng màn hình\r\nApple Pay\r\nLoa kép', '1 năm', 'iphone-13-pink-2-600x600.jpg', 31, 'OLED, 6.1\", Super Retina XDR', 'iOS 15', '12 MP', '2 camera 12 MP', 'Apple A15 Bionic', '4 GB', '128GB', '1 Nano SIM & 1 eSIM, Hỗ trợ 5G', '3240 mAh, 20W', 16690000),
-(12, 1, 2, 1230525222, 'Điện thoại iPhone 11 128GB', 'Đen', 'Mở khoá khuôn mặt Face ID\r\nApple Pay\r\nÂm thanh\r\nDolby Audio\r\nKháng bụi nước IP68\r\nGhi âm có microphone chuyên dụng chống ồn', '1 năm', 'iphone-11-den-600x600.jpg', 15, 'IPS LCD, 6.1\", Liquid Retina', 'iOS 15', '12 MP', '2 camera 12 MP', 'Apple A13 Bionic', '4 GB', '128GB', '1 Nano SIM & 1 eSIM, Hỗ trợ 4G', '3110 mAh, 18', 12290000),
-(13, 2, 1, 1002023452, 'Điện thoại Samsung Galaxy Z Fold5 5G 512GB', 'Đen', 'Mở khoá vân tay cạnh viền, Mở khoá khuôn mặt\r\n\r\nCử chỉ thông minh\r\n\r\nKhông gian thứ hai (Thư mục bảo mật)\r\n\r\nỨng dụng kép (Dual Messenger)\r\n\r\nMở rộng bộ nhớ RAM\r\n\r\nMàn hình luôn hiển thị AOD\r\n\r\nBáo rung khi kết nối cuộc gọi\r\n\r\nChặn cuộc gọi\r\n\r\nChạm 2', '1 năm', 'samsung-galaxy-z-fold5- den-600x600.jpg', 15, 'Dynamic AMOLED 2X, Chính 7.6\" & Phụ 6.2\", Quad HD+ (2K+)', 'Android 13', '10 MP & 4 MP', 'Chính 50 MP & Phụ 12 MP, 10 MP', 'Snapdragon 8 Gen 2 for Galaxy', '12 GB', '512 GB', '2 Nano SIM hoặc 1 Nano SIM + 1 eSIM, Hỗ trợ 5G', '4400 mAh, 25 W', 40990000),
-(14, 2, 1, 102342520, 'Điện thoại Samsung Galaxy S23 Ultra 5G 256GB', 'Xanh rêu', 'Mở khoá vân tay dưới màn hình, Mở khoá khuôn mặt\r\n\r\nĐa cửa sổ (chia đôi màn hình)\r\n\r\nKhông gian thứ hai (Thư mục bảo mật)\r\n\r\nMàn hình luôn hiển thị AOD\r\n\r\nMở rộng bộ nhớ RAM\r\n\r\nMàn hình luôn hiển thị AOD\r\n\r\nÂm thanh Dolby Atmos\r\n\r\nChặn cuộc gọi\r\n\r\nCh', '1 năm', 'samsung-galaxy-s23-ultra-thumb-xanh-600x600.jpg', 10, 'Dynamic AMOLED 2X, 6.8\", Quad HD+ (2K+)', 'Android 13', '10 MP & 4 MP', 'Chính 200 MP & Phụ 12 MP, 10 MP, 10 MP', 'Snapdragon 8 Gen 2 for Galaxy', '8 GB', '256 GB', '2 Nano SIM hoặc 1 Nano SIM + 1 eSIM, Hỗ trợ 5G', '5000 mAh, 45 W', 23990000),
-(15, 2, 1, 102342520, 'Điện thoại Samsung Galaxy S23+ 5G 256GB', 'Xanh rêu', 'Mở khoá vân tay dưới màn hình, Mở khoá khuôn mặt\r\n\r\nĐa cửa sổ (chia đôi màn hình)\r\n\r\nKhông gian thứ hai (Thư mục bảo mật)\r\n\r\nMàn hình luôn hiển thị AOD\r\n\r\nMở rộng bộ nhớ RAM\r\n\r\nMàn hình luôn hiển thị AOD\r\n\r\nÂm thanh Dolby Atmos\r\n\r\nChặn cuộc gọi\r\n\r\nCh', '1 năm', 'samsung-galaxy-s23-plus-3-600x600.jpg', 10, 'Dynamic AMOLED 2X, 6.6\", Full HD+', 'Android 13', '12 MP', 'Chính 50 MP & Phụ 12 MP, 10 MP', 'Snapdragon 8 Gen 2 for Galaxy', '8 GB', '256 GB', '2 Nano SIM hoặc 1 Nano SIM + 1 eSIM, Hỗ trợ 5G', '4700 mAh, 45 W', 19990000);
+(1, 1, 2, 1021202020, 'Điện thoại IPHONE 14 PROMAX', 'Tím', 'Phát hiện va chạm (Crash Detection)<br/>Màn hình luôn hiển thị AOD<br/>Chạm 2 lần sáng màn hình<br/>Apple Pay<br/>Loa kép', '1 năm', 'iphone-14-pro-max-tim-thumb-600x600.jpg', 50, 'OLED, 6.7, Full HD+', ' iOS 16', ' 12 MP', ' Chính 48 MP & Phụ 12 MP, 12 MP', 'Apple A16 Bionic', '6 GB', '128 GB', '1 Nano SIM & 1 eSIM, Hỗ trợ 5G', '4323 mAh, 20 W', 26490000),
+(2, 3, 1, 1215404211, 'Điện thoại OPPO Reno10 5G 128GB ', 'Xanh', 'Mở khoá vân tay dưới màn hình<br/>\r\nMở khoá khuôn mặt<br/>\r\nChế độ đơn giản (Giao diện đơn giản)<br/>\r\nCử chỉ thông minh<br/>\r\nMở rộng bộ nhớ RAM<br/>\r\nMàn hình luôn hiển thị AOD<br/>\r\nỨng dụng kép (Nhân bản ứng dụng)<br/>', '1 năm', 'oppo-reno10-blue-thumbnew-600x600.jpg', 20, 'AMOLED, 6.7\", Full HD+', 'Android 13', '32 MP', ' Chính 64 MP & Phụ 32 MP, 8 MP', ' MediaTek Dimensity 7050 5G 8 nhân', '8 GB', '128 GB', '2 Nano SIM (SIM 2 chung khe thẻ nhớ), Hỗ trợ 5G', ' 5000 mAh, 67 W', 9690000),
+(3, 7, 1, 1022006535, 'Điện thoại Xiaomi Redmi 12 4GB', 'Bạc', 'Mở khoá vân tay cạnh viền<br/>\r\nMở khoá khuôn mặtCử chỉ thông minh<br/>\r\nMở rộng bộ nhớ RAM<br/>\r\nChặn cuộc gọi<br/>\r\nChặn tin nhắn<br/>\r\nChạm 2 lần tắt/sáng màn hình<br/>\r\nThu nhỏ màn hình sử dụng một tay<br/>\r\nĐa cửa sổ (chia đôi màn hình)<br/>\r\nKhông gian thứ hai<br/>\r\nTrợ lý ảo Google Assis<br/>', '1 năm', 'xiaomi-redmi-12-bac-thumb-600x600.jpg', 38, 'IPS LCD, 6.79\", Full HD+', 'Android 13', '8 MP', 'Chính 50 MP & Phụ 8 MP, 2 MP', 'MediaTek Helio G88', '4 GB', '128 GB', '2 Nano SIM (SIM 2 chung khe thẻ nhớ), Hỗ trợ 4G', '5000 mAh, 18 W', 3790000),
+(4, 3, 1, 1252351223, 'Điện thoại OPPO Find N2 Flip 5G', 'Tím', 'Mở khoá vân tay cạnh viền<br/>\r\nMở khoá khuôn mặt<br/>\r\nCử chỉ thông minh<br/>\r\nMở rộng bộ nhớ RAM<br/>\r\nỨng dụng kép (Nhân bản ứng dụng)<br/>\r\nThu nhỏ màn hình sử dụng một tay<br/>\r\nĐa cửa sổ (chia đôi màn hình)<br/>\r\nChế độ trẻ em (Không gian trẻ em)<br/>', '1 năm', 'oppo-find-n2-flip-purple-thumb-1-600x600-1-600x600.jpg', 20, 'AMOLED, Chính 6.8\" & Phụ 3.26\", Full HD+', 'Android 13', '32 MP', 'Chính 50 MP & Phụ 8 MP', 'MediaTek Dimensity 9000+ 8 nhân', '8 GB', '256 GB', '2 Nano SIM, Hỗ trợ 5G', '4300 mAh, 44 W', 19990000),
+(5, 4, 1, 1030503030, 'Điện thoại vivo Y36 128GB', 'Xanh dương', 'Mở khoá vân tay cạnh viền<br/>\r\nMở khoá khuôn mặt<br/>\r\nCử chỉ thông minh<br/>\r\nMở rộng bộ nhớ RAM<br/>\r\nMở rộng bộ nhớ RAM<br/>\r\nÂm thanh Hi-Res Audio<br/>\r\nChặn cuộc gọi<br/>\r\nChặn tin nhắn<br/>\r\nChế độ đơn giản (Giao diện đơn giản)<br/>\r\nCử chỉ thông minh<br/>\r\nChạm 2 lần tắt/sáng màn<br/>', '1 năm', 'vivo-y36-xanh-thumbnew-600x600.jpg', 32, '\r\nIPS LCD, 6.64\", Full HD+', 'Android 13', '16 MP', 'Chính 50 MP & Phụ 2 MP', '\r\nSnapdragon 680', '8 GB', '128 GB', '2 Nano SIM, Hỗ trợ 4G', '5000 mAh, 44 W', 5990000),
+(6, 2, 1, 1205462504, 'Điện thoại Samsung Galaxy S21 FE 5G (6GB/128GB)', 'Xanh lá nhạt', 'Mở khoá vân tay dưới màn hình<br/>\r\nMở khoá khuôn mặt<br/>\r\nSamsung Pay<br/>\r\nÂm thanh AKG<br/>\r\nSamsung <br/>\r\nMàn hình luôn hiển thị AOD<br/>\r\nChạm 2 lần sáng màn hình<br/>\r\nÂm thanh Dolby Audio<br/>\r\nChặn cuộc gọi<br/>\r\nChặn tin nhắn<br/>\r\nTrợ lý ảo Samsung Bixby<br/>\r\nThu nhỏ màn hình sử dụng một tay<br/>\r\n', '1 năm', 'Samsung-Galaxy-S21-FE-vang-1-2-600x600.jpg', 28, 'Dynamic AMOLED 2X, 6.4\", Full HD+', 'Android 12', '32 MP', 'Chính 12 MP & Phụ 12 MP, 8 MP', 'Exynos 2100', '6 GB', '128 GB', '2 Nano Sim, Hỗ trợ 5G', '4500 mAh, 25W', 9990000),
+(7, 1, 2, 1020302020, 'Điện thoại IPHONE 14', 'Tím nhạt', 'Mở khoá khuôn mặt Face ID<br/>\r\nPhát hiện va chạm (Crash Detection)<br/>\r\nChạm 2 lần sáng màn hình<br/>\r\nApple Pay<br/>\r\nLoa kép<br/>', '1 năm', 'iPhone-14-thumb-tim-1-600x600.jpg', 23, 'OLED, 6.1\", Super Retina XDR', 'iOS 16', '12 MP', '2 camera 12MP', 'Apple A15 Bionic', '6 GB', '128GB', '1 Nano SIM & 1 eSIM, Hỗ trợ 5G', '3279 mAh, 20W', 19190000),
+(8, 1, 2, 1020302222, 'Điện thoại IPHONE 12 64GB', 'Xanh lá', 'Mở khoá khuôn mặt Face ID<br/>\r\nKháng nước bụi IP68<br/>\r\nGhi âm có microphone chuyên dụng chống ồn<br/>', '1 năm', 'iphone-12-xanh-la-new-2-600x600.jpg', 20, 'OLED, 6.1\", Super Retina XDR', 'iOS 15', '12 MP', '2 camera 12MP', 'Apple A14 Bionic', '4 GB', '64 GB', '1 Nano SIM & 1 eSIM, Hỗ trợ 5G', '2815 mAh, 20W', 15490000),
+(9, 1, 2, 1020336549, 'Điện thoại IPHONE 14 Pro', 'Vàng', 'Mở khoá khuôn mặt Face ID<br/>\r\nPhát hiện va chạm (Crash Detection)<br/>\r\nMàn hình luôn hiển thị AOD<br/>\r\nChạm 2 lần sáng màn hình<br/>\r\nApple Pay<br/>\r\nLoa kép<br/>', '1 năm', 'iphone-14-pro-vang-thumb-600x600.jpg', 23, 'OLED, 6.1\", Super Retina XDR', 'iOS 16', '12 MP', 'Chính 48 MP & Phụ 12 MP, 12 MP', 'Apple A16 Bionic', '6 GB', '128GB', '1 Nano SIM & 1 eSIM, Hỗ trợ 5G', '3200 mAh, 20W', 24190000),
+(10, 1, 2, 1020495349, 'Điện thoại IPHONE 14 Plus 128GB', 'Đen', 'Mở khoá khuôn mặt Face ID<br/>\r\nPhát hiện va chạm (Crash Detection)<br/>\r\nChạm 2 lần sáng màn hình<br/>\r\nApple Pay<br/>\r\nLoa kép<br/>', '1 năm', 'iPhone-14-plus-thumb-den-600x600.jpg', 20, 'OLED, 6.7\", Super Retina XDR', 'iOS 16', '12 MP', '2 camera 12 MP', 'Apple A15 Bionic', '6 GB', '128GB', '1 Nano SIM & 1 eSIM, Hỗ trợ 5G', '4325 mAh, 20W', 21790000),
+(11, 1, 2, 1020325609, 'Điện thoại IPHONE 13 128GB', 'Hồng', 'Mở khoá khuôn mặt Face ID<br/>\r\nPhát hiện va chạm (Crash Detection)<br/>\r\nMàn hình luôn hiển thị AOD<br/>\r\nChạm 2 lần sáng màn hình<br/>\r\nApple Pay<br/>\r\nLoa kép<br/>', '1 năm', 'iphone-13-pink-2-600x600.jpg', 31, 'OLED, 6.1\", Super Retina XDR', 'iOS 15', '12 MP', '2 camera 12 MP', 'Apple A15 Bionic', '4 GB', '128GB', '1 Nano SIM & 1 eSIM, Hỗ trợ 5G', '3240 mAh, 20W', 16690000),
+(12, 1, 2, 1230525222, 'Điện thoại iPhone 11 128GB', 'Đen', 'Mở khoá khuôn mặt Face ID<br/>\r\nApple Pay<br/>\r\nÂm thanh<br/>\r\nDolby Audio<br/>\r\nKháng bụi nước IP68<br/>\r\nGhi âm có microphone chuyên dụng chống ồn<br/>', '1 năm', 'iphone-11-den-600x600.jpg', 15, 'IPS LCD, 6.1\", Liquid Retina', 'iOS 15', '12 MP', '2 camera 12 MP', 'Apple A13 Bionic', '4 GB', '128GB', '1 Nano SIM & 1 eSIM, Hỗ trợ 4G', '3110 mAh, 18', 12290000),
+(13, 2, 1, 1002023452, 'Điện thoại Samsung Galaxy Z Fold5 5G 512GB', 'Đen', 'Mở khoá vân tay cạnh viền<br/>\r\nMở khoá khuôn mặt<br/>\r\n\r\nCử chỉ thông minh<br/>\r\n\r\nKhông gian thứ hai (Thư mục bảo mật)<br/>\r\n\r\nỨng dụng kép (Dual Messenger)<br/>\r\n\r\nMở rộng bộ nhớ RAM<br/>\r\n\r\nMàn hình luôn hiển thị AOD<br/>\r\n\r\nBáo rung khi kết nối cuộc gọi<br/>\r\n\r\nChặn cuộc gọi<br/>\r\n\r\nChạm 2 sáng màn hình<br/>', '1 năm', 'samsung-galaxy-z-fold5- den-600x600.jpg', 15, 'Dynamic AMOLED 2X, Chính 7.6\" & Phụ 6.2\", Quad HD+ (2K+)', 'Android 13', '10 MP & 4 MP', 'Chính 50 MP & Phụ 12 MP, 10 MP', 'Snapdragon 8 Gen 2 for Galaxy', '12 GB', '512 GB', '2 Nano SIM hoặc 1 Nano SIM + 1 eSIM, Hỗ trợ 5G', '4400 mAh, 25 W', 40990000),
+(14, 2, 1, 102342520, 'Điện thoại Samsung Galaxy S23 Ultra 5G 256GB', 'Xanh rêu', 'Mở khoá vân tay dưới màn hình, Mở khoá khuôn mặt<br/>\r\n\r\nĐa cửa sổ (chia đôi màn hình)<br/>\r\n\r\nKhông gian thứ hai (Thư mục bảo mật)<br/>\r\n\r\nMàn hình luôn hiển thị AOD<br/>\r\n\r\nMở rộng bộ nhớ RAM<br/>\r\n\r\nMàn hình luôn hiển thị AOD<br/>\r\n\r\nÂm thanh Dolby Atmos<br/>\r\n\r\nChặn cuộc gọi<br/>\r\n\r\nChạm 2 lần tắt/sáng màn hình<br/>\r\n\r\nTrợ lý ảo Samsung Bixby<br/>\r\n\r\nSamsung Pay<br/>\r\n\r\nLoa kép<br/>\r\n', '1 năm', 'samsung-galaxy-s23-ultra-thumb-xanh-600x600.jpg', 10, 'Dynamic AMOLED 2X, 6.8\", Quad HD+ (2K+)', 'Android 13', '10 MP & 4 MP', 'Chính 200 MP & Phụ 12 MP, 10 MP, 10 MP', 'Snapdragon 8 Gen 2 for Galaxy', '8 GB', '256 GB', '2 Nano SIM hoặc 1 Nano SIM + 1 eSIM, Hỗ trợ 5G', '5000 mAh, 45 W', 23990000),
+(15, 2, 1, 102342520, 'Điện thoại Samsung Galaxy S23+ 5G 256GB', 'Xanh rêu', 'Mở khoá vân tay dưới màn hình, Mở khoá khuôn mặt<br/>\r\n\r\nĐa cửa sổ (chia đôi màn hình)<br/>\r\n\r\nKhông gian thứ hai (Thư mục bảo mật)<br/>\r\n\r\nMàn hình luôn hiển thị AOD<br/>\r\n\r\nMở rộng bộ nhớ RAM<br/>\r\n\r\nMàn hình luôn hiển thị AOD<br/>\r\n\r\nÂm thanh Dolby Atmos<br/>\r\n\r\nChặn cuộc gọi<br/>\r\n\r\nChạm 2 lần sáng/tắt màn hình<br/>', '1 năm', 'samsung-galaxy-s23-plus-3-600x600.jpg', 10, 'Dynamic AMOLED 2X, 6.6\", Full HD+', 'Android 13', '12 MP', 'Chính 50 MP & Phụ 12 MP, 10 MP', 'Snapdragon 8 Gen 2 for Galaxy', '8 GB', '256 GB', '2 Nano SIM hoặc 1 Nano SIM + 1 eSIM, Hỗ trợ 5G', '4700 mAh, 45 W', 19990000);
 
 -- --------------------------------------------------------
 

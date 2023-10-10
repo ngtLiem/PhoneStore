@@ -4,7 +4,7 @@
     if (!isset($_SESSION["id"])){
         $message = "Vui lòng đăng nhập để thêm vào giỏ hàng!";
         echo "<script type='text/javascript'>alert('$message');</script>";
-        header('Refresh: 0;url=account.php');
+        header('Refresh: 0;url=registration.php');
     } else {
         $spid = $_POST["id"];
         $slsp = intval($_POST["slsp"]);
@@ -38,7 +38,7 @@
                 $sql1 = "UPDATE chitiet_gh SET CTGH_SOLUONG = CTGH_SOLUONG + '".$slsp."' WHERE SP_MA = '".$spid."' AND GH_MA = '".$ghma."'";
 
                 if($conn->query($sql1)==true){
-                    $sql2 = "UPDATE gio_hang SET GH_TONGTIEN = (SELECT SUM(CTGH_SOLUONG * '".$giasp."') FROM chitiet_gh WHERE GH_MA = '".$ghma."'), GH_TONGSP = (SELECT SUM(CTGH_SOLUONG) FROM chitiet_gh WHERE GH_MA = '".$ghma."') WHERE KH_MA = '".$khid."'";
+                    $sql2 = "UPDATE gio_hang SET GH_TONGTIEN = (SELECT SUM(CTGH_SOLUONG * '".$giasp."') FROM chitiet_gh WHERE GH_MA = '".$ghma."'), GH_TONGSP = (SELECT SUM(CTGH_SOLUONG) FROM chitiet_gh WHERE GH_MA = '".$ghma."') WHERE KH_MA = '".$khid."' AND GH_MA = '".$ghma."'" ;
                     if($conn->query($sql2)==true){
                         $message = "Cập nhật giỏ hàng thành công" . $slsp . $ghma . $khid . $spid;
                     }
@@ -53,7 +53,7 @@
 
             if($conn->query($sql) == true){
                 echo "<script type='text/javascript'>alert('$message');</script>";
-                header('Refresh: 10;url=single_products.php?id='.$spid);
+                header('Refresh: 0;url=single_products.php?id='.$spid);
             } else {
                 echo "Error: " . $sql . "<br>" . $conn->error;
             }
