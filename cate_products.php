@@ -25,7 +25,7 @@
 						<div class="item">
 							<div class="single-product-item">
 								<div class="product-image">
-								<a href="product.php?id=<?php echo $row["SP_MA"] ?>"><img src="assets/img/product_img/<?php echo $row["SP_HINHANH"]?>" alt="product-image" /></a>
+								<a href="single_products.php?id=<?php echo $row["SP_MA"] ?>"><img src="assets/img/product_img/<?php echo $row["SP_HINHANH"]?>" alt="product-image" /></a>
 									<!-- <a href="#" class="new-mark-box">new</a> -->
 									<div class="overlay-content">
 										<ul>
@@ -86,7 +86,7 @@
 						<div class="item">
 							<div class="single-product-item">
 								<div class="product-image">
-								<a href="product.php?id=<?php echo $row["SP_MA"] ?>"><img src="assets/img/product_img/<?php echo $row["SP_HINHANH"]?>" alt="product-image" /></a>
+								<a href="single_products.php?id=<?php echo $row["SP_MA"] ?>"><img src="assets/img/product_img/<?php echo $row["SP_HINHANH"]?>" alt="product-image" /></a>
 									<!-- <a href="#" class="new-mark-box">sale!</a> -->
 									<div class="overlay-content">
 										<ul>

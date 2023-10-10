@@ -55,7 +55,7 @@
                     <div class="item">
                         <div class="single-product-item">
                             <div class="product-image">
-														<a href="product.php?id=<?php echo $top1_id; ?>"><img src="assets/img/product_img/<?php echo $top1_anh?>" alt="product-image" /></a>
+								<a href="single_products.php?id=<?php echo $top1_id; ?>"><img src="assets/img/product_img/<?php echo $top1_anh?>" alt="product-image" /></a>
                                 <a href="#" class="new-mark-box">top 1!</a>
                                 <div class="overlay-content">
                                     <ul>
@@ -79,7 +79,7 @@
                                         <span style="color: #ff5858;; font-size:18px;;">Đã bán: <?php echo $top1_soban; ?></span>
                                     </div>
                                 </div>
-																<a href="product.php?id=<?php echo $top1_id; ?>"><?php echo $top1_ten; ?></a>
+								<a href="single_products.php?id=<?php echo $top1_id; ?>"><?php echo $top1_ten; ?></a>
                                 <div class="price-box">
                                   <span class="price"><?php echo $top1_gia; ?> VNĐ</span>
                                 </div>
@@ -90,7 +90,7 @@
 										<div class="item">
                         <div class="single-product-item">
                             <div class="product-image">
-														<a href="product.php?id=<?php echo $top2_id; ?>"><img src="assets/img/product_img/<?php echo $top2_anh?>" alt="product-image" /></a>
+								<a href="single_products.php?id=<?php echo $top2_id; ?>"><img src="assets/img/product_img/<?php echo $top2_anh?>" alt="product-image" /></a>
                                 <a href="#" class="new-mark-box">top 2!</a>
                                 <div class="overlay-content">
                                     <ul>
@@ -114,18 +114,18 @@
                                         <span style="color: #ff5858;; font-size:18px;;">Đã bán: <?php echo $top2_soban; ?></span>
                                     </div>
                                 </div>
-																<a href="product.php?id=<?php echo $top2_id; ?>"><?php echo $top2_ten; ?></a>
+								<a href="single_product.php?id=<?php echo $top2_id; ?>"><?php echo $top2_ten; ?></a>
                                 <div class="price-box">
                                   <span class="price"><?php echo $top2_gia; ?> VNĐ</span>
                                 </div>
                             </div>
                         </div>
                     </div>
-										<!-- TOP 3 BÁN CHẠY -->
-										<div class="item">
+				    <!-- TOP 3 BÁN CHẠY -->
+					<div class="item">
                         <div class="single-product-item">
                             <div class="product-image">
-														<a href="product.php?id=<?php echo $top3_id; ?>"><img src="assets/img/product_img/<?php echo $top3_anh?>" alt="product-image" /></a>
+								<a href="single_products.php?id=<?php echo $top3_id; ?>"><img src="assets/img/product_img/<?php echo $top3_anh?>" alt="product-image" /></a>
                                 <a href="#" class="new-mark-box">top 3!</a>
                                 <div class="overlay-content">
                                     <ul>
@@ -149,18 +149,18 @@
                                         <span style="color: #ff5858;; font-size:18px;;">Đã bán: <?php echo $top3_soban; ?></span>
                                     </div>
                                 </div>
-																<a href="product.php?id=<?php echo $top3_id; ?>"><?php echo $top3_ten; ?></a>
+								<a href="single_products.php?id=<?php echo $top3_id; ?>"><?php echo $top3_ten; ?></a>
                                 <div class="price-box">
                                   <span class="price"><?php echo $top3_gia; ?> VNĐ</span>
                                 </div>
                             </div>
                         </div>
                     </div>
-										<!-- TOP 4 BÁN CHẠY -->
-										<div class="item">
+					<!-- TOP 4 BÁN CHẠY -->
+					<div class="item">
                         <div class="single-product-item">
                             <div class="product-image">
-														<a href="product.php?id=<?php echo $top4_id; ?>"><img src="assets/img/product_img/<?php echo $top4_anh?>" alt="product-image" /></a>
+								<a href="single_products.php?id=<?php echo $top4_id; ?>"><img src="assets/img/product_img/<?php echo $top4_anh?>" alt="product-image" /></a>
                                 <a href="#" class="new-mark-box">top 4!</a>
                                 <div class="overlay-content">
                                     <ul>
@@ -184,7 +184,7 @@
                                         <span style="color: #ff5858;; font-size:18px;;">Đã bán: <?php echo $top4_soban; ?></span>
                                     </div>
                                 </div>
-																<a href="product.php?id=<?php echo $top4_id; ?>"><?php echo $top4_ten; ?></a>
+								<a href="single_products.php?id=<?php echo $top4_id; ?>"><?php echo $top4_ten; ?></a>
                                 <div class="price-box">
                                   <span class="price"><?php echo $top4_gia; ?> VNĐ</span>
                                 </div>

@@ -23,7 +23,7 @@
                     <div class="item">
                         <div class="single-product-item">
                             <div class="product-image">
-														<a href="product.php?id=<?php echo $row["SP_MA"] ?>"><img src="assets/img/product_img/<?php echo $row["SP_HINHANH"]?>" alt="product-image" /></a>
+								<a href="single_products.php?id=<?php echo $row["SP_MA"] ?>"><img src="assets/img/product_img/<?php echo $row["SP_HINHANH"]?>" alt="product-image" /></a>
                                 <!-- <a href="#" class="new-mark-box">new</a> -->
                                 <div class="overlay-content">
                                     <ul>
@@ -47,17 +47,17 @@
                                         <span>1 Review (s)</span>
                                     </div>
                                 </div>
-                                <a href="product.php?id=<?php echo $row["SP_MA"]?>"><?php echo $row["SP_TEN"]?></a>
+                                <a href="single_products.php?id=<?php echo $row["SP_MA"]?>"><?php echo $row["SP_TEN"]?></a>
                                 <div class="price-box">
                                   <span class="price"><?php echo $row["SP_GIA"] ?> VNĐ</span>
                                 </div>
                             </div>
                         </div>
                     </div>
-										<?php 
-											}
-										} 
-										?>
+					<?php 
+						}
+					} 
+					?>
                     <!-- SINGLE-PRODUCT-ITEM END -->
                     <!-- SINGLE-PRODUCT-ITEM START -->
                 </div>

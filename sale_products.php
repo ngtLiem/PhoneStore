@@ -11,24 +11,23 @@
                     <!-- NEW-PRO-CAROUSEL START -->
                     <div class="new-pro-carousel">
                         <?php
-													require 'connect.php';
-													$sql = "select * from 
-																	chitiet_pn ct join san_pham sp on ct.SP_MA=sp.SP_MA 
-																	join phieu_nhap pn on ct.PN_STT=pn.PN_STT 
-																	ORDER BY pn.PN_NGAYNHAP";
+							require 'connect.php';
+							$sql = "select * from 
+									    chitiet_pn ct join san_pham sp on ct.SP_MA=sp.SP_MA 
+										join phieu_nhap pn on ct.PN_STT=pn.PN_STT 
+										ORDER BY pn.PN_NGAYNHAP";
 													
-													$result = $conn->query($sql);
-													if($result->num_rows>0){
-														while($row = $result->fetch_assoc()){
-													?>
+							$result = $conn->query($sql);
+							if($result->num_rows>0){
+								while($row = $result->fetch_assoc()){
+						?>
                         <!-- NEW-PRODUCT-SINGLE-ITEM START -->
                         <div class="item">
                             <div class="new-product">
                                 <div class="single-product-item">
                                     <div class="product-image">
-                                        <a href="product.php?id=<?php echo $row["SP_MA"] ?>"><img
-                                                src="assets/img/product_img/<?php echo $row["SP_HINHANH"]?>"
-                                                alt="product-image" /></a> <a href="#" class="new-mark-box">sale!</a>
+                                        <a href="single_products.php?id=<?php echo $row["SP_MA"] ?>">
+                                        <img src="assets/img/product_img/<?php echo $row["SP_HINHANH"]?>" alt="product-image" /></a> <a href="#" class="new-mark-box">sale!</a>
                                         <div class="overlay-content">
                                             <ul>
                                                 <li><a href="#" title="Quick view"><i class="fa fa-search"></i></a></li>
@@ -53,10 +52,10 @@
                                                 <span>1 Review (s)</span>
                                             </div>
                                         </div>
-                                        <a href="product.php?id=<?php echo $row["SP_MA"]?>"><?php echo $row["SP_TEN"]?></a>
+                                        <a href="single_products.php?id=<?php echo $row["SP_MA"]?>"><?php echo $row["SP_TEN"]?></a>
                                         <div class="price-box">
                                             <span class="price"><?php echo $row["SP_GIA"] ?> VNĐ</span>
-																						<span class="old-price"><?php echo $row["SP_GIA"] ?> VNĐ</span>
+											<span class="old-price"><?php echo $row["SP_GIA"] ?> VNĐ</span>
                                         </div>
                                     </div>
                                 </div>
