@@ -26,14 +26,14 @@ $ghma = $row["GH_MA"];
 if(isset($_POST['remove'])){
     $sql = "delete from chitiet_gh where SP_MA = $spid and GH_MA = $ghma";
     if ($conn->query($sql)==true){
-        $sql1 = "delete from gio_hang where GH_MA =$ghma and KH_MA = $khid";
-        if($conn->query($sql1) ==true){
+        // $sql1 = "delete from gio_hang where GH_MA =$ghma and KH_MA = $khid";
+        // if($conn->query($sql1) ==true){
             $message = "Đã xoá sản phẩm ra khỏi giỏ hàng";
             echo "<script type='text/javascript'>alert('$message');</script>";
             header('Refresh: 0;url=cart.php');
-        } else{
-            echo "Error: " . $sql1 . "<br>" . $conn->error;
-        }
+        // } else{
+        //     echo "Error: " . $sql1 . "<br>" . $conn->error;
+        // }
         
     } else {
         echo "Error: " . $sql . "<br>" . $conn->error;

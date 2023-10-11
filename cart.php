@@ -16,6 +16,7 @@
 		$message = "Giỏ hàng rỗng, hãy thêm sản phẩm vào giỏ hàng.";
         echo "<script type='text/javascript'>alert('$message');</script>";
         header('Location: products.php');
+		
 	}
 ?>
 
