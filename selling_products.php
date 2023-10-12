@@ -50,6 +50,13 @@
 											$top4_anh = $row4["anh"];
 											$top4_hd = $row4["so_hd"];
 											$top4_gia = $row4["gia"];
+
+                                            $top5_id = $row4["id"];
+											$top5_ten = $row4["ten"];
+											$top5_soban = $row4["so_ban"];
+											$top5_anh = $row4["anh"];
+											$top5_hd = $row4["so_hd"];
+											$top5_gia = $row4["gia"];
 										?>
 										<!-- TOP 1 BÁN CHẠY -->
                     <div class="item">
@@ -187,6 +194,41 @@
 								<a href="single_products.php?id=<?php echo $top4_id; ?>"><?php echo $top4_ten; ?></a>
                                 <div class="price-box">
                                   <span class="price"><?php echo $top4_gia; ?> VNĐ</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- TOP 4 BÁN CHẠY -->
+					<div class="item">
+                        <div class="single-product-item">
+                            <div class="product-image">
+								<a href="single_products.php?id=<?php echo $top5_id; ?>"><img src="assets/img/product_img/<?php echo $top5_anh?>" alt="product-image" /></a>
+                                <a href="#" class="new-mark-box">top 5!</a>
+                                <div class="overlay-content">
+                                    <ul>
+                                        <li><a href="#" title="Quick view"><i class="fa fa-search"></i></a></li>
+                                        <li><a href="#" title="Quick view"><i class="fa fa-shopping-cart"></i></a></li>
+                                        <li><a href="#" title="Quick view"><i class="fa fa-retweet"></i></a></li>
+                                        <li><a href="#" title="Quick view"><i class="fa fa-heart-o"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="product-info">
+                                <div class="customar-comments-box">
+                                    <div class="rating-box">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                    </div>
+                                    <div class="review-box">
+                                        <span style="color: #ff5858;; font-size:18px;;">Đã bán: <?php echo $top5_soban; ?></span>
+                                    </div>
+                                </div>
+								<a href="single_products.php?id=<?php echo $top5_id; ?>"><?php echo $top5_ten; ?></a>
+                                <div class="price-box">
+                                  <span class="price"><?php echo $top5_gia; ?> VNĐ</span>
                                 </div>
                             </div>
                         </div>
