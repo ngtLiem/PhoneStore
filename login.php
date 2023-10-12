@@ -6,7 +6,7 @@ session_start();
 $username = mysqli_real_escape_string($conn, $_POST['txtus']);
 $password = mysqli_real_escape_string($conn, $_POST['password']);
 
-$sql = "select kh_ma, kh_tendangnhap, kh_matkhau, kh_avatar, kh_ten, kh_email from khach_hang where kh_tendangnhap = '".strtolower($username)."' and kh_matkhau = '".$password."'";
+$sql = "select kh_ma, kh_tendangnhap, kh_matkhau, kh_avatar, kh_ten, kh_email, kh_sdt, kh_diachi from khach_hang where kh_tendangnhap = '".strtolower($username)."' and kh_matkhau = '".$password."'";
 $result = $conn->query($sql);
 if ($result->num_rows > 0) {
  
@@ -17,6 +17,8 @@ if ($result->num_rows > 0) {
 //   $_SESSION["cv"] = $row['cv_ma'];
   $_SESSION["khid"] = $row['kh_ma'];
   $_SESSION["name"] = $row['kh_ten'];
+  $_SESSION["sdt"] = $row['kh_sdt'];
+  $_SESSION["location"] = $row['kh_diachi'];
   $_SESSION["email"] = $row['kh_email'];
   if($row['kh_avatar']==null){
     $_SESSION["avt"] = "macdinh.jpg";

@@ -42,19 +42,19 @@
 						<div class="shoping-cart-menu">
                             <ul class="step">
 								<li class="step-todo first step-done">
-									<span><a href="cart.php">01. Tóm tắt</a></span>
+									<span><a href="cart.php">1. Tóm tắt</a></span>
 								</li>
 								<li class="step-todo second step-done">
-									<span><a href="checkout-address.php">02. Địa chỉ</a></span>
+										<span><a href="checkout-address.php">2. Xác nhận đơn hàng</a></span>
+									</li>
+								<!-- <li class="step-todo third">
+									<span>03. Vận chuyển</span>
 								</li>
-								<li class="step-todo third step-done">
-									<span><a href="checkout-shipping.php">03. Vận chuyển</a></span>
-								</li>
-								<li class="step-current four">
+								<li class="step-todo four">
 									<span>04. Thanh toán</span>
-								</li>
-								<li class="step-todo last" id="step_end">
-									<span>05. Đơn hàng</span>
+								</li> -->
+								<li class="step-current third" id="step_end">
+									<span>03. Đơn hàng</span>
 								</li>
 							</ul>										
 						</div>

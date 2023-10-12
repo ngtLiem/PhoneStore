@@ -4,12 +4,6 @@
 <?php include "head.php" ?>
 
 <body>
-    <?php
-		include "header.php";
-	?>
-    <!-- main -->
-    <!-- MAIN-CONTENT-SECTION START -->
-
 <?php
 	if($soluonggiohang == 0){
 		
@@ -19,6 +13,14 @@
 		
 	}
 ?>
+
+    <?php
+		include "header.php";
+	?>
+    <!-- main -->
+    <!-- MAIN-CONTENT-SECTION START -->
+
+
 
     <section class="main-content-section">
 			<div class="container">

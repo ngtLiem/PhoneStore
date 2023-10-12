@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en">
 
+
 <?php include "head.php" ?>
 
 <body>
@@ -8,7 +9,7 @@
 		include "header.php";
 	?>
 
-<?php
+    <?php
 	if($soluonggiohang == 0){
 		$message = "Giỏ hàng rỗng, hãy thêm sản phẩm vào giỏ hàng.";
         echo "<script type='text/javascript'>alert('$message');</script>";
@@ -16,138 +17,228 @@
 	}
 ?>
 
-<!-- MAIN-CONTENT-SECTION START -->
-<section class="main-content-section">
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-						<!-- BSTORE-BREADCRUMB START -->
-						<div class="bstore-breadcrumb">
-							<a href="index.html">HOMe</a>
-							<span><i class="fa fa-caret-right	"></i></span>
-							<span>Addresses</span>
-						</div>
-						<!-- BSTORE-BREADCRUMB END -->
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-						<h2 class="page-title">Addresses</h2>
-					</div>	
-					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-						<!-- SHOPING-CART-MENU START -->
-						<div class="shoping-cart-menu">
-							<ul class="step">
-								<li class="step-todo first step-done">
-									<span><a href="cart.php">01. Tóm tắt</a></span>
+    <!-- MAIN-CONTENT-SECTION START -->
+    <section class="main-content-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <!-- BSTORE-BREADCRUMB START -->
+                    <div class="bstore-breadcrumb">
+                        <a href="index.html">HOMe</a>
+                        <span><i class="fa fa-caret-right	"></i></span>
+                        <span>Addresses</span>
+                    </div>
+                    <!-- BSTORE-BREADCRUMB END -->
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <h2 class="page-title">Addresses</h2>
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <!-- SHOPING-CART-MENU START -->
+                    <div class="shoping-cart-menu">
+                        <ul class="step">
+                            <li class="step-todo first step-done">
+                                <span><a href="cart.php">1. Tóm tắt</a></span>
+                            </li>
+                            <li class="step-current second">
+									<span>2. Xác nhận đơn hàng</span>
 								</li>
-								<li class="step-current second">
-									<span>02. Địa chỉ</a></span>
-								</li>
-								<li class="step-todo third">
-									<span>03. Vận chuyển</span>
-								</li>
-								<li class="step-todo four">
-									<span>04. Thanh toán</span>
-								</li>
-								<li class="step-todo last" id="step_end">
-									<span>05. Đơn hàng</span>
-								</li>
-							</ul>									
-						</div>
-						<!-- SHOPING-CART-MENU END -->
-					</div>
-					<!-- ADDRESS AREA START --> 
-					<div class="col-lg-5 col-md-5 col-sm-6 col-xs-12">
-						<div class="form-group primary-form-group p-info-group deli-address-group">
-							<label>Choose a delivery address:</label>
-							<div class="birth-day delivery-address">
-								<select id="deli-address" name="deliveryaddress">
-									<option value="">Your Office Address</option>
-									<option value="">Your Office Address</option>
-									<option value="">Other Address</option>
-								</select>												
+                            <!-- <li class="step-todo third">
+                                <span>03. Vận chuyển</span>
+                            </li>
+                            <li class="step-todo four">
+                                <span>04. Thanh toán</span>
+                            </li> -->
+                            <li class="step-todo third" id="step_end">
+                                <span>03. Đơn hàng</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- SHOPING-CART-MENU END -->
+                </div>
+                <!-- ADDRESS AREA START -->
+                <div class="col-lg-6 col-md-5 col-sm-5 col-xs-12">
+                    <div class="form-group primary-form-group p-info-group deli-address-group">
+                        <h3 class="page-subheading box-subheading">Thông tin địa chỉ của bạn</h3>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-5 col-sm-5 col-xs-12">
+                    <div class="form-group primary-form-group p-info-group deli-address-group">
+                        <h3 class="page-subheading box-subheading">Thông tin đơn hàng</h3>
+                    </div>
+                </div>
+            </div>
+            <form method="post" action="luudonhang.php">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">Thông tin khách hàng</div>
+                            <div class="panel-body">
+                                <div class="col-md-4">
+                                    <img src="assets/img/cus_img/<?php echo $_SESSION["avt"] ?>" alt="" style="heigh:auto; width:auto; object-fit: cover;">
+                                </div>
+                                <label>Tên khách hàng : </label><span> <?php echo $_SESSION['name']?></span>
+                                <div class="col-mb-8">
+                                    <label>Điện thoại: </label><span> <?php echo $_SESSION['sdt']?></span>
+                                </div>
+                                <div class="col-mb-8">
+                                    <label>Email:</label><span> <?php echo $_SESSION['email']?></span>
+                                </div>
+                                <div class="col-mb-8">
+                                    <label>Địa chỉ giao hàng: </label><span> <?php echo $_SESSION['location']?></span>
+                                    <br/>
+                                </div>
+                                <div class="col-mb-8">
+                                    <label>Ngày đặt hàng: <input type="text" readonly class="form-control" value="<?php echo date('d-m-Y'); ?>" name="date" id="datechoose" required></label>
+                                </div>
+								<div class="col-mb-8" style="margin-left:170px;">
+                                    <label>Hình thức thanh toán
+                                        <select class="form-control" name="hinhthuctt">
+                                            <?php
+											$sql="SELECT * from phuong_thuc_thanh_toan ";
+											$result = $conn->query($sql); 
+											if ($result->num_rows > 0) {
+												while($row = $result->fetch_assoc()) {
+										?>
+                                            <option value="<?php echo $row["PTTT_MA"] ?>"><?php echo $row["PTTT_TEN"] ?></option>
+                                            <?php
+												}
+											}
+										?>
+                                        </select>
+                                    </label>
+								</div>
+								<div class="col-mb-8" style="margin-left:170px;">
+                                    <label>Nhà vận chuyển
+                                        <select class="form-control" name="nhavanchuyen">
+                                            <?php
+											$sql="SELECT * from nha_van_chuyen ";
+											$result = $conn->query($sql); 
+											if ($result->num_rows > 0) {
+												while($row = $result->fetch_assoc()) {
+										?>
+                                            <option value="<?php echo $row["NVC_MA"] ?>"><?php echo $row["NVC_TEN"] ?></option>
+                                            <?php
+												}
+											}
+										?>
+                                        </select>
+                                    </label>
+                                </div>
+                                
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">Danh sách các sản phẩm</div>
+                            <div class="panel-body">
+								<!-- tu day -->
+								<div class="col-md-12">
+									<div class="table-responsive">          
+										<table class="table">
+											<thead>
+											<tr>
+												<th>Tên sản phẩm</th>
+												<th>SL</th>
+												<th>Giá</th>
+												<th>Tổng</th>
+											</tr>
+											</thead>
+											<tbody>
+											<?php
+												$sp_array = array();
+												$slsp_array = array();
+												$giasp_array = array();
+												$khid = $_SESSION["khid"];
+												$sl = 0;
+												$total = 0;
+												$sql = "select gh.GH_MA, gh.KH_MA, ct.CTGH_SOLUONG, ct.SP_MA, gh.GH_TONGTIEN, gh.GH_TONGSP
+														from gio_hang gh
+														join chitiet_gh ct on ct.GH_MA = gh.GH_MA
+														where gh.KH_MA = {$khid}";
+												$rs = $conn->query($sql);
+												foreach($rs as $sp){
+													$sl += 1;
+													$spid = $sp["SP_MA"];
+													$query = "select * 
+																from san_pham sp 
+																join loai_sp lsp on sp.LSP_MA = lsp.LSP_MA 
+																where sp.SP_MA = {$spid}";
+
+													$result = $conn->query($query);
+													foreach($result as $s){
+														?>				
+															<tr>
+															<td><?php  echo $s["SP_TEN"]?></td>
+															<td><?php echo $sp["CTGH_SOLUONG"]?></td>
+															<td><?php  echo number_format($s["SP_GIA"])?> đ </td>
+															<td><?php echo number_format($sp["CTGH_SOLUONG"]*$s["SP_GIA"])?> đ</td>					
+															<?php $slsp_array[] = $sp["GH_TONGSP"]; ?>
+															<?php $giasp_array[] = $s["SP_GIA"]; ?>
+															</tr>
+														<?php
+														$total += $sp["CTGH_SOLUONG"]*$s["SP_GIA"];
+													}
+												}
+												$queryString = http_build_query($sp_array);
+												$queryString1 = http_build_query($slsp_array);
+												$queryString2 = http_build_query($giasp_array);
+											?>
+											</tbody>
+											<tfoot>
+											<tr>
+												<td colspan="3">
+													<span>Tổng</span>
+												</td>
+												<td colspan="1">
+												    <h4><?php echo number_format($total);  ?> VNĐ</h4>
+												</td>
+											</tr>
+											</tfoot>
+										</table>
+									</div>
+									<input type="hidden" name="total" value="<?php echo $total; ?>">
+									<input type="hidden" name="spid" value="<?php echo $sp["SP_MA"]; ?>">
+									<input type="hidden" name="slsp" value="<?php echo $sp["GH_TONGSP"]; ?>">
+									<input type="hidden" name="sparray" value="<?php echo $queryString; ?>">
+									<input type="hidden" name="slarray" value="<?php echo $queryString1; ?>">
+									<input type="hidden" name="giaarray" value="<?php echo $queryString2; ?>">
+									<input style="margin-left: 200px;" type="submit" name="Dat" value="Đặt hàng" class="btn btn-success" />
+									
+								</div>
+                                <!-- tới đây -->
 							</div>
-						</div>	
-						<div class="form-group primary-form-group p-info-group chose-address">
-							<label class="cheker">
-								<input type="checkbox" name="checkbox">
-								<span></span>
-							</label>
-							<a href="#">Use the delivery address as the billing address.</a>
-						</div>							
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-						<div class="first_item primari-box">
-							<!-- DELIVERY ADDRESS START -->
-							<ul class="address">
-								<li>
-									<h3 class="page-subheading box-subheading">
-										Your delivery address
-									</h3>
-								</li>
-								<li><span class="address_name">BootExperts</span></li>
-								<li><span class="address_company">Web development Company</span></li>
-								<li><span class="address_address1">Bonossri</span></li>
-								<li><span class="address_address2">D-Block</span></li>
-								<li><span class="">Rampura</span></li>
-								<li><span class="">Dhaka</span></li>
-								<li><span class="address_phone">+880 1735161598</span></li>
-								<li><span class="address_phone_mobile">+880 1975161598</span></li>
-								<li class="update-button">
-									<a href="my-cart-step-2-info.html">Update<i class="fa fa-chevron-right"></i></a>
-								</li>								
-							</ul>	
-							<!-- DELIVERY ADDRESS END -->
-						</div>						
-					</div>
-					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-						<div class="second_item primari-box">
-							<!-- BILLING ADDRESS START -->
-							<ul class="address">
-								<li>
-									<h3 class="page-subheading box-subheading">
-										Your billing address
-									</h3>
-								</li>
-								<li><span class="address_name">BootExperts</span></li>
-								<li><span class="address_company">Web development Company</span></li>
-								<li><span class="address_address1">Dhaka</span></li>
-								<li><span class="address_address2">Bonossri</span></li>
-								<li><span class="">Dhaka-1205</span></li>
-								<li><span class="">Rampura</span></li>
-								<li><span class="address_phone">+880 1735161598</span></li>
-								<li><span class="address_phone_mobile">+880 1975161598</span></li>
-								<li class="update-button">
-									<a href="my-cart-step-2-info.html">Update<i class="fa fa-chevron-right"></i></a>
-								</li>									
-							</ul>	
-							<!-- BILLING ADDRESS END -->
-						</div>
-					</div>
-					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-						<div class="add-new-address">
-							<a href="my-cart-step-2-info.html" class="new-address-link">Add a new address<i class="fa fa-chevron-right"></i></a>
-							<div class="form-group p-info-group type-address-group">
-								<label>If you would like to add a comment about your order, please write it in the field below.</label>
-								<textarea class="form-control input-feild " name="addcomment"></textarea>
-							</div>							
-						</div>
-						<!-- ADDRESS AREA START --> 
-						<!-- RETURNE-CONTINUE-SHOP START -->
-						<div class="returne-continue-shop ship-address">
-							<a href="index.php" class="continueshoping"><i class="fa fa-chevron-left"></i>Continue shopping</a>
-							<a href="checkout-shipping.php" class="procedtocheckout">Proceed to checkout<i class="fa fa-chevron-right"></i></a>
-						</div>	
-						<!-- RETURNE-CONTINUE-SHOP END -->		
-					</div>					
-				</div>
-			</div>
-		</section>
-		<!-- MAIN-CONTENT-SECTION END -->
-    
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="add-new-address">
+                        <!-- <a href="my-cart-step-2-info.html" class="new-address-link">Add a new address<i class="fa fa-chevron-right"></i></a>
+                        <div class="form-group p-info-group type-address-group">
+                            <label>If you would like to add a comment about your order, please write it in the field below.</label>
+                            <textarea class="form-control input-feild " name="addcomment"></textarea>
+                        </div> -->
+                    </div>
+                    <div class="returne-continue-shop ship-address">
+                        <a href="index.php" class="continueshoping"><i class="fa fa-chevron-left"></i>Continue shopping</a>
+                        <a href="checkout.php" class="procedtocheckout">Proceed to checkout<i class="fa fa-chevron-right"></i></a>
+						
+                    </div>	
+                </div>
+                </form>
+        	</div>
+       
+    </div>
+
+    </section>
+    <!-- MAIN-CONTENT-SECTION END -->
+
 
 
     <?php 
@@ -155,7 +246,7 @@ include "brand.php";
 ?>
 
 
-<?php include "company.php" ?>
+    <?php include "company.php" ?>
 
     <?php 
 include "footer.php";

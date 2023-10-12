@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 11, 2023 lúc 09:04 AM
+-- Thời gian đã tạo: Th10 09, 2023 lúc 10:17 PM
 -- Phiên bản máy phục vụ: 10.4.28-MariaDB
 -- Phiên bản PHP: 8.0.28
 
@@ -38,8 +38,8 @@ CREATE TABLE `chitiet_gh` (
 --
 
 INSERT INTO `chitiet_gh` (`SP_MA`, `GH_MA`, `CTGH_SOLUONG`) VALUES
-(2, 6, 1),
-(4, 2, 1),
+(1, 1, 5),
+(4, 2, 4),
 (5, 4, 1),
 (6, 3, 2);
 
@@ -181,12 +181,10 @@ CREATE TABLE `gio_hang` (
 --
 
 INSERT INTO `gio_hang` (`GH_MA`, `KH_MA`, `GH_TONGSP`, `GH_TONGTIEN`) VALUES
-(1, 1, 1, 26490000),
-(2, 2, 1, 19990000),
-(3, 3, 2, 19980000),
-(4, 4, 1, 5990000),
-(5, 1, 1, 9690000),
-(6, 1, 1, 9690000);
+(1, 1, 4, 79960000),
+(2, 1, 4, 79960000),
+(3, 2, 2, 19980000),
+(4, 2, 1, 5990000);
 
 -- --------------------------------------------------------
 
@@ -201,7 +199,7 @@ CREATE TABLE `hoa_don` (
   `NV_MA` int(11) NOT NULL,
   `PTTT_MA` int(11) NOT NULL,
   `KM_MA` int(11) DEFAULT NULL,
-  `GH_MA` int(11) DEFAULT NULL,
+  `GH_MA` int(11) NOT NULL,
   `HD_NGAYLAP` date NOT NULL,
   `HD_TONGTIEN` float NOT NULL,
   `HD_LIDOHUY` varchar(100) DEFAULT NULL
@@ -246,8 +244,7 @@ INSERT INTO `khach_hang` (`KH_MA`, `KH_TEN`, `KH_DIACHI`, `KH_SDT`, `KH_EMAIL`, 
 (2, 'Nguyễn Thị Khách', 'Xuân Khánh, Ninh Kiều, Cần Thơ', '0909564825', 'ttkhach@gmail.com', 'f', '2023-09-01', 'ttkhach', 'ttkhach', 'marie.jpg', '2007-09-12'),
 (3, 'Đỗ Thị Hương', 'Bình Thủy, Cần Thơ', '0356926445', 'dthuong@gmail.com', 'f', '2023-10-01', 'dthuong', 'dthuong', 'team-1.jpg', '1995-08-23'),
 (4, 'Trần Văn Hải', 'Bạc Liêu', '0909782566', 'tvhai@gmail.com', 'm', '2023-10-01', 'tvhai', 'tvhai', 'pic-1.jpg', '1998-10-15'),
-(5, 'Nguyễn Hoài Nam', 'Sóc Trăng', '0976254665', 'nhnam@gmail.com', 'm', '2023-10-01', 'nhnam', 'nhnam', 'macdinh.jpg', '2000-05-20'),
-(6, 'Nguyễn Văn A', 'Cần Thơ', '0909866852', 'nva@gmail.com', 'm', '2023-10-11', 'nva', 'nva', 'team-3.jpg', '2006-07-19');
+(5, 'Nguyễn Hoài Nam', 'Sóc Trăng', '0976254665', 'nhnam@gmail.com', 'm', '2023-10-01', 'nhnam', 'nhnam', 'macdinh.jpg', '2000-05-20');
 
 -- --------------------------------------------------------
 

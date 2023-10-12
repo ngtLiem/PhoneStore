@@ -45,7 +45,7 @@
 									<span><a href="cart.php">01. Tóm tắt</a></span>
 								</li>
 								<li class="step-todo second step-done">
-									<span><a href="cart.php">02. Địa chỉ</a></span>
+									<span><a href="checkout-address.php">02. Địa chỉ</a></span>
 								</li>
 								<li class="step-current third">
 									<span>03. Vận chuyển</span>
