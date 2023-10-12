@@ -842,7 +842,7 @@
                   </div>
                   <div class="d-flex">
                     <img src="../assets/img/gold_cup.png" style="height:40px; margin-right: 5px;" alt="">
-                    <a href="../products.php?id=<?php echo $top1_id; ?>"><button class="btn btn-link btn-icon-only btn-rounded btn-sm text-dark icon-move-right my-auto"><i class="ni ni-bold-right" aria-hidden="true"></i></button></a>
+                    <a href="../single_products.php?id=<?php echo $top1_id; ?>"><button class="btn btn-link btn-icon-only btn-rounded btn-sm text-dark icon-move-right my-auto"><i class="ni ni-bold-right" aria-hidden="true"></i></button></a>
                   </div>
                 </li>
                 <li class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
@@ -857,7 +857,7 @@
                   </div>
                   <div class="d-flex">
                     <img src="../assets/img/silver_cup.png" style="height:40px; margin-right: 5px;" alt="">
-                    <a href="../products.php?id=<?php echo $top2_id; ?>"><button class="btn btn-link btn-icon-only btn-rounded btn-sm text-dark icon-move-right my-auto"><i class="ni ni-bold-right" aria-hidden="true"></i></button></a>
+                    <a href="../single_products.php?id=<?php echo $top2_id; ?>"><button class="btn btn-link btn-icon-only btn-rounded btn-sm text-dark icon-move-right my-auto"><i class="ni ni-bold-right" aria-hidden="true"></i></button></a>
                   </div>
                 </li>
                 <li class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
@@ -872,7 +872,7 @@
                   </div>
                   <div class="d-flex">
                     <img src="../assets/img/copper_cup.png" style="height:40px; margin-right: 5px;" alt="">
-                    <a href="../products.php?id=<?php echo $top3_id; ?>"><button class="btn btn-link btn-icon-only btn-rounded btn-sm text-dark icon-move-right my-auto"><i class="ni ni-bold-right" aria-hidden="true"></i></button></a>
+                    <a href="../single_products.php?id=<?php echo $top3_id; ?>"><button class="btn btn-link btn-icon-only btn-rounded btn-sm text-dark icon-move-right my-auto"><i class="ni ni-bold-right" aria-hidden="true"></i></button></a>
                   </div>
                 </li>
                 <li class="list-group-item border-0 d-flex justify-content-between ps-0 border-radius-lg">
@@ -887,7 +887,7 @@
                   </div>
                   <div class="d-flex">
                     <img src="../assets/img/medal4.png" style="height:40px; margin-right: 5px;" alt="">
-                    <a href="../products.php?id=<?php echo $top4_id; ?>"><button class="btn btn-link btn-icon-only btn-rounded btn-sm text-dark icon-move-right my-auto"><i class="ni ni-bold-right" aria-hidden="true"></i></button></a>
+                    <a href="../single_products.php?id=<?php echo $top4_id; ?>"><button class="btn btn-link btn-icon-only btn-rounded btn-sm text-dark icon-move-right my-auto"><i class="ni ni-bold-right" aria-hidden="true"></i></button></a>
                   </div>
                 </li>
               </ul>

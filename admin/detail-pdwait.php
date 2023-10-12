@@ -43,10 +43,10 @@
 
 <body class="g-sidenav-show   bg-gray-100">
   <!-- Nguyên đoạn này -->
-  <div class="position-absolute w-100 min-height-400 top-0" style="background-image: url('https://media-cdn-v2.laodong.vn/storage/newsportal/2022/9/21/1095693/Screen-Shot-2022-09-.jpg?w=660'); background-position-y: 100%;">
+  <!-- <div class="position-absolute w-100 min-height-400 top-0" style="background-image: url('https://media-cdn-v2.laodong.vn/storage/newsportal/2022/9/21/1095693/Screen-Shot-2022-09-.jpg?w=660'); background-position-y: 100%;">
     <span class="mask bg-primary opacity-5"></span>
   </div>
-  
+   -->
   <?php
     $active = 'dh'; 
     require 'aside.php';
@@ -58,10 +58,10 @@
       <div class="container-fluid py-1 px-3">
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
-            <li class="breadcrumb-item text-sm"><a class="opacity-5 text-white" href="dashboard.php">Trang</a></li>
-            <li class="breadcrumb-item text-sm text-white active" aria-current="page">Chi tiết đơn hàng</li>
+            <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="dashboard.php">Trang</a></li>
+            <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Chi tiết đơn hàng</li>
           </ol>
-          <h6 class="font-weight-bolder text-white mb-0">Chi tiết đơn hàng</h6>
+          <h6 class="font-weight-bolder text-dark mb-0">Chi tiết đơn hàng</h6>
         </nav>
 
         <!-- Đoạn này -->
@@ -72,7 +72,7 @@
               <input type="text" class="form-control" placeholder="Type here..."> -->
             </div>
           </div>
-          <ul class="navbar-nav  justify-content-end">
+          <!-- <ul class="navbar-nav  justify-content-end">
             <li class="nav-item d-flex align-items-center mb-4 me-4">
               <div class="icon icon-shape bg-gradient-primary shadow-primary text-center rounded-circle">
                 <img src="../assets/img/staff_img/<?php echo $_SESSION["avt"]; ?>" class="rounded-circle avatar avatar-xl" alt='user'>
@@ -80,8 +80,8 @@
             </li>
             <li class="nav-item d-flex align-items-center mt-sm-1 ms-3">
              <nav class=" mt-sm-1" aria-label="breadcrumb">   
-                <h7 class="text-white text mb-0">Xin chào,</h7>
-                <h6 class="font-weight-bolder text-white mt-n1"><?php echo $_SESSION["name"]; ?></h6>      
+                <h7 class="text-dark text mb-0">Xin chào,</h7>
+                <h6 class="font-weight-bolder text-dark mt-n1"><?php echo $_SESSION["name"]; ?></h6>      
                 <a href="log_out.php" class="btn btn-outline-light text-white font-weight-bold px-2 mt-n1 py-1">
                   <span class="d-sm-inline d-none me-sm-1">Đăng xuất</span>
                   <i class="fas fa-sign-out-alt "></i>
@@ -98,7 +98,8 @@
                 </div>
               </a>
             </li>
-          </ul>
+          </ul> -->
+          <?php require 'nav.php'; ?>
         </div>
       </div>
     </nav>
@@ -343,7 +344,7 @@
                       </div>
                       <?php
                         $dp1 = "none";
-                        if ($trangthai==2){
+                        if ($trangthai==0){
                           $dp1 = "block";
                         } else {
                           $dp1 = "none";
@@ -353,7 +354,7 @@
                         <select id="myTextarea1" style="display: <?php echo $dp1 ?>;" name="donvc" class="form form-control form-control-md" id="city" aria-label=".form-select-sm">
                           <option value="" selected hidden disabled>- Chọn ĐVC -
                           <?php
-                              $sql_dvc = "select * from don_van_chuyen where DVC_TGBATDAU > sysdate()";
+                              $sql_dvc = "select * from don_van_chuyen where DVC_TGBATDAU >= sysdate()";
                               $rs_dvc = $conn->query($sql_dvc);
                               if ($rs_dvc->num_rows > 0) {
                                   $rs_dvc = $conn->query($sql_dvc);
