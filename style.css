@@ -2650,14 +2650,14 @@ ul.gategory-product li.gategory-product-list div.single-product-item .overlay-co
 }
 .product-shooting-result{
 	overflow: hidden;
-	margin:12px 0;
+	margin:10px 0;
 }
 .product-shooting-result-border{
 	border: 1px solid #d6d4d4;
 	padding:10px;
 }
 .product-shooting-result-border .showing-next-prev{
-	width:48%;
+	width:25%;
 }
 .product-shooting-result-border .showing-next-prev ul li a{
 	line-height:32px;
@@ -2698,7 +2698,7 @@ ul.gategory-product li.gategory-product-list div.single-product-item .overlay-co
 ul.pagination-bar{}
 .showing-next-prev ul{
 	float:left;
-	margin-left:12px;
+	margin-left:250px;
 } 
 .showing-next-prev ul li{
 	padding:0;

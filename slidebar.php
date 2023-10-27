@@ -260,7 +260,7 @@
             </div>
             <!-- SINGLE SIDEBAR STYLES END -->
             <!-- SINGLE SIDEBAR PROPERTIES START -->
-            <div class="product-single-sidebar">
+            <!-- <div class="product-single-sidebar">
                 <span class="sidebar-title">Tính năng sạc</span>
                 <ul>
                     <li>
@@ -286,11 +286,11 @@
                     </li>
                     
                 </ul>
-            </div>
+            </div> -->
             <!-- SINGLE SIDEBAR PROPERTIES END -->
 
             <!-- SINGLE SIDEBAR PROPERTIES START -->
-            <div class="product-single-sidebar">
+            <!-- <div class="product-single-sidebar">
                 <span class="sidebar-title">Tính năng đặc biệt</span>
                 <ul>
                     <li>
@@ -316,7 +316,7 @@
                     </li>
                     
                 </ul>
-            </div>
+            </div> -->
             <!-- SINGLE SIDEBAR PROPERTIES END -->
 
         </div>

@@ -43,85 +43,63 @@
 							<div class="product-category-title">
 								<!-- PRODUCT-CATEGORY-TITLE START -->
 								<h1>
-									<span class="cat-name">Women</span>
+									<span class="cat-name">Điện thoại</span>
 									<span class="count-product">There are 13 products.</span>
 								</h1>
-								<!-- PRODUCT-CATEGORY-TITLE END -->
+								
 							</div>
 							<div class="product-shooting-area">
 								<div class="product-shooting-bar">
-									<!-- SHOORT-BY START -->
-									<div class="shoort-by">
-										<label for="productShort">Sort by</label>
+									<div class="shoort-by" style="margin-left:10px;">
+										<label for="productShort">Sắp xếp</label>
 										<div class="short-select-option">
 											<select name="sortby" id="productShort">
 												<option value="">--</option>
-												<option value="">Price: Lowest first</option>
-												<option value="">Price: Highest first</option>
-												<option value="">Product Name: A to Z</option>
-												<option value="">Product Name: Z to A</option>
-												<option value="">In stock</option>
-												<option value="">Reference: Lowest first</option>
-												<option value="">Reference: Highest first</option>
+												<option value="">Giá thấp nhất</option>
+												<option value="">Giá cao nhất</option>
+												<option value="">Tên điện thoại từ A đến Z</option>
+												<option value="">Mới nhất</option>
 											</select>												
 										</div>
 									</div>
-									<!-- SHOORT-BY END -->
-									<!-- SHOW-PAGE START -->
-									<div class="show-page">
-										<label for="perPage">Show</label>
-										<div class="s-page-select-option">
-											<select name="show" id="perPage">
-												<option value="">11</option>
-												<option value="">12</option>
-											</select>													
+									<div class="shoort-by" style="margin-left:10px;">
+										<label for="productShort">Hãng</label>
+										<div class="short-select-option">
+											<select name="sortby" id="productShort">
+												<option value="">--</option>
+												<?php
+													$sql_hang = "SELECT * FROM nha_san_xuat";
+													$result = $conn->query($sql_hang);
+													if ($result->num_rows > 0) {
+													$result = $conn->query($sql_hang);
+													$result_all = $result -> fetch_all(MYSQLI_ASSOC);
+													foreach ($result_all as $row) {
+														echo "<option value=" .$row["NSX_MA"]. ">".$row["NSX_TEN"]. "</option>";
+													}                          
+													} else {
+													echo "<option value=''>Không có dữ liệu</option>";
+													}
+												?>
+											</select>												
 										</div>
-										<span>per page</span>										
 									</div>
-									<!-- SHOW-PAGE END -->
-									<!-- VIEW-SYSTEAM START -->
-									<div class="view-systeam">
-										<label for="perPage">View:</label>
-										<ul>
-											<li class="active"><a href="shop-gird.html"><i class="fa fa-th-large"></i></a><br />Grid</li>
-											<li><a href="shop-list.html"><i class="fa fa-th-list"></i></a><br />List</li>
-										</ul>
-									</div>
-									<!-- VIEW-SYSTEAM END -->
-								</div>
-								<!-- PRODUCT-SHOOTING-RESULT START -->
-								<div class="product-shooting-result">
-									<form action="#">
-										<button class="btn compare-button">
-											Compare (<span class="compare-value">1</span>)
-											<i class="fa fa-chevron-right"></i>
-										</button>
-									</form>
-									<div class="showing-item">
-										<span>Showing 1 - 12 of 13 items</span>
-									</div>
-									<div class="showing-next-prev">
-										<ul class="pagination-bar">
-											<li class="disabled">
-												<a href="#" ><i class="fa fa-chevron-left"></i>Previous</a>
-											</li>
-											<li class="active">
-												<span><a class="pagi-num" href="#">1</a></span>
-											</li>
-											<li>
-												<span><a class="pagi-num" href="#">2</a></span>
-											</li>
-											<li>
-												<a href="#" >Next<i class="fa fa-chevron-right"></i></a>
-											</li>
-										</ul>
-										<form action="#">
-											<button class="btn showall-button">Show all</button>
-										</form>
+									<div class="shoort-by" style="margin-left:10px;">
+										<label for="productShort">Tính năng</label>
+										<div class="short-select-option">
+											<select name="sortby" id="productShort">
+												<option value="">--</option>
+												<option value="">Sạc Nhanh (Từ 20W)</option>
+												<option value="">Sạc Siêu Nhanh (Từ 60W)</option>
+												<option value="">Sạc Không Dây</option>
+												<option value="">Kháng Nước, Bụi</option>
+												<option value="">Hỗ Trợ 5G</option>
+												<option value="">Bảo Mật Khuôn Mật 3D</option>
+											</select>												
+										</div>
 									</div>
 								</div>
-								<!-- PRODUCT-SHOOTING-RESULT END -->
 							</div>
+							
 						</div>
 						<!-- ======================================================================================== -->
 						<!-- ALL GATEGORY-PRODUCT START -->
@@ -132,11 +110,38 @@
 										<?php 
 											require 'connect.php';
 											//lay san pham theo id
+											$result = mysqli_query($conn, 'select count(SP_MA) as total from san_pham');
+											$row = mysqli_fetch_assoc($result);
+											$total_records = $row['total'];
+											if($row['total'] === 0)
+											{
+												$message = "Loại điện thoại rỗng, hãy chọn loại điện thoại khác.";
+												echo "<script type='text/javascript'>alert('$message');</script>";
+												header('Location: products.php');
+											}					   
+											$offset =1;
+											// BƯỚC 3: TÌM LIMIT VÀ CURRENT_PAGE
+											$current_page = isset($_GET['page']) ? $_GET['page'] : 1;
+											$limit = 16;
+											// BƯỚC 4: TÍNH TOÁN TOTAL_PAGE VÀ START
+											// tổng số trang
+											$total_page = ceil($total_records / $limit);
+											 
+											// Giới hạn current_page trong khoảng 1 đến total_page
+											if ($current_page > $total_page){
+												$current_page = $total_page;
+											}
+											else if ($current_page < 1){
+												$current_page = 1;
+											}
+											// Tìm Start
+											$start = ($current_page - 1) * $limit;
+											// BƯỚC 5: TRUY VẤN LẤY DANH SÁCH
+											// Có limit và start rồi thì truy vấn CSDL lấy danh Sách
 											
-											
-											$result = mysqli_query($conn, 'select * from san_pham');
-											 // output data of each row
-											 while ($row = mysqli_fetch_assoc($result)){
+											$result = mysqli_query($conn, "SELECT * FROM san_pham LIMIT $start, $limit " );
+											// output data of each row
+											while ($row = mysqli_fetch_assoc($result)){
 													?>
 									<li class="gategory-product-list col-lg-3 col-md-5 col-sm-6 col-xs-12" style="height: 330px;" >
 										<div class="single-product-item">
@@ -181,44 +186,53 @@
 						</div>
 						<!-- ALL GATEGORY-PRODUCT END -->
 
-  
 						<!-- Tính số trang và chuyển trang -->
 						<!-- PRODUCT-SHOOTING-RESULT START -->
 						<div class="product-shooting-result product-shooting-result-border">
-							<form action="#">
+							<!-- <form action="#">
 								<button class="btn compare-button">
 									Compare (<strong class="compare-value">1</strong>)
 									<i class="fa fa-chevron-right"></i>
 								</button>
-							</form> 
+							</form>  -->
 							 <div class="showing-item">
-								<span>Showing   items</span>
+								<!-- <span>Hiển thị <?php echo $total_page; ?> </span> -->
 							</div> 
-							<div class="showing-next-prev">
+							<div class="showing-next-prev" style="margin-left:120px;">
 								<ul class="pagination-bar">
-								
-									<li class="disabled">
-										<a href="#" ><i class="fa fa-chevron-left"></i>Previous</a>
+								<?php
+									// PHẦN HIỂN THỊ PHÂN TRANG
+									// BƯỚC 7: HIỂN THỊ PHÂN TRANG
+									// nếu current_page > 1 và total_page > 1 mới hiển thị nút prev
+									for ($i = 1; $i <= $total_page; $i++){
+										if ($i == $current_page){
+											?>
+											<li class="disabled">
+										<!-- <a href="#" ><i class="fa fa-chevron-left"></i></a> -->
 									</li>
 									<li class="active">
-										<span><a class="pagi-num" href="#"></a></span>
+										<span><a class="pagi-num" href="#"><?php echo $i  ?></a></span>
 									</li>
-				
+									<?php } ?>
+
+									<?php
+										if($i != $current_page){
+									?>
 									<li>
-										<span><a class="pagi-num" href="#"></a></span>
+										<span><?php echo '<a class="pagi-num" href="products.php?&page='.$i.'">'.$i.'</a> '; ?></span>
+									</li>
 									
-									</li>
-								
-									<li>
-										<a href="#" >Next<i class="fa fa-chevron-right"></i></a>
-									</li>
+									<?php
+										}
+									}
+								?>
 									
 								</ul>
-								<!-- <form action="#">
-									<button class="btn showall-button">Show all</button>
-								</form> -->
+								<form>
+									<!-- <button class="btn showall-button">Show all</button> -->
+								</form>
 							</div>
-						</div>	
+						</div>		
 						<!-- PRODUCT-SHOOTING-RESULT END -->
 					</div>
 				</div>
