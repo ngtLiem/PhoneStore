@@ -76,7 +76,7 @@
     <!-- MAIN-CONTENT-SECTION END -->
 
     <?php 
-include "tintuc.php";
+require 'tintuc.php';
 ?>
 
     <?php 

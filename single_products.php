@@ -230,7 +230,7 @@
 											<div class="row tab-review-row">
 												<div class="col-xs-5 col-sm-4 col-md-4 col-lg-3 padding-5">
 													<div class="tab-rating-box">
-														<span>Grade</span>
+														<span>Đỗ Văn Đoàn</span>
 														<div class="rating-box">
 															<i class="fa fa-star"></i>
 															<i class="fa fa-star"></i>
@@ -239,14 +239,14 @@
 															<i class="fa fa-star-half-empty"></i>
 														</div>	
 														<div class="review-author-info">
-															<strong>write A REVIEW</strong>
-															<span>06/22/2015</span>
+															<strong>Ngày đánh giá</strong>
+															<span>10/10/2002</span>
 														</div>															
 													</div>
 												</div>
 												<div class="col-xs-7 col-sm-8 col-md-8 col-lg-9 padding-5">
 													<div class="write-your-review">
-														<p><strong>write A REVIEW</strong></p>
+														<p><strong>Nội dung</strong></p>
 														<p>write A REVIEW</p>
 														<span class="usefull-comment">Was this comment useful to you? <span>Yes</span><span>No</span></span>
 														<a href="#">Report abuse </a>
@@ -269,26 +269,21 @@
 					<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
 						<!-- SINGLE SIDE BAR START -->
 						<div class="single-product-right-sidebar">
-							<h2 class="left-title">Sản phẩm mới nhất</h2>
+							<h2 class="left-title">Có thể bạn sẽ thích?</h2>
 							<ul>
 								<?php
-								$sql = "select sp.SP_MA, sp.SP_HINHANH, sp.SP_GIA, sp.SP_TEN
-								from chitiet_pn ct 
-								join san_pham sp on ct.SP_MA=sp.SP_MA 
-								join phieu_nhap pn on ct.PN_STT=pn.PN_STT 
-								ORDER BY pn.PN_NGAYNHAP
-								DESC LIMIT 3";
-
+								$sql = "select * from san_pham ORDER BY RAND() LIMIT 4";
 								$result = $conn->query($sql);
 								if($result->num_rows>0){
 								while($row = $result->fetch_assoc()){
 								?>
 								
 								<li>
-									<a href="single_products.php?id=<?php echo $row["SP_MA"]; ?>"><img src="assets/img/product_img/<?php echo $row["SP_HINHANH"]; ?>" alt="" style="width:30%" /></a>
+									<a href="single_products.php?id=<?php echo $row["SP_MA"]; ?>"><img src="assets/img/product_img/<?php echo $row["SP_HINHANH"]; ?>" alt="" style="width:45%" /></a>
 									<div class="product-info">
 										<h3><a href="single_products.php?id=<?php echo $row["SP_MA"]; ?>"><?php echo $row["SP_TEN"]; ?></a></h3>
-										<p style="color:blue"></p><?php echo number_format($row["SP_GIA"]);?> VND</p>
+										</br>
+										<!-- <p style="color:blue"></p><?php echo number_format($row["SP_GIA"]);?> VND</p> -->
 									</div>
 								</li>
 								<?php }}?>

@@ -5,7 +5,7 @@
 					<!-- BRAND-CLIENT-ROW START -->
 					<div class="brand-client-row">
 						<div class="center-title-area">
-							<h2 class="center-title">BRAND & CLIENTS</h2>
+							<h2 class="center-title">Hãng</h2>
 						</div>
 						<div class="col-xs-12">
 							<div class="row">
@@ -15,7 +15,7 @@
 									<div class="item">
 										<div class="single-client">
 											<a href="#">
-												<img src="img/brand/1.png" alt="brand-client" />
+												<img src="assets/img/brand/brand1.png" alt="brand-client" />
 											</a>
 										</div>									
 									</div>
@@ -24,52 +24,7 @@
 									<div class="item">
 										<div class="single-client">
 											<a href="#">
-												<img src="img/brand/2.png" alt="brand-client" />
-											</a>
-										</div>									
-									</div>
-									<!-- CLIENT-SINGLE END -->
-									<!-- CLIENT-SINGLE START -->								
-									<div class="item">
-										<div class="single-client">
-											<a href="#">
-												<img src="img/brand/3.png" alt="brand-client" />
-											</a>
-										</div>									
-									</div>
-									<!-- CLIENT-SINGLE END -->
-									<!-- CLIENT-SINGLE START -->								
-									<div class="item">
-										<div class="single-client">
-											<a href="#">
-												<img src="img/brand/4.png" alt="brand-client" />
-											</a>
-										</div>									
-									</div>
-									<!-- CLIENT-SINGLE END -->
-									<!-- CLIENT-SINGLE START -->								
-									<div class="item">
-										<div class="single-client">
-											<a href="#">
-												<img src="img/brand/5.png" alt="brand-client" />
-											</a>
-										</div>									
-									</div>
-									<!-- CLIENT-SINGLE END -->
-									<!-- CLIENT-SINGLE START -->								
-									<div class="item">
-										<div class="single-client">
-											<a href="#">
-												<img src="img/brand/1.png" alt="brand-client" />
-											</a>
-										</div>									
-									</div>
-									<!-- CLIENT-SINGLE END -->									
-									<!-- CLIENT-SINGLE START -->								
-									<div class="item">
-										<div class="single-client">
-											<a href="#">
-												<img src="img/brand/3.png" alt="brand-client" />
+												<img src="assets/img/brand/brand2.png" alt="brand-client" />
 											</a>
 										</div>									
 									</div>
@@ -78,74 +33,74 @@
 									<div class="item">
 										<div class="single-client">
 											<a href="#">
-												<img src="img/brand/2.png" alt="brand-client" />
+												<img src="assets/img/brand/brand3.png" alt="brand-client" />
 											</a>
 										</div>									
 									</div>
 									<!-- CLIENT-SINGLE END -->
-									<!-- CLIENT-SINGLE START -->								
+									<!-- CLIENT-SINGLE START -->
 									<div class="item">
 										<div class="single-client">
 											<a href="#">
-												<img src="img/brand/3.png" alt="brand-client" />
+												<img src="assets/img/brand/brand4.png" alt="brand-client" />
 											</a>
 										</div>									
 									</div>
 									<!-- CLIENT-SINGLE END -->
-									<!-- CLIENT-SINGLE START -->								
+									<!-- CLIENT-SINGLE START -->
 									<div class="item">
 										<div class="single-client">
 											<a href="#">
-												<img src="img/brand/4.png" alt="brand-client" />
+												<img src="assets/img/brand/brand5.png" alt="brand-client" />
 											</a>
 										</div>									
 									</div>
 									<!-- CLIENT-SINGLE END -->
-									<!-- CLIENT-SINGLE START -->								
+									<!-- CLIENT-SINGLE START -->
 									<div class="item">
 										<div class="single-client">
 											<a href="#">
-												<img src="img/brand/5.png" alt="brand-client" />
+												<img src="assets/img/brand/brand6.png" alt="brand-client" />
 											</a>
 										</div>									
 									</div>
 									<!-- CLIENT-SINGLE END -->
-									<!-- CLIENT-SINGLE START -->								
+									<!-- CLIENT-SINGLE START -->
 									<div class="item">
 										<div class="single-client">
 											<a href="#">
-												<img src="img/brand/1.png" alt="brand-client" />
-											</a>
-										</div>									
-									</div>
-									<!-- CLIENT-SINGLE END -->									
-									<!-- CLIENT-SINGLE START -->								
-									<div class="item">
-										<div class="single-client">
-											<a href="#">
-												<img src="img/brand/3.png" alt="brand-client" />
+												<img src="assets/img/brand/brand7.png" alt="brand-client" />
 											</a>
 										</div>									
 									</div>
 									<!-- CLIENT-SINGLE END -->
-									<!-- CLIENT-SINGLE START -->								
+									<!-- CLIENT-SINGLE START -->
 									<div class="item">
 										<div class="single-client">
 											<a href="#">
-												<img src="img/brand/4.png" alt="brand-client" />
+												<img src="assets/img/brand/brand8.png" alt="brand-client" />
 											</a>
 										</div>									
 									</div>
 									<!-- CLIENT-SINGLE END -->
-									<!-- CLIENT-SINGLE START -->								
+									<!-- CLIENT-SINGLE START -->
 									<div class="item">
 										<div class="single-client">
 											<a href="#">
-												<img src="img/brand/5.png" alt="brand-client" />
+												<img src="assets/img/brand/brand9.png" alt="brand-client" />
 											</a>
 										</div>									
 									</div>
-									<!-- CLIENT-SINGLE END -->									
+									<!-- CLIENT-SINGLE END -->
+									<!-- CLIENT-SINGLE START -->
+									<div class="item">
+										<div class="single-client">
+											<a href="#">
+												<img src="assets/img/brand/brand10.png" alt="brand-client" />
+											</a>
+										</div>									
+									</div>
+									<!-- CLIENT-SINGLE END -->							
 								</div>
 								<!-- CLIENT-CAROUSEL END -->
 							</div>
