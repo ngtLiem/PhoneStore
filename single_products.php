@@ -294,14 +294,13 @@
 						<div class="single-product-right-sidebar clearfix">
 							<h2 class="left-title">Tags </h2>
 							<div class="category-tag">
-								<a href="#">Mới</a>
 								<a href="#">Màu vàng gold</a>
 								<a href="#">Iphone 15</a>
 								<a href="#">Bán chạy</a>
-								<a href="#">Chơi game</a>
+								<a href="#">Chơi game/ Cấu hình cao</a>
 								<a href="#">Ram 6 GB</a>
 								<a href="#">Sạc siêu nhanh</a>
-								<a href="#">Pin trâu</a>
+								<a href="#">Pin khủng trên 5000mAh</a>
 								<a href="#">Samsung S22+</a>
 								<a href="#">Oppo reno 10</a>
 								<a href="#">Iphone 14 Pro</a>
@@ -310,11 +309,11 @@
 						</div>	
 						<!-- SINGLE SIDE BAR END -->
 						<!-- SINGLE SIDE BAR START -->						
-						<div class="single-product-right-sidebar">
+						<!-- <div class="single-product-right-sidebar">
 							<div class="slider-right zoom-img">
 								<a href="#"><img class="img-responsive" src="img/product/cms11.jpg" alt="sidebar left" /></a>
 							</div>							
-						</div>
+						</div> -->
 					</div>
 					<!-- SINGLE SIDE BAR END -->				
 				</div>

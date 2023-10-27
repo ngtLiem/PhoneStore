@@ -2407,16 +2407,16 @@ ul.product-color-var{
 ul.product-color-var li{
 	margin-bottom:9px;
 }
-i.color-beige, i.color-white, i.color-black, i.color-orange, i.color-blue, i.color-green, i.color-yellow, i.color-pink{
+i.color-red, i.color-white, i.color-black, i.color-orange, i.color-blue, i.color-green, i.color-yellow, i.color-pink, i.color-purple{
 	width:16px;
 	height:16px;
 	border:1px solid #666;
 	background:#fff;
 	color:#fff;
 }
-i.color-beige{
-	background:#F5F5DC;
-	color:#F5F5DC;
+i.color-red{
+	background:#FF0000;
+	color:#FF0000;
 }
 i.color-white{
 	background:#FFFFFF;
@@ -2427,8 +2427,8 @@ i.color-black{
 	color:#434A54;
 }
 i.color-orange{
-	background:#F39C11;
-	color:#F39C11;
+	background:#FF0000;
+	color:#FF0000;
 }
 i.color-blue{
 	background:#5D9CEC;
@@ -2445,6 +2445,10 @@ i.color-yellow{
 i.color-pink{
 	background:#FCCACD;
 	color:#FCCACD;
+}
+i.color-purple{
+	background:#000044;
+	color:#000044;
 }
 .category-tag{}
 .category-tag a{

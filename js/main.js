@@ -17,15 +17,15 @@ $(document).ready(function(){
 ----------------------------------------- */		
 	$( "#price-range" ).slider({
 		range: true,
-		min: 1,
-		max: 100,
-		values: [ 10, 90 ],
+		min: 2,
+		max: 1000000000,
+		values: [ 10, 100000000 ],
 		slide: function( event, ui ) {
-			$( "#slidevalue" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
+			$( "#slidevalue" ).val( "đ" + ui.values[ 0 ] + " - đ" + ui.values[ 1 ] );
 		}
 	});
-	$( "#slidevalue" ).val( "$" + $( "#price-range" ).slider( "values", 0 ) +
-		" - $" + $( "#price-range" ).slider( "values", 1 ) );	
+	$( "#slidevalue" ).val( "đ" + $( "#price-range" ).slider( "values", 0 ) +
+		" - đ" + $( "#price-range" ).slider( "values", 1 ) );	
 		
 /*---------------------------------------
 	scroll to top
