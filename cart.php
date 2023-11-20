@@ -4,15 +4,6 @@
 <?php include "head.php" ?>
 
 <body>
-<?php
-	if($soluonggiohang == 0){
-		
-		$message = "Giỏ hàng rỗng, hãy thêm sản phẩm vào giỏ hàng.";
-        echo "<script type='text/javascript'>alert('$message');</script>";
-        header('Location: products.php');
-		
-	}
-?>
 
     <?php
 		include "header.php";
@@ -28,7 +19,7 @@
 					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 						<!-- BSTORE-BREADCRUMB START -->
 						<div class="bstore-breadcrumb">
-							<a href="index.html">home</a>
+							<a href="index.php">home</a>
 							<span><i class="fa fa-caret-right	"></i></span>
 							<span>Giỏ hàng</span>
 						</div>
@@ -39,7 +30,7 @@
 				<div class="row">
 					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 						
-						<h2 class="page-title">Thông tin chi tiết giỏ hàng <span class="shop-pro-item">Số lượng sản phẩm trong giỏ hàng: <?php require 'slsp_tronggh.php'; ?> sản phẩm</span></h2>
+						<h2 class="page-title">Thông tin chi tiết giỏ hàng <span class="shop-pro-item">Số lượng sản phẩm trong giỏ hàng: <?php $slgh; ?> sản phẩm</span></h2>
 						
 					</div>	
 					
@@ -78,11 +69,11 @@
 									</tr>
 								</thead>
 					<?php
-						if($soluonggiohang > 0){
+						
 							$khid = $_SESSION["khid"];
 							$sl = 0;
 							$total = 0;
-							$sql = "select gh.GH_MA, gh.KH_MA, ct.CTGH_SOLUONG, ct.SP_MA, gh.GH_TONGTIEN
+							$sql = "select gh.GH_MA, gh.KH_MA, ct.CTGH_SOLUONG, ct.SP_MA
 									from gio_hang gh
 									join chitiet_gh ct on ct.GH_MA = gh.GH_MA
 									where gh.KH_MA = {$khid}";
@@ -132,7 +123,7 @@
 										</td>
 										<td class="cart-total">
 											<!-- <span class="price"><?php echo number_format($sp["CTGH_SOLUONG"] * $s["SP_GIA"]); ?></span> -->
-											<span class="price"><?php echo number_format($sp["GH_TONGTIEN"]); ?></span>
+											<span class="price"><?php echo number_format($sp["CTGH_SOLUONG"] * $s["SP_GIA"]) ?></span>
 										</td>
 									</tr>
 								</tbody>
@@ -140,17 +131,19 @@
 							<?php
 								}
 							}
-						}
+						
 					?>
 					<?php
-							if($soluonggiohang > 0){
+							
 							$khid = $_SESSION["khid"];
 							$sl = 0;
 							$total = 0;
-							$sql = "select sum(gh.GH_TONGTIEN) as tongtien
-									from gio_hang gh
-									join chitiet_gh ct on ct.GH_MA = gh.GH_MA
-									where gh.KH_MA = {$khid}";
+							$sql = "select sum(ct.CTGH_SOLUONG*sp.SP_GIA) as tongtien
+											from gio_hang gh
+											join chitiet_gh ct on ct.GH_MA=gh.GH_MA
+											join khach_hang kh on kh.KH_MA=gh.KH_MA
+											join san_pham sp on sp.SP_MA=ct.SP_MA 
+											where kh.KH_MA= {$khid}";
 							$rs = $conn->query($sql);
 							$tongtien = $rs->fetch_assoc()["tongtien"];
 					?>
@@ -177,9 +170,7 @@
 										</td>
 									</tr>
 								</tfoot>
-								<?php
-								}			
-					?>
+		
 							</table>
 						</div>
 						<!-- toi day ne -->
@@ -234,7 +225,7 @@
 						<!-- RETURNE-CONTINUE-SHOP START -->
 						<div class="returne-continue-shop">
 							<a href="index.php" class="continueshoping"><i class="fa fa-chevron-left"></i>Continue shopping</a>
-							<a href="checkout-address.php" class="procedtocheckout">Proceed to checkout<i class="fa fa-chevron-right"></i></a>
+							<a href="checkouts.php" class="procedtocheckout">Proceed to checkout<i class="fa fa-chevron-right"></i></a>
 						</div>	
 						<!-- RETURNE-CONTINUE-SHOP END -->						
 					</div>

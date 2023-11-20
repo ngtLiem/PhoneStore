@@ -152,7 +152,7 @@ require 'connect.php';
 								<a class="shop-link" href="cart.php" title="View my shopping cart">
 									<i class="fa fa-shopping-cart cart-icon"></i>
 									<b>Giỏ hàng</b>
-									<span class="ajax-cart-quantity"><?php require 'slsp_tronggh.php'; ?></span>
+									<span class="ajax-cart-quantity"></span>
 								</a>
 								<!-- hien thi san pham trong gio hang -->
 								<div class="shipping-cart-overly" style="height:auto; width: 35	0px;">
@@ -185,10 +185,11 @@ require 'connect.php';
 								<?php	
 										}													
 									} 
-									$sql_tt = "select sum(GH_TONGTIEN) as tongtien
-														from gio_hang gh
-														join khach_hang kh on kh.KH_MA=gh.KH_MA
-														where kh.KH_MA = {$khid}";
+									$sql_tt = "select sum(ct.CTGH_SOLUONG*sp.SP_GIA) as tongtien from chitiet_gh ct
+													join gio_hang gh on ct.GH_MA=gh.GH_MA
+													join khach_hang kh on kh.KH_MA=gh.KH_MA
+													join san_pham sp on sp.SP_MA=ct.SP_MA
+													where kh.KH_MA= {$khid}";
 									$rs = $conn->query($sql_tt);
 									$tong = $rs->fetch_assoc()["tongtien"];
 								?>
@@ -204,7 +205,7 @@ require 'connect.php';
 											</div>										
 										</div>
 										<div class="shipping-checkout-btn">
-											<a href="checkout.php">Check out <i class="fa fa-chevron-right"></i></a>
+											<a href="checkouts.php">Check out <i class="fa fa-chevron-right"></i></a>
 										</div>	
 								<?php								
 								}

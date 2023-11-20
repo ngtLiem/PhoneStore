@@ -8,5 +8,5 @@
 		$row_gh = mysqli_fetch_assoc($rs_slgh);
 		$soluonggiohang = $row_gh["soluong"];
 	}
-    echo $soluonggiohang;
+    $slgh = $soluonggiohang;
 ?>

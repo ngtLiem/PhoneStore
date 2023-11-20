@@ -9,13 +9,13 @@
 		include "header.php";
 	?>
 
-    <?php
-	if($soluonggiohang == 0){
-		$message = "Giỏ hàng rỗng, hãy thêm sản phẩm vào giỏ hàng.";
-        echo "<script type='text/javascript'>alert('$message');</script>";
-        header('Location: products.php');
-	}
-?>
+    <!-- <?php
+	// if($soluonggiohang == 0){
+	// 	$message = "Giỏ hàng rỗng, hãy thêm sản phẩm vào giỏ hàng.";
+    //     echo "<script type='text/javascript'>alert('$message');</script>";
+    //     header('Location: products.php');
+	// }
+?> -->
 
     <!-- MAIN-CONTENT-SECTION START -->
     <section class="main-content-section">
@@ -45,12 +45,6 @@
                             <li class="step-current second">
 									<span>2. Xác nhận đơn hàng</span>
 								</li>
-                            <!-- <li class="step-todo third">
-                                <span>03. Vận chuyển</span>
-                            </li>
-                            <li class="step-todo four">
-                                <span>04. Thanh toán</span>
-                            </li> -->
                             <li class="step-todo third" id="step_end">
                                 <span>03. Đơn hàng</span>
                             </li>
@@ -79,15 +73,15 @@
                                 <div class="col-md-4">
                                     <img src="assets/img/cus_img/<?php echo $_SESSION["avt"] ?>" alt="" style="heigh:auto; width:auto; object-fit: cover;">
                                 </div>
-                                <label>Tên khách hàng : </label><span> <?php echo $_SESSION['name']?></span>
+                                <label>Tên khách hàng : </label><span> <?php echo $_SESSION["name"]?></span>
                                 <div class="col-mb-8">
-                                    <label>Điện thoại: </label><span> <?php echo $_SESSION['sdt']?></span>
+                                    <label>Điện thoại: </label><span> <?php echo $_SESSION["sdt"]?></span>
                                 </div>
                                 <div class="col-mb-8">
-                                    <label>Email:</label><span> <?php echo $_SESSION['email']?></span>
+                                    <label>Email:</label><span> <?php echo $_SESSION["email"]?></span>
                                 </div>
                                 <div class="col-mb-8">
-                                    <label>Địa chỉ giao hàng: </label><span> <?php echo $_SESSION['location']?></span>
+                                    <label>Địa chỉ giao hàng: </label><span> <?php echo $_SESSION["location"]?></span>
                                     <br/>
                                 </div>
                                 <div class="col-mb-8">
@@ -150,45 +144,39 @@
 											</tr>
 											</thead>
 											<tbody>
-											<?php
-												$sp_array = array();
-												$slsp_array = array();
-												$giasp_array = array();
-												$khid = $_SESSION["khid"];
-												$sl = 0;
-												$total = 0;
-												$sql = "select gh.GH_MA, gh.KH_MA, ct.CTGH_SOLUONG, ct.SP_MA, gh.GH_TONGTIEN, gh.GH_TONGSP
-														from gio_hang gh
-														join chitiet_gh ct on ct.GH_MA = gh.GH_MA
-														where gh.KH_MA = {$khid}";
-												$rs = $conn->query($sql);
-												foreach($rs as $sp){
-													$sl += 1;
-													$spid = $sp["SP_MA"];
-													$query = "select * 
-																from san_pham sp 
-																join loai_sp lsp on sp.LSP_MA = lsp.LSP_MA 
-																where sp.SP_MA = {$spid}";
-
-													$result = $conn->query($query);
-													foreach($result as $s){
-														?>				
-															<tr>
-															<td><?php  echo $s["SP_TEN"]?></td>
-															<td><?php echo $sp["CTGH_SOLUONG"]?></td>
-															<td><?php  echo number_format($s["SP_GIA"])?> đ </td>
-															<td><?php echo number_format($sp["CTGH_SOLUONG"]*$s["SP_GIA"])?> đ</td>					
-															<?php $slsp_array[] = $sp["GH_TONGSP"]; ?>
-															<?php $giasp_array[] = $s["SP_GIA"]; ?>
-															</tr>
-														<?php
-														$total += $sp["CTGH_SOLUONG"]*$s["SP_GIA"];
-													}
-												}
-												$queryString = http_build_query($sp_array);
-												$queryString1 = http_build_query($slsp_array);
-												$queryString2 = http_build_query($giasp_array);
-											?>
+                                            <?php	
+                                                        $sp_array = array();
+                                                        $slsp_array = array();
+                                                        $khid = $_SESSION["khid"];
+                                                        $sl = 0;
+                                                        $sql = "select ct.SP_MA, ct.CTGH_SOLUONG, gh.GH_MA
+                                                                    from chitiet_gh ct 
+                                                                    join gio_hang gh on ct.GH_MA=gh.GH_MA
+                                                                    WHERE gh.KH_MA={$khid}";
+                                                        $rs = $conn->query($sql);
+                                                        $total = 0;
+                                                        foreach ($rs as $sp) {
+                                                            $sl += 1;
+                                                            $spid = $sp["SP_MA"];
+                                                            $sp_array[] = $spid;
+                                                            $query = "SELECT * from san_pham s WHERE  s.SP_MA  = $spid";
+                                                            $result = $conn->query($query);
+                                                            foreach ($result as $s) {
+                                                        ?>					
+                                                        <tr>
+                                                            <td><?php  echo $s["SP_TEN"]?></td>
+                                                            <td><?php echo $sp["CTGH_SOLUONG"]?></td>
+                                                            <td><?php  echo number_format($s["SP_GIA"])?> </td>
+                                                            <td><?php echo number_format($sp["CTGH_SOLUONG"]*$s["SP_GIA"])?></td>					
+                                                            <?php $slsp_array[] = $sp["CTGH_SOLUONG"] ?>
+                                                        </tr>   
+                                                    <?php
+                                                        $total += $sp["CTGH_SOLUONG"]*$s["SP_GIA"];
+                                                            }
+                                                        }
+                                                        $queryString = http_build_query($sp_array);
+                                                        $queryString1 = http_build_query($slsp_array);
+                                                    ?>
 											</tbody>
 											<tfoot>
 											<tr>
@@ -202,13 +190,13 @@
 											</tfoot>
 										</table>
 									</div>
-									<input type="hidden" name="total" value="<?php echo $total; ?>">
-									<input type="hidden" name="spid" value="<?php echo $sp["SP_MA"]; ?>">
-									<input type="hidden" name="slsp" value="<?php echo $sp["GH_TONGSP"]; ?>">
-									<input type="hidden" name="sparray" value="<?php echo $queryString; ?>">
-									<input type="hidden" name="slarray" value="<?php echo $queryString1; ?>">
-									<input type="hidden" name="giaarray" value="<?php echo $queryString2; ?>">
-									<input style="margin-left: 200px;" type="submit" name="Dat" value="Đặt hàng" class="btn btn-success" />
+									<h4>TỔNG <?php echo number_format($total,0);  ?> VNĐ</h4>
+                                    <input type="hidden" name="total" value="<?php echo $total ?>">
+                                    <input type="hidden" name="dongia" value="<?php echo $s["SP_GIA"] ?>">
+                                    <input type="hidden" name="ghma" value="<?php echo $sp["GH_MA"] ?>">
+                                    <input type="hidden" name="sparray" value="<?php echo $queryString; ?>">
+                                    <input type="hidden" name="slarray" value="<?php echo $queryString1; ?>">
+                                    <input style="margin-left:250px; background-color:#ffc800;" type="submit" name="Dat" value="Đặt hàng" class="btn btn-1" />	
 									
 								</div>
                                 <!-- tới đây -->

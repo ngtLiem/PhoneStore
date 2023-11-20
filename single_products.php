@@ -58,29 +58,6 @@
 										</div> -->
 									</div>										
 								</div>
-								<!-- <div class="select-product">
-									
-									<ul class="nav nav-tabs select-product-tab bxslider">
-										<li class="active">
-											<a href="#thumbnail_1" data-toggle="tab"><img src="img/product/sidebar_product/1.jpg" alt="pro-thumbnail" /></a>
-										</li>
-										<li>
-											<a href="#thumbnail_2" data-toggle="tab"><img src="img/product/sidebar_product/2.jpg" alt="pro-thumbnail" /></a>
-										</li>
-										<li>
-											<a href="#thumbnail_3" data-toggle="tab"><img src="img/product/sidebar_product/3.jpg" alt="pro-thumbnail" /></a>
-										</li>
-										<li>
-											<a href="#thumbnail_4" data-toggle="tab"><img src="img/product/sidebar_product/4.jpg" alt="pro-thumbnail" /></a>
-										</li>
-										<li>
-											<a href="#thumbnail_5" data-toggle="tab"><img src="img/product/sidebar_product/5.jpg" alt="pro-thumbnail" /></a>
-										</li>
-										<li>
-											<a href="#thumbnail_6" data-toggle="tab"><img src="img/product/sidebar_product/6.jpg" alt="pro-thumbnail" /></a>
-										</li>
-									</ul>										
-								</div> -->
 							</div>
 							<div class="col-lg-7 col-md-7 col-sm-8 col-xs-12">
 								<div class="single-product-descirption">
@@ -116,46 +93,24 @@
 										<p>Còn lại: <span><?php echo $row["SP_SOLUONGTON"]; ?></span></p>
 										</div>
 									</div>
-									<form name="form3" id="ff3" method="post" action="add_cart.php">
+								<form name="form3" id="ff3" method="post" action="add_cart.php">
 									<div class="single-product-price">
 										<h2><?php echo number_format($row["SP_GIA"]); ?> VND</h2>
 									</div>
-									<!-- <div class="single-product-desc">
-										<p>Faded short sleeves t-shirt with high neckline. Soft and stretchy material for a comfortable fit. Accessorize with a straw hat and you're ready for summer!</p>
-										
-									</div> -->
-									<!-- <div class="single-product-info">
-										<a href="#"><i class="fa fa-envelope"></i></a>
-										<a href="#"><i class="fa fa-print"></i></a>
-										<a href="#"><i class="fa fa-heart"></i></a>
-									</div> -->
 									<div class="single-product-quantity">
 										<p class="small-title">Số lượng</p> 
 										<div class="cart-quantity">
-											<div class="cart-plus-minus-button single-qty-btn">
-												<input class="cart-plus-minus sing-pro-qty" type="number" name="slsp" value="1">
-											</div>
+											<!-- <div class="cart-plus-minus-button single-qty-btn"> -->
+												<input class="cart-plus-minus sing-pro-qty" min=1 max=99 type="number" name="slsp" value="1">
+											<!-- </div> -->
 										</div>
 									</div>
-									<!-- <div class="single-product-size">
-										<p class="small-title">Size </p> 
-										<select name="product-size" id="product-size">
-											<option value="">S</option>
-											<option value="">M</option>
-											<option value="">L</option>
-										</select>
-									</div>
-									<div class="single-product-color">
-										<p class="small-title">Color </p> 
-										<a href="#"><span></span></a>
-										<a class="color-blue" href="#"><span></span></a>
-									</div> -->
-									
 									<div class="single-product-add-cart">
 										<!-- <a class="add-cart-text" title="Add to cart" href="#">Thêm vào giỏ hàng</a> -->
 										<input type="submit" name="submit" id="add-to-cart" class="btn btn-2" value="Thêm vào giỏ hàng" />
 										<input type="hidden" name="acction" value="them vao gio hang" />
-										<input type="hidden" name="id" value="<?php echo $row["SP_MA"] ?>" />
+										<input type="hidden" name="idsp" value="<?php echo $row["SP_MA"] ?>" />
+										
 									</div>
 								</form>
 								</div>
