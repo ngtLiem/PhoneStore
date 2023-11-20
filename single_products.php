@@ -101,7 +101,7 @@
 										<p class="small-title">Số lượng</p> 
 										<div class="cart-quantity">
 											<!-- <div class="cart-plus-minus-button single-qty-btn"> -->
-												<input class="cart-plus-minus sing-pro-qty" min=1 max=99 type="number" name="slsp" value="1">
+												<input class="cart-plus-minus sing-pro-qty" min=1 max=99 type="number" id="slsp" name="slsp" value="1">
 											<!-- </div> -->
 										</div>
 									</div>

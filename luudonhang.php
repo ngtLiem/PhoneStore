@@ -29,13 +29,17 @@ if(isset($_SESSION["khid"])){
     if ($conn->query($sql)==true){
         foreach($array as $spid) {
             $sql_ct = "insert into chi_tiet_hd values ($spid, $new_id, 1, 1)";
-            $i = 0;
-            $slsp = $array_sl[$i];
+            // $i = 0;
+            // $slsp = $array_sl[$i];
             $sql_update_ct ="update chi_tiet_hd set 
-                                    CTHD_SLB = '".$slsp."',
+                                    CTHD_SLB = (select ct.CTGH_SOLUONG
+                                                    from gio_hang gh 
+                                                    join chitiet_gh ct on ct.GH_MA=gh.GH_MA
+                                                    join khach_hang kh on kh.KH_MA=gh.KH_MA
+                                                    where kh.KH_MA = '".$khid."' and ct.SP_MA = '".$spid."'),
                                     CTHD_DONGIA = (select SP_GIA from san_pham where SP_MA = '".$spid."')
                                      where SP_MA = '".$spid."' and HD_STT ='".$new_id."'";
-            $i+=1;
+            // $i+=1;
                 if($conn->query($sql_ct)==true && $conn->query($sql_update_ct)){
                     $ok=1;
                 } else {
@@ -64,7 +68,7 @@ if(isset($_SESSION["khid"])){
             
            
 
-            header('Refresh: 0;url=index.php');
+            header('Refresh: 0;url=cart.php');
         }
      else {
         echo "Error: " . $sql . "<br>" . $conn->error;
