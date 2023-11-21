@@ -39,20 +39,20 @@
 						<div class="shoping-cart-menu">
 							<ul class="step">
 								<li class="step-current first">
-									<span>01. Tóm tắt</span>
+									<span>Tóm tắt</span>
 								</li>
 								<li class="step-todo second">
-									<span>02. Địa chỉ</span>
+									<span>Xác nhận đơn hàng</span>
 								</li>
 								<li class="step-todo third">
-									<span>03. Vận chuyển</span>
+									<span>Đơn hàng</span>
 								</li>
-								<li class="step-todo four">
+								<!-- <li class="step-todo four">
 									<span>04. Thanh toán</span>
 								</li>
 								<li class="step-todo last" id="step_end">
 									<span>05. Đơn hàng</span>
-								</li>
+								</li> -->
 							</ul>									
 						</div>
 <!-- tu day ne -->	<div class="table-responsive">

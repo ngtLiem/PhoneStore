@@ -25,7 +25,7 @@ if(isset($_SESSION["khid"])){
         parse_str($_POST['slarray'], $array_sl);
     }
 
-    $sql="insert into hoa_don values ($new_id, 2, null, null, $hinhthucthanhtoan, null, $ghma, sysdate(), $total, null)";
+    $sql="insert into hoa_don values ($new_id, 1, null, null, $hinhthucthanhtoan, null, $ghma, sysdate(), $total, null)";
     if ($conn->query($sql)==true){
         foreach($array as $spid) {
             $sql_ct = "insert into chi_tiet_hd values ($spid, $new_id, 1, 1)";

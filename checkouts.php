@@ -26,27 +26,27 @@
                     <div class="bstore-breadcrumb">
                         <a href="index.html">HOMe</a>
                         <span><i class="fa fa-caret-right	"></i></span>
-                        <span>Addresses</span>
+                        <span>Xác nhận đơn hàng</span>
                     </div>
                     <!-- BSTORE-BREADCRUMB END -->
                 </div>
             </div>
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <h2 class="page-title">Addresses</h2>
+                    <h2 class="page-title">Xác nhận đơn hàng</h2>
                 </div>
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <!-- SHOPING-CART-MENU START -->
                     <div class="shoping-cart-menu">
                         <ul class="step">
                             <li class="step-todo first step-done">
-                                <span><a href="cart.php">1. Tóm tắt</a></span>
+                                <span><a href="cart.php">Tóm tắt</a></span>
                             </li>
                             <li class="step-current second">
-									<span>2. Xác nhận đơn hàng</span>
+									<span>Xác nhận đơn hàng</span>
 								</li>
                             <li class="step-todo third" id="step_end">
-                                <span>03. Đơn hàng</span>
+                                <span>Đơn hàng</span>
                             </li>
                         </ul>
                     </div>

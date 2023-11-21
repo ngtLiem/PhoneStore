@@ -14,7 +14,7 @@ require 'connect.php';
 								Welcome <span>Bright Mobile</span>
 							</div>
 							<div class="currenty-converter">
-								<form method="post" action="#" id="currency-set">
+								<!-- <form method="post" action="#" id="currency-set">
 									<div class="current-currency">
 										<span class="cur-label">Currency : </span><strong>VND</strong>
 									</div>
@@ -29,7 +29,7 @@ require 'connect.php';
 										<a title="Euro (EUR)" href="#">Euro (EUR)</a>
 										</li>
 									</ul>
-								</form>									
+								</form>									 -->
 							</div>
 							<div class="selected-language">
 								<div class="current-lang">

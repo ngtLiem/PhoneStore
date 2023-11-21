@@ -2697,8 +2697,8 @@ ul.gategory-product li.gategory-product-list div.single-product-item .overlay-co
 } 
 ul.pagination-bar{}
 .showing-next-prev ul{
-	float:left;
-	margin-left:250px;
+	float:right;
+	margin-right:0px;
 } 
 .showing-next-prev ul li{
 	padding:0;

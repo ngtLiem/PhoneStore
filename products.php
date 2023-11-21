@@ -122,7 +122,7 @@
 											$offset =1;
 											// BƯỚC 3: TÌM LIMIT VÀ CURRENT_PAGE
 											$current_page = isset($_GET['page']) ? $_GET['page'] : 1;
-											$limit = 16;
+											$limit = 12;
 											// BƯỚC 4: TÍNH TOÁN TOTAL_PAGE VÀ START
 											// tổng số trang
 											$total_page = ceil($total_records / $limit);
@@ -198,8 +198,8 @@
 							 <div class="showing-item">
 								<!-- <span>Hiển thị <?php echo $total_page; ?> </span> -->
 							</div> 
-							<div class="showing-next-prev" style="margin-left:120px;">
-								<ul class="pagination-bar">
+							<div class="showing-next-prev" style="margin-left:0px;">
+								<ul class="pagination-bar" style="float: right; margin-right: 0px;">
 								<?php
 									// PHẦN HIỂN THỊ PHÂN TRANG
 									// BƯỚC 7: HIỂN THỊ PHÂN TRANG

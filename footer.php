@@ -8,25 +8,25 @@
 							<div class="footer-top-left">
 								<!-- NEWSLETTER-AREA START -->
 								<div class="newsletter-area">
-									<h2>Newsletter</h2>
-									<p>Subscribe to our mailing list to receive updates on new arrivals, special offers and other discount information.</p>
+									<h2>Bản tin mới nhất</h2>
+									<p>Đăng kỳ là thành viên để có thể nhận nhiều tin tức về các sản phẩm mới nhất, ưu đãi đặt biệt và nhiều thông tin khuyến mãi lớn.</p>
 									<form action="#">
 										<div class="form-group newsletter-form-group">
-										  <input type="text" class="form-control newsletter-form" placeholder="Enter your e-mail">
-										  <input type="submit" class="newsletter-btn" name="submit" value="Subscribe" />
+										  <input type="text" class="form-control newsletter-form" placeholder="Nhập địa chỉ email">
+										  <input type="submit" class="newsletter-btn" name="submit" value="Đăng ký" />
 										</div>
 									</form>
 								</div>
 								<!-- NEWSLETTER-AREA END -->
 								<!-- ABOUT-US-AREA START -->
 								<div class="about-us-area">
-									<h2>About Us</h2>
-									<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+									<h2>Về chúng tôi</h2>
+									<p>Bright Mobile luôn luôn mang đến cho khách hàng những trãi nghiệm mua sắm tuyệt vời, đội ngũ nhân viên nhiệt tình.</p>
 								</div>
 								<!-- ABOUT-US-AREA END -->
 								<!-- FLLOW-US-AREA START -->
 								<div class="fllow-us-area">
-									<h2>Follow us</h2>
+									<h2>Theo dõi chúng tôi</h2>
 									<ul class="flow-us-link">
 										<li><a href="#"><i class="fa fa-facebook"></i></a></li>
 										<li><a href="#"><i class="fa fa-twitter"></i></a></li>
@@ -45,7 +45,7 @@
 									<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 hidden-sm">
 										<!-- STATICBLOCK START -->
 										<div class="staticblock">
-											<h2>static block</h2>
+											<h2>Thông tin</h2>
 											<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s<br />when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
 										</div>
 										<!-- STATICBLOCK END -->
@@ -53,14 +53,14 @@
 									<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
 										<!-- STORE-INFORMATION START -->
 										<div class="Store-Information">
-											<h2>Store Information</h2>
+											<h2>Thông tin cửa hàng</h2>
 											<ul>
 												<li>
 													<div class="info-lefticon">
 														<i class="fa fa-map-marker"></i>
 													</div>
 													<div class="info-text">
-														<p>My Company, 42 avenue des Champs Elysées 75000 Paris France </p>
+														<p>403C/5, An Khánh, Ninh Kiều, Cần Thơ</p>
 													</div>
 												</li>
 												<li>
@@ -68,7 +68,7 @@
 														<i class="fa fa-phone"></i>
 													</div>
 													<div class="info-text call-lh">
-														<p>Call us now : 0123-456-789</p>
+														<p>Phone: 0123-456-789</p>
 													</div>
 												</li>
 												<li>
@@ -76,7 +76,7 @@
 														<i class="fa fa-envelope-o"></i>
 													</div>
 													<div class="info-text">
-														<p>Email : <a href="mailto:sales@yourcompany.com"><i class="fa fa-angle-double-right"></i> sales@yourcompany.com</a></p>
+														<p>Email : <a href="brightMobile.ct@gmail.com"><i class="fa fa-angle-double-right"></i> brightmobile.ct@gmail.com</a></p>
 													</div>
 												</li>
 											</ul>
@@ -102,7 +102,7 @@
 										<!-- FOTTER-MENU-WIDGET START -->
 										<div class="fotter-menu-widget">
 											<div class="single-f-widget">
-												<h2>Categories</h2>
+												<h2>Danh mục</h2>
 												<ul>
 													<li><a href="category.php?maloaisp=1"><i class="fa fa-angle-double-right"></i>Android </a></li>
 													<li><a href="category.php?maloaisp=2"><i class="fa fa-angle-double-right"></i>iPhone (iOS)</a></li>
@@ -117,12 +117,12 @@
 										<!-- FOTTER-MENU-WIDGET START -->
 										<div class="fotter-menu-widget">
 											<div class="single-f-widget">
-												<h2>Information</h2>
+												<h2>Thông tin</h2>
 												<ul>
-													<li><a href="#"><i class="fa fa-angle-double-right"></i>Specials</a></li>
-													<li><a href="#"><i class="fa fa-angle-double-right"></i>New products</a></li>
-													<li><a href="#"><i class="fa fa-angle-double-right"></i>Best sellers</a></li>
-													<li><a href="contact-us.html"><i class="fa fa-angle-double-right"></i>Contact Us</a></li>
+													<li><a href="#"><i class="fa fa-angle-double-right"></i>Khuyến mãi</a></li>
+													<li><a href="#"><i class="fa fa-angle-double-right"></i>Sản phẩm mới</a></li>
+													<li><a href="#"><i class="fa fa-angle-double-right"></i>Sản phẩm bán chạy</a></li>
+													<li><a href="contact-us.html"><i class="fa fa-angle-double-right"></i>Liên hệ chúng tôi</a></li>
 												</ul>
 											</div>
 										</div>
@@ -132,13 +132,13 @@
 										<!-- FOTTER-MENU-WIDGET START -->
 										<div class="fotter-menu-widget">
 											<div class="single-f-widget">
-												<h2>My account</h2>
+												<h2>Tài khoản</h2>
 												<ul>
-													<li><a href="#"><i class="fa fa-angle-double-right"></i>My orders</a></li>
-													<li><a href="#"><i class="fa fa-angle-double-right"></i>My credit slips</a></li>
-													<li><a href="#"><i class="fa fa-angle-double-right"></i>My addresses</a></li>
-													<li><a href="#"><i class="fa fa-angle-double-right"></i>My personal info</a></li>
-													<li><a href="#"><i class="fa fa-angle-double-right"></i>Sign out</a></li>
+													<li><a href="#"><i class="fa fa-angle-double-right"></i>Hóa đơn mua hàng</a></li>
+													<li><a href="#"><i class="fa fa-angle-double-right"></i>Phiếu tín dụng mua hàng</a></li>
+													<li><a href="#"><i class="fa fa-angle-double-right"></i>Địa chỉ</a></li>
+													<li><a href="#"><i class="fa fa-angle-double-right"></i>Thông tin cá nhân</a></li>
+													<li><a href="#"><i class="fa fa-angle-double-right"></i>Đăng xuất</a></li>
 												</ul>
 											</div>
 										</div>
