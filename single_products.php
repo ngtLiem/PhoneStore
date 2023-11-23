@@ -107,7 +107,8 @@
 									</div>
 									<div class="single-product-add-cart">
 										<!-- <a class="add-cart-text" title="Add to cart" href="#">Thêm vào giỏ hàng</a> -->
-										<input type="submit" name="submit" id="add-to-cart" class="btn btn-2" value="Thêm vào giỏ hàng" />
+										<input type="submit" name="submit" id="add-to-cart" class="btn btn-2" value="Thêm vào giỏ hàng" / style="background-color: #55c65e; color:white;">
+										<a href="#" style="margin-top: -1px; background-color: #55c65e" class="btn btn-info mt-n2" data-toggle="modal" data-target="#myModal">Mua ngay</a>
 										<input type="hidden" name="acction" value="them vao gio hang" />
 										<input type="hidden" name="idsp" value="<?php echo $row["SP_MA"] ?>" />
 										
@@ -117,6 +118,8 @@
 							</div>
 						</div>
 						<!-- SINGLE-PRODUCT-DESCRIPTION END -->
+						
+
 						<!-- SINGLE-PRODUCT INFO TAB START -->
 						<div class="row">
 							<div class="col-sm-12">
@@ -275,6 +278,77 @@
 			</div>
 		</section>
 		<!-- MAIN-CONTENT-SECTION END -->
+		<!-- Mua ngay -->
+						<div class="modal fade" id="myModal" role="dialog">
+							<div class="modal-dialog">
+							<!-- Modal content-->
+								<div class="modal-content" style="padding: 3rem;">
+									<div class="modal-header">
+										<button type="button" class="close" data-dismiss="modal">&times;</button>
+										<h4 class="modal-title" style="text-align: center">Thông tin khách hàng</h4>
+									</div>
+									<div class="modal-body">
+										<p>Chức năng mua ngay</p>
+										<form name="form8" id="ff8" method="POST" action="luumuangay.php">
+											<div class="form-group">
+												<input type="text" class="form-control" placeholder="Tên:" name="name" id="name" required>
+											</div>
+											<div class="form-group">
+												<input type="email" class="form-control" placeholder="Email :" name="email" id="email" required>
+											</div>
+											<div class="form-group">
+												<input type="tel" class="form-control" placeholder="Điện thoại :" name="phone" id="phone" required>
+											</div>
+											<div class="form-group">
+												<input type="text" class="form-control" placeholder="Địa chỉ :" name="txtdiachi" id="txtdiachi" required>
+											</div>
+											<div class="form-group">
+												<input type="number" class="form-control" placeholder="Số lượng:" name="txtsoluong" id="txtsoluong" required>
+											</div>
+											<div class="form-group">
+											<!-- <label><input type="date" class="form-control" placeholder="Ngày giao:" name="date" id="datechoose"  required ></label> -->
+											</div>
+											<div class="form-group">
+												<label> Hình thức thanh toán:
+													<select class="form-control form-control-md" name="hinhthuctt">
+														<?php
+														$sql="SELECT * from phuong_thuc_thanh_toan ";
+														$result = $conn->query($sql); 
+														if ($result->num_rows > 0) {
+															while($row_pt = $result->fetch_assoc()) {
+													?>
+														<option value="<?php echo $row_pt["PTTT_MA"] ?>"><?php echo $row_pt["PTTT_TEN"] ?></option>
+														<?php
+															}
+														}
+													?>
+													</select>
+												</lable>
+											</div>
+
+											<?php
+												$idsp = $_GET["id"];
+												$sql = "SELECT * FROM san_pham sp
+														join loai_sp lsp on lsp.LSP_MA=sp.LSP_MA
+														where sp.SP_MA=".$idsp;
+												$result=$conn->query($sql);
+												$row=$result->fetch_assoc();
+												$maloaisp = $row["LSP_MA"];
+											?>
+				
+											<input type="hidden" name="idsp" value="<?php echo $row["SP_MA"] ?>" />
+											<input type="hidden" name="gia" value="<?php echo $row["SP_GIA"] ?>" />
+											<button type="submit" name="muangay"  class="btn btn-1">Đặt hàng</button>
+										</form>
+        							</div>
+        							<div class="modal-footer">
+										<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+									</div>
+      							</div>
+    						</div>
+						</div>
+						<!-- Mua ngay -->
+
 		
 
     <?php 
@@ -286,6 +360,16 @@ include "brand.php";
     <?php 
 include "footer.php";
 ?>
+
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">         
+          <div class="modal-body">                
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+	
 
     <!-- JS 
 		===============================================-->
