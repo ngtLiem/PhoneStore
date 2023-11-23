@@ -261,8 +261,8 @@ require 'connect.php';
 										<!-- DRODOWN-MEGA-MENU END -->
 									</li>
 									
-									<li><a href="contact.php">Contact</a></li>
-									<li><a href="about.php">About</a></li>
+									<li><a href="index.php">Contact</a></li>
+									<li><a href="index.php">About</a></li>
 								</ul>
 							</nav>
 						</div>
