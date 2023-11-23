@@ -152,7 +152,7 @@ require 'connect.php';
 								<a class="shop-link" href="cart.php" title="View my shopping cart">
 									<i class="fa fa-shopping-cart cart-icon"></i>
 									<b>Giỏ hàng</b>
-									<span class="ajax-cart-quantity"></span>
+									<span class="ajax-cart-quantity"><?php require "slsp_tronggh.php" ?></span>
 								</a>
 								<!-- hien thi san pham trong gio hang -->
 								<div class="shipping-cart-overly" style="height:auto; width: 35	0px;">

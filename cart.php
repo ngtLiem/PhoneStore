@@ -30,7 +30,7 @@
 				<div class="row">
 					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 						
-						<h2 class="page-title">Thông tin chi tiết giỏ hàng <span class="shop-pro-item">Số lượng sản phẩm trong giỏ hàng: <?php $slgh; ?> sản phẩm</span></h2>
+						<h2 class="page-title">Thông tin chi tiết giỏ hàng <span class="shop-pro-item">Số lượng sản phẩm trong giỏ hàng: <?php require "slsp_tronggh.php" ?> sản phẩm</span></h2>
 						
 					</div>	
 					
@@ -100,7 +100,7 @@
 											<small><a href="category.php?maloaisp=<?php echo $s["LSP_MA"]; ?>">Loại sản phẩm: <?php echo $s["LSP_TEN"]; ?></a> </small>
 											<small><a href="#">Màu: <?php echo $s["SP_MAUSAC"]; ?></a></small>
 										</td>
-										<td class="cart-avail"><span class="label label-success">In stock</span></td>
+										<td class="cart-avail"><span class="label label-success">Còn hàng</span></td>
 										<td class="cart-unit">
 											<ul class="price text-right">
 												<li class="price"><?php echo number_format($s["SP_GIA"]); ?>đ</li>
@@ -224,8 +224,8 @@
 					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 						<!-- RETURNE-CONTINUE-SHOP START -->
 						<div class="returne-continue-shop">
-							<a href="index.php" class="continueshoping"><i class="fa fa-chevron-left"></i>Continue shopping</a>
-							<a href="checkouts.php" class="procedtocheckout">Proceed to checkout<i class="fa fa-chevron-right"></i></a>
+							<a href="index.php" class="continueshoping"><i class="fa fa-chevron-left"></i>Tiếp tục mua hàng</a>
+							<a href="checkouts.php" class="procedtocheckout">Xác nhận đơn hàng<i class="fa fa-chevron-right"></i></a>
 						</div>	
 						<!-- RETURNE-CONTINUE-SHOP END -->						
 					</div>

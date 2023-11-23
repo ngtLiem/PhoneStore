@@ -6,8 +6,8 @@ session_start();
         echo "<script type='text/javascript'>alert('$message');</script>";
         header('Refresh: 0;url=registration.php');
     } else {
-            $spid = $_POST["idsp"];
-            $slsp = intval($_POST["slsp"]);
+            $spid = $_GET["id"];
+            $slsp = 1;
             $khid = $_SESSION["khid"];
 
             $check_exist = "select count(*) as tontai from chitiet_gh ct join gio_hang gh on ct.GH_MA=gh.GH_MA where gh.KH_MA = {$khid} and ct.SP_MA = {$spid}";

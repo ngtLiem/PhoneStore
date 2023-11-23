@@ -67,7 +67,7 @@
                                 <div class="overlay-content">
                                     <ul>
                                         <li><a href="#" title="Quick view"><i class="fa fa-search"></i></a></li>
-                                        <li><a href="#" title="Quick view"><i class="fa fa-shopping-cart"></i></a></li>
+                                        <li><a href="add_carts.php?id=<?php echo $top1_id ?>" title="Thêm vào giỏ hàng"><i class="fa fa-shopping-cart"></i></a></li>
                                         <li><a href="#" title="Quick view"><i class="fa fa-retweet"></i></a></li>
                                         <li><a href="#" title="Quick view"><i class="fa fa-heart-o"></i></a></li>
                                     </ul>
@@ -102,7 +102,7 @@
                                 <div class="overlay-content">
                                     <ul>
                                         <li><a href="#" title="Quick view"><i class="fa fa-search"></i></a></li>
-                                        <li><a href="#" title="Quick view"><i class="fa fa-shopping-cart"></i></a></li>
+                                        <li><a href="add_carts.php?id=<?php echo $top2_id ?>" title="Thêm vào giỏ hàng"><i class="fa fa-shopping-cart"></i></a></li>
                                         <li><a href="#" title="Quick view"><i class="fa fa-retweet"></i></a></li>
                                         <li><a href="#" title="Quick view"><i class="fa fa-heart-o"></i></a></li>
                                     </ul>
@@ -137,7 +137,7 @@
                                 <div class="overlay-content">
                                     <ul>
                                         <li><a href="#" title="Quick view"><i class="fa fa-search"></i></a></li>
-                                        <li><a href="#" title="Quick view"><i class="fa fa-shopping-cart"></i></a></li>
+                                        <li><a href="add_carts.php?id=<?php echo $top3_id ?>" title="Thêm vào giỏ hàng"><i class="fa fa-shopping-cart"></i></a></li>
                                         <li><a href="#" title="Quick view"><i class="fa fa-retweet"></i></a></li>
                                         <li><a href="#" title="Quick view"><i class="fa fa-heart-o"></i></a></li>
                                     </ul>
@@ -172,7 +172,7 @@
                                 <div class="overlay-content">
                                     <ul>
                                         <li><a href="#" title="Quick view"><i class="fa fa-search"></i></a></li>
-                                        <li><a href="#" title="Quick view"><i class="fa fa-shopping-cart"></i></a></li>
+                                        <li><a href="add_carts.php?id=<?php echo $top4_id ?>" title="Thêm vào giỏ hàng"><i class="fa fa-shopping-cart"></i></a></li>
                                         <li><a href="#" title="Quick view"><i class="fa fa-retweet"></i></a></li>
                                         <li><a href="#" title="Quick view"><i class="fa fa-heart-o"></i></a></li>
                                     </ul>
@@ -207,7 +207,7 @@
                                 <div class="overlay-content">
                                     <ul>
                                         <li><a href="#" title="Quick view"><i class="fa fa-search"></i></a></li>
-                                        <li><a href="#" title="Quick view"><i class="fa fa-shopping-cart"></i></a></li>
+                                        <li><a href="add_carts.php?id=<?php echo $top5_id ?>" title="Thêm vào giỏ hàng"><i class="fa fa-shopping-cart"></i></a></li>
                                         <li><a href="#" title="Quick view"><i class="fa fa-retweet"></i></a></li>
                                         <li><a href="#" title="Quick view"><i class="fa fa-heart-o"></i></a></li>
                                     </ul>

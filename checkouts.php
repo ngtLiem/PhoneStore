@@ -190,7 +190,7 @@
 											</tfoot>
 										</table>
 									</div>
-									<h4>TỔNG <?php echo number_format($total,0);  ?> VNĐ</h4>
+									<!-- <h4>TỔNG </h4> <h4><?php echo number_format($total,0);  ?> VNĐ</h4>  -->
                                     <input type="hidden" name="total" value="<?php echo $total ?>">
                                     <input type="hidden" name="dongia" value="<?php echo $s["SP_GIA"] ?>">
                                     <input type="hidden" name="ghma" value="<?php echo $sp["GH_MA"] ?>">
@@ -214,8 +214,8 @@
                         </div> -->
                     </div>
                     <div class="returne-continue-shop ship-address">
-                        <a href="index.php" class="continueshoping"><i class="fa fa-chevron-left"></i>Continue shopping</a>
-                        <a href="checkout.php" class="procedtocheckout">Proceed to checkout<i class="fa fa-chevron-right"></i></a>
+                        <a href="index.php" class="continueshoping"><i class="fa fa-chevron-left"></i>Tiếp tục mua hàng</a>
+                        <!-- <a href="checkout.php" class="procedtocheckout">Proceed to checkout<i class="fa fa-chevron-right"></i></a> -->
 						
                     </div>	
                 </div>

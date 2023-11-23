@@ -28,17 +28,13 @@
 
 			<div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
 				<!-- hình đầu trang web -->
-						<div class="right-all-product">
+				<div class="right-all-product">
 							<!-- PRODUCT-CATEGORY-HEADER START -->
 							<div class="product-category-header">
-								<div class="category-header-image">
-									<img src="img/category-header.jpg" alt="category-header" />
-									<div class="category-header-text">
-										<h2>Women </h2>
-										<strong>You will find here all woman fashion collections.</strong>
-										<p>This category includes all the basics of your wardrobe and much more:<br /> shoes, accessories, printed t-shirts, feminine dresses, women's jeans!</p>
-									</div>									
-								</div>
+								<!-- <div class="category-header-image">
+									<img src="assets/img/slides/slide2.png" alt="category-header" />									
+								</div> -->
+								<?php require 'slider.php' ?>
 							</div>
 							<!-- PRODUCT-CATEGORY-HEADER END -->
 
@@ -47,85 +43,63 @@
 							<div class="product-category-title">
 								<!-- PRODUCT-CATEGORY-TITLE START -->
 								<h1>
-									<span class="cat-name">Women</span>
-									<span class="count-product">There are 13 products.</span>
+									<span class="cat-name">Điện thoại</span>
+									<!-- <span class="count-product">There are 13 products.</span> -->
 								</h1>
-								<!-- PRODUCT-CATEGORY-TITLE END -->
+								
 							</div>
 							<div class="product-shooting-area">
 								<div class="product-shooting-bar">
-									<!-- SHOORT-BY START -->
-									<div class="shoort-by">
-										<label for="productShort">Sort by</label>
+									<div class="shoort-by" style="margin-left:10px;">
+										<label for="productShort">Sắp xếp</label>
 										<div class="short-select-option">
 											<select name="sortby" id="productShort">
 												<option value="">--</option>
-												<option value="">Price: Lowest first</option>
-												<option value="">Price: Highest first</option>
-												<option value="">Product Name: A to Z</option>
-												<option value="">Product Name: Z to A</option>
-												<option value="">In stock</option>
-												<option value="">Reference: Lowest first</option>
-												<option value="">Reference: Highest first</option>
+												<option value="">Giá thấp nhất</option>
+												<option value="">Giá cao nhất</option>
+												<option value="">Tên điện thoại từ A đến Z</option>
+												<option value="">Mới nhất</option>
 											</select>												
 										</div>
 									</div>
-									<!-- SHOORT-BY END -->
-									<!-- SHOW-PAGE START -->
-									<div class="show-page">
-										<label for="perPage">Show</label>
-										<div class="s-page-select-option">
-											<select name="show" id="perPage">
-												<option value="">11</option>
-												<option value="">12</option>
-											</select>													
+									<div class="shoort-by" style="margin-left:10px;">
+										<label for="productShort">Hãng</label>
+										<div class="short-select-option">
+											<select name="sortby" id="productShort">
+												<option value="">--</option>
+												<?php
+													$sql_hang = "SELECT * FROM nha_san_xuat";
+													$result = $conn->query($sql_hang);
+													if ($result->num_rows > 0) {
+													$result = $conn->query($sql_hang);
+													$result_all = $result -> fetch_all(MYSQLI_ASSOC);
+													foreach ($result_all as $row) {
+														echo "<option value=" .$row["NSX_MA"]. ">".$row["NSX_TEN"]. "</option>";
+													}                          
+													} else {
+													echo "<option value=''>Không có dữ liệu</option>";
+													}
+												?>
+											</select>												
 										</div>
-										<span>per page</span>										
 									</div>
-									<!-- SHOW-PAGE END -->
-									<!-- VIEW-SYSTEAM START -->
-									<div class="view-systeam">
-										<label for="perPage">View:</label>
-										<ul>
-											<li class="active"><a href="shop-gird.html"><i class="fa fa-th-large"></i></a><br />Grid</li>
-											<li><a href="shop-list.html"><i class="fa fa-th-list"></i></a><br />List</li>
-										</ul>
-									</div>
-									<!-- VIEW-SYSTEAM END -->
-								</div>
-								<!-- PRODUCT-SHOOTING-RESULT START -->
-								<div class="product-shooting-result">
-									<form action="#">
-										<button class="btn compare-button">
-											Compare (<span class="compare-value">1</span>)
-											<i class="fa fa-chevron-right"></i>
-										</button>
-									</form>
-									<div class="showing-item">
-										<span>Showing 1 - 12 of 13 items</span>
-									</div>
-									<div class="showing-next-prev">
-										<ul class="pagination-bar">
-											<li class="disabled">
-												<a href="#" ><i class="fa fa-chevron-left"></i>Previous</a>
-											</li>
-											<li class="active">
-												<span><a class="pagi-num" href="#">1</a></span>
-											</li>
-											<li>
-												<span><a class="pagi-num" href="#">2</a></span>
-											</li>
-											<li>
-												<a href="#" >Next<i class="fa fa-chevron-right"></i></a>
-											</li>
-										</ul>
-										<form action="#">
-											<button class="btn showall-button">Show all</button>
-										</form>
+									<div class="shoort-by" style="margin-left:10px;">
+										<label for="productShort">Tính năng</label>
+										<div class="short-select-option">
+											<select name="sortby" id="productShort">
+												<option value="">--</option>
+												<option value="">Sạc Nhanh (Từ 20W)</option>
+												<option value="">Sạc Siêu Nhanh (Từ 60W)</option>
+												<option value="">Sạc Không Dây</option>
+												<option value="">Kháng Nước, Bụi</option>
+												<option value="">Hỗ Trợ 5G</option>
+												<option value="">Bảo Mật Khuôn Mật 3D</option>
+											</select>												
+										</div>
 									</div>
 								</div>
-								<!-- PRODUCT-SHOOTING-RESULT END -->
 							</div>
+							
 						</div>
 						<!-- ======================================================================================== -->
 						<!-- ALL GATEGORY-PRODUCT START -->
@@ -234,46 +208,6 @@
 							</div>
 						</div>
 						<!-- ALL GATEGORY-PRODUCT END -->
-
-  
-						<!-- Tính số trang và chuyển trang -->
-						<!-- PRODUCT-SHOOTING-RESULT START -->
-						<div class="product-shooting-result product-shooting-result-border">
-							<form action="#">
-								<button class="btn compare-button">
-									Compare (<strong class="compare-value">1</strong>)
-									<i class="fa fa-chevron-right"></i>
-								</button>
-							</form> 
-							 <div class="showing-item">
-								<span>Showing   items</span>
-							</div> 
-							<div class="showing-next-prev">
-								<ul class="pagination-bar">
-								
-									<li class="disabled">
-										<a href="#" ><i class="fa fa-chevron-left"></i>Previous</a>
-									</li>
-									<li class="active">
-										<span><a class="pagi-num" href="#"></a></span>
-									</li>
-				
-									<li>
-										<span><a class="pagi-num" href="#"></a></span>
-									
-									</li>
-								
-									<li>
-										<a href="#" >Next<i class="fa fa-chevron-right"></i></a>
-									</li>
-									
-								</ul>
-								<!-- <form action="#">
-									<button class="btn showall-button">Show all</button>
-								</form> -->
-							</div>
-						</div>	
-						<!-- PRODUCT-SHOOTING-RESULT END -->
 					</div>
 				</div>
 

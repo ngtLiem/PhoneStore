@@ -122,7 +122,7 @@
 											$offset =1;
 											// BƯỚC 3: TÌM LIMIT VÀ CURRENT_PAGE
 											$current_page = isset($_GET['page']) ? $_GET['page'] : 1;
-											$limit = 12;
+											$limit = 16;
 											// BƯỚC 4: TÍNH TOÁN TOTAL_PAGE VÀ START
 											// tổng số trang
 											$total_page = ceil($total_records / $limit);
@@ -151,7 +151,7 @@
 												<div class="overlay-content">
 													<ul>
 														<li><a href="#" title="Quick view"><i class="fa fa-search"></i></a></li>
-														<li><a href="#" title="Quick view"><i class="fa fa-shopping-cart"></i></a></li>
+														<li><a href="add_carts.php?id=<?php echo $row["SP_MA"] ?>" title="Thêm vào giỏ hàng"><i class="fa fa-shopping-cart"></i></a></li>
 														<li><a href="#" title="Quick view"><i class="fa fa-retweet"></i></a></li>
 														<li><a href="#" title="Quick view"><i class="fa fa-heart-o"></i></a></li>
 													</ul>
@@ -233,6 +233,7 @@
 								</form>
 							</div>
 						</div>		
+						<!-- hết tính số trang -->
 						<!-- PRODUCT-SHOOTING-RESULT END -->
 					</div>
 				</div>
