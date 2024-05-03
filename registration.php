@@ -216,6 +216,11 @@ include "footer.php";
     </script>
     <!-- main js -->
     <script src="js/main.js"></script>
+    <script src="https://app.tudongchat.com/js/chatbox.js"></script>
+    <script>
+    const tudong_chatbox = new TuDongChat('IYjxlACYiqlzP86Zbr8Wg')
+    tudong_chatbox.initial()
+    </script>
 
 </body>
 

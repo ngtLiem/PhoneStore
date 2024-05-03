@@ -7,6 +7,17 @@
 
     <?php
 		include "header.php";
+?>
+<?php
+		if(!isset($_SESSION["khid"])){
+			$message = "Giỏ hàng rỗng, vui lòng đăng nhập để mua hàng!";
+			echo "<script type='text/javascript'>alert('$message');</script>";
+?>
+		<?php
+		} else{
+			$khid = $_SESSION["khid"];
+		
+
 	?>
     <!-- main -->
     <!-- MAIN-CONTENT-SECTION START -->
@@ -55,7 +66,8 @@
 								</li> -->
 							</ul>									
 						</div>
-<!-- tu day ne -->	<div class="table-responsive">
+<!-- tu day ne -->	
+						<div class="table-responsive">
 							<table class="table table-bordered" id="cart-summary">
 								<thead>
 									<tr>
@@ -69,8 +81,6 @@
 									</tr>
 								</thead>
 					<?php
-						
-							$khid = $_SESSION["khid"];
 							$sl = 0;
 							$total = 0;
 							$sql = "select gh.GH_MA, gh.KH_MA, ct.CTGH_SOLUONG, ct.SP_MA
@@ -239,7 +249,7 @@
     
 
 
-    <?php 
+    <?php }
 include "brand.php";
 ?>
 
@@ -303,6 +313,13 @@ include "footer.php";
     </script>
     <!-- main js -->
     <script src="js/main.js"></script>
+
+		<script src="https://app.tudongchat.com/js/chatbox.js"></script>
+    <script>
+    const tudong_chatbox = new TuDongChat('IYjxlACYiqlzP86Zbr8Wg')
+    tudong_chatbox.initial()
+    </script>
+
 
 </body>
 
